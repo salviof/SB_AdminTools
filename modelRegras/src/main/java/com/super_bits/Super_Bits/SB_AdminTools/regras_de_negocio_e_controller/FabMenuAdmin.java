@@ -24,7 +24,7 @@ import java.util.List;
  * @author desenvolvedor
  */
 public enum FabMenuAdmin implements ItfFabricaMenu {
-    MENU_INICIAL, MENU_RESTRITO;
+    MENU_INICIAL, MENU_RESTRITO, MENU_ROOT;
 
     @Override
     public List<MenuSBFW> getTodosMenus() {
@@ -56,6 +56,9 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
                 adminUsuario.addAcao(FabAcaoSeguranca.USUARIO_MB_GERENCIAR.getRegistro());
                 menu.addSessao(adminUsuario);
                 return menu;
+            case MENU_ROOT:
+                return menu;
+
             default:
                 throw new AssertionError(this.name());
 
