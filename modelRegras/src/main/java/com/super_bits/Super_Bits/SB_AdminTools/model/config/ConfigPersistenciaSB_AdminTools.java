@@ -52,7 +52,7 @@ public class ConfigPersistenciaSB_AdminTools implements ItfConfigSBPersistencia 
 
     @Override
     public Class<? extends ItfFabrica>[] fabricasRegistrosIniciais() {
-        return new Class[]{FabAcaoSeguranca.class};
+        return new Class[]{};
     }
 
 }

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp">
+    <ui:composition template="/resources/SBComp/template/basico/modeloAnonimo.xhtml">
+        <ui:define name="head"  >
+            <style>
+                .botaoBox {
+                    margin-top: 3px;
+                }
+            </style>
+        </ui:define>
+        <ui:define name="divConteudo">
+            <div class="ContainerIndent">
+                <SBComp:linhaComTitulo titulo="Admin Tools SB Framework"/>
+                <h4>
+                    Neste projeto são desenvolvidas as Ferramentas formidáveis para o desenvolvimento, <br/>
+
+                    é um lugar, para realizar aquele sonho de criar um sistema estalando os dedos, onde a preguiça  não é pecado,
+                    e sim fonte de inspiração.<br/>
+                    Um lugar democrático, onde  bash Script e Orientação a Objetos andam na mesma calçada, se relacionam e cruzam, sem preconceito.
+
+                </h4>
+
+            </div>
+
+            <div class="Container40" >
+                <p>As seguintes ferramentas devem estar disponível neste módulo: <br/>
+                    <code>Testes de Visualização e execução de ações</code>,  <br/>
+                    <code>Testes de visualização de campos </code>,  <br/>
+                    <code>Testes de visualização de Objetos</code>  <br/>
+                    <code>Execução de SQL,HQL e outras funções de banco de dados</code>  <br/>
+                    <code>Criação de Objetos Direto no projeto</code>  <br/>
+                    <code>Criação de Ações Direto no projeto</code>  <br/>
+
+                </p>
+            </div>
+            <div class="Container40" >
+
+                Preparado?
+                <SBComp:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}"
+                                   tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.gigante}"
+
+                                   />
+                URL:       #{infoWebApp.getAcaoComLink(pg_paginaInicial.paginaFerramentas).urlDeAcesso}
+
+            </div>
+            <div class="SeparatorFull"/>
+            <div class="ContainerIndent">
+                <pre >
+            <blockquote class="blockquote-reverse">                <p>A informação é poder. Mas tal como acontece com todo o poder, há aqueles que querem guardá-lo para si</p>
+                <footer>Aaron Swartz</footer>   </blockquote></pre>
+                *(Compartilhe Conhecimento), Faça parte da comunidade atravez do site <SBComp:linkExterno endereco="http://salviof.github.io/SuperBits_FrameWork/"  />
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -28,12 +28,12 @@ public class ConfigWPSB_AdminTools implements ItfConfigWebPagina {
 
     @Override
     public String nomePacoteProjeto() {
-        return "SuperBitsWebPaginasDemo";
+        return "SB_AdminTools";
     }
 
     @Override
     public String TituloAppWeb() {
-        return "Super Bits WebPaginas Demo ShowCase";
+        return "Super Bits Admin Tools";
     }
 
     @Override

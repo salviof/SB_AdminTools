@@ -61,7 +61,7 @@ public class TesteProjetoExemplo extends TesteJunitSBPersistencia {
 
         try {
             System.out.println("Veja um exemplo de teste, o proximo passo é adicionar abstract neta classe e excluir este método infame, para então extender cada teste unitário com ela ");
-            throw new UnsupportedOperationException("Será que um framework que não suporta uma operação não suportada pode ser bom?");
+
         } catch (Throwable t) {
             lancarErroJUnit(t);
         }

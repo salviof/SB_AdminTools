@@ -10,7 +10,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <projetoSB.nomeBanco>${pom.name}</projetoSB.nomeBanco>
+        <projetoSB.nomeBanco>${project.name}</projetoSB.nomeBanco>
         <projetoSB.cliente>Super_Bits</projetoSB.cliente>
         <projetoSB.grupoProjeto>SB_AdminTools</projetoSB.grupoProjeto>
     </properties>

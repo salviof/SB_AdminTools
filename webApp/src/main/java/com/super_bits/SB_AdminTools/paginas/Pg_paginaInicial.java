@@ -5,9 +5,15 @@
  */
 package com.super_bits.SB_AdminTools.paginas;
 
-import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.FabAcaoAcessoRestritoExemplo;
-import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.InfoAcaoAcessoRestritoExemplo;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
+import com.super_bits.modulos.SBAcessosModel.fabricas.InfoAcaoProjetoSB;
+import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaConversation;
+import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.InfoPagina;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.InfoAcaoPaginaDoSistema;
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
@@ -25,10 +31,18 @@ import javax.inject.Named;
  */
 @ViewScoped
 @Named
-@InfoAcaoAcessoRestritoExemplo(acao = FabAcaoAcessoRestritoExemplo.RECURSO_RESTRITO_MB_GERENCIAR)
+@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_MB_HOME)
+@InfoPagina(tags = {"home"}, nomeCurto = "HOME")
 public class Pg_paginaInicial extends MB_PaginaConversation {
 
     private String beanExemplo;
+
+    private AcaoDoSistema paginaFerramentas;
+
+    @PostConstruct
+    public void init() {
+        paginaFerramentas = FabAcaoAdminDeveloper.DEV_PROJETO_MB.getAcaoDoSistema();
+    }
 
     public String getBeanExemplo() {
         return beanExemplo;
@@ -36,6 +50,10 @@ public class Pg_paginaInicial extends MB_PaginaConversation {
 
     public void setBeanExemplo(String beanExemplo) {
         this.beanExemplo = beanExemplo;
+    }
+
+    public AcaoDoSistema getPaginaFerramentas() {
+        return paginaFerramentas;
     }
 
 }

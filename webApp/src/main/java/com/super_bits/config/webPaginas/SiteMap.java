@@ -5,13 +5,14 @@
  */
 package com.super_bits.config.webPaginas;
 
-import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.FabMenuAdmin;
+import com.super_bits.SB_AdminTools.paginas.Pg_paginaInicial;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.FabMenuAdmin;
+import com.super_bits.modulos.SBAdminTools.webpaginas.PgAdminSistema;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfB_Pagina;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.declarados.Paginas.PgAcessos;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.declarados.Paginas.PgCadastroUsuarios;
 
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.PgTestesCampo;
 import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
@@ -31,9 +32,13 @@ import javax.inject.Inject;
 public class SiteMap extends MB_SiteMapa {
 
     @Inject
-    private PgCadastroUsuarios usuarios;
+    private Pg_paginaInicial paginaInicial;
+
     @Inject
-    private PgAcessos congrolePermissao;
+    private PgAdminSistema paginaHomeAdmin;
+
+    @Inject
+    private PgTestesCampo paginaTesteCampos;
 
     /// Injete aqui todas as Paginas que extendem o objeto MB_pagina
     @Override

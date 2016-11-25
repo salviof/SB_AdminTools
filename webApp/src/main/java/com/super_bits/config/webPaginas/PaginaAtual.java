@@ -1,5 +1,6 @@
 package com.super_bits.config.webPaginas;
 
+import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ItfPaginaAtual;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaAtual;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
 import javax.enterprise.inject.Produces;
@@ -9,7 +10,7 @@ import javax.inject.Named;
 
 @Named
 @ViewScoped
-public class PaginaAtual extends MB_PaginaAtual {
+public class PaginaAtual extends MB_PaginaAtual implements ItfPaginaAtual {
 
     @Inject
     private SiteMap siteMapa;
@@ -21,7 +22,7 @@ public class PaginaAtual extends MB_PaginaAtual {
     }
 
     @Override
-    protected MB_SiteMapa getSiteMap() {
+    public MB_SiteMapa getSiteMap() {
         return siteMapa;
     }
 

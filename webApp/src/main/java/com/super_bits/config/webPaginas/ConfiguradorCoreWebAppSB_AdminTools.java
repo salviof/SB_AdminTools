@@ -5,10 +5,14 @@
  */
 package com.super_bits.config.webPaginas;
 
-import com.super_bits.configSBFW.acessos.ConfigAcessos;
+import com.google.common.collect.Lists;
+import com.super_bits.configSBFW.acessos.ConfigAcessosAdminSistemaModelo;
 import com.super_bits.configSBFW.acessos.UtilSB_AdminToolsGlobalVar;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ConfiguradorCoreDeProjetoWebWarAbstrato;
+import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
+import java.util.List;
 import javax.servlet.ServletContext;
 
 /**
@@ -27,8 +31,19 @@ public class ConfiguradorCoreWebAppSB_AdminTools extends ConfiguradorCoreDeProje
 
     @Override
     public void defineFabricasDeACao(ItfConfiguracaoCoreCustomizavel pConfig) {
-        pConfig.setClasseConfigPermissao(ConfigAcessos.class);
-        pConfig.setFabricaDeAcoes(UtilSB_AdminToolsGlobalVar.pAcoesDoSistema());
+
+        pConfig.setClasseConfigPermissao(ConfigAcessosAdminSistemaModelo.class);
+        List<Class<? extends ItfFabricaAcoes>> lista = Lists.newArrayList(UtilSB_AdminToolsGlobalVar.pAcoesDoSistema());
+        Class<? extends ItfFabricaAcoes> acoes[] = new Class[lista.size() + 1];
+        int i = 0;
+        for (Class fab : lista) {
+            acoes[i] = fab;
+            i++;
+        }
+        acoes[i] = FabAcaoPaginasDoSistema.class;
+
+        pConfig.setFabricaDeAcoes(acoes);
+
     }
 
 }

@@ -6,9 +6,11 @@
 package com.super_bits.config.webPaginas;
 
 import com.super_bits.Super_Bits.SB_AdminTools.model.config.ConfigPersistenciaSB_AdminTools;
-import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.demonstracao_acesso_restrito.FabAcaoAcessoRestritoExemplo;
-import com.super_bits.configSBFW.acessos.ConfigAcessos;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
+
+import com.super_bits.configSBFW.acessos.ConfigAcessosAdminSistemaModelo;
 import com.super_bits.modulos.SBAcessosModel.controller.FabAcaoSeguranca;
+import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.ItfConfigSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ConfigCoreCustomizavel;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ControleDeSessaoPadrao;
@@ -50,8 +52,8 @@ public enum FabConfiguracoesDeAmbienteWebSB_AdminTools {
         cfg.setCentralMEnsagens(CentralDeMensagensJSFAPP.class);
         cfg.setClasseErro(ErroSBCoreDeveloperSopMessagem.class);
         cfg.setControleDeSessao(ControleDeSessaoPadrao.class);
-        cfg.setFabricaDeAcoes(new Class[]{FabAcaoSeguranca.class, FabAcaoAcessoRestritoExemplo.class});
-        cfg.setClasseConfigPermissao(ConfigAcessos.class);
+        cfg.setFabricaDeAcoes(new Class[]{FabAcaoAdminDeveloper.class, FabAcaoDemonstracaoSB.class});
+        cfg.setClasseConfigPermissao(ConfigAcessosAdminSistemaModelo.class);
 
         switch (this) {
             case DESENVOLVIMENTO:

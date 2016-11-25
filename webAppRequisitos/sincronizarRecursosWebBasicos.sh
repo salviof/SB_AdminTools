@@ -15,7 +15,7 @@ if [ ! -d $DIRETORIO_WEBAPP_SERVLET ]; then
 fi
 
 cd $DIRETORIO_ORIGEM_SB_COMP
-./sincronizar.sh
+./sincroniza.sh
 cd $DIRETORIO_ORIGEM_WEB_INF
 ./sincronizar.sh
 
