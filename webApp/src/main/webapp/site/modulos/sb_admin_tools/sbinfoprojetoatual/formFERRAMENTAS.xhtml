@@ -8,10 +8,11 @@
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
-
+                #{infoWebApp.getAcaoComLink(pAcao)}
                 <SBComp:seletorDeAcoes metodo="#{pgAdminSistema.executarAcaoSelecionada()}"
                                        opcaoSelecionada="#{pgAdminSistema.acaoSelecionada}"
                                        opcoes="#{pgAdminSistema.ferramentasDisponiveis}"
+
                                        />
             </h:form>
         </ui:define>

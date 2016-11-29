@@ -6,13 +6,11 @@ package com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.a
 
 import com.super_bits.modulos.SBAcessosModel.controller.FabModulosSistemaSB;
 import com.super_bits.modulos.SBAcessosModel.controller.InfoModulosSistemaSB;
-import com.super_bits.modulos.SBAcessosModel.fabricas.ProjetoAtual;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.UtilFabricaDeAcoesAcessosModel;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoConfigModulo;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoLog;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoPersistencia;
-import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoProjeto;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoController;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
@@ -28,38 +26,49 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icone
 public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
 
     @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
-            nomeAcao = "Manutenção", descricao = "Manutenção e Desenvolvimento do Projeto"
+            nomeAcao = "Manutenção",
+            descricao = "Manutenção e Desenvolvimento do Projeto"
     )
     DEV_PROJETO_MB,
-    @InfoTipoAcaoFormulario(nomeAcao = "Ferramentas", descricao = "Ferramentas Disponíveis para Gestão do Sistema",
+    @InfoTipoAcaoFormulario(nomeAcao = "Ferramentas",
+            descricao = "Ferramentas Disponíveis para Gestão do Sistema",
             icone = "fa fa-suitcase")
     DEV_PROJETO_FRM_FERRAMENTAS,
-    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Objeto", xhtmlDaAcao = "selecaoObjeto.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Objeto",
+            xhtmlDaAcao = "selecaoObjeto.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
     DEV_PROJETO_FRM_SELECAO_OBJETOS,
-    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Ações", xhtmlDaAcao = "selecionarAcoes.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Ações",
+            xhtmlDaAcao = "selecionarAcoes.xhtml",
             icone = "fa fa-cubes"
     )
     DEV_PROJETO_FRM_SELECAO_ACAO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Campo", xhtmlDaAcao = "selecionarCampo.xhtml", icone = "fa fa-pencil-square-o")
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Campo",
+            xhtmlDaAcao = "selecionarCampo.xhtml",
+            icone = "fa fa-pencil-square-o")
     DEV_PROJETO_FRM_SELECAO_CAMPO,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Criar Ação",
             xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap")
     FERRAMENTAS_ACAO_MB_CRIAR,
-    @InfoTipoAcaoFormulario(nomeAcao = "Definir Slug Ação", xhtmlDaAcao = "nvAcaoDefSlug.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Definir Slug Ação",
+            xhtmlDaAcao = "nvAcaoDefSlug.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_EDITAR)
     FERRAMENTAS_ACAO_FRM_DEF_NOME_SLUG_ACAO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Definir Icone ação", xhtmlDaAcao = "nvAcaoDefIcone.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Definir Icone ação",
+            xhtmlDaAcao = "nvAcaoDefIcone.xhtml",
             icone = "fa fa-font-awesome")
     FERRAMENTAS_ACAO_FRM_ICONE_ACAO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Definir Icone ação", xhtmlDaAcao = "nvAcaoDefXHTML.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Definir Icone ação",
+            xhtmlDaAcao = "nvAcaoDefXHTML.xhtml",
             icone = "fa fa-file-code-o")
     FERRAMENTAS_ACAO_FRM_XHTML_ACAO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Definir Objeto ação", xhtmlDaAcao = "nvAcaoDefObj.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Definir Objeto ação",
+            xhtmlDaAcao = "nvAcaoDefObj.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS
     )
     FERRAMENTAS_ACAO_FRM_OBJETO_ACAO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Definir Nome e Descrição da ação", xhtmlDaAcao = "nvAcaoDefNomeDescri.xhtml",
+    @InfoTipoAcaoFormulario(nomeAcao = "Definir Nome e Descrição da ação",
+            xhtmlDaAcao = "nvAcaoDefNomeDescri.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_EDITAR)
     FERRAMENTAS_ACAO_FRM_NOME_E_DESCRICAO,
     @InfoTipoAcaoController(nomeAcao = "Instanciar no pacote",
