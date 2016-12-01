@@ -88,7 +88,15 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_LOGS_MB,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml")
     FERRAMENTAS_BANCO_MB,
-    @InfoTipoAcaoFormulario(nomeAcao = "Listar Dados", xhtmlDaAcao = "listarDadosBanco.xhtml")
+    @InfoTipoAcaoFormulario(nomeAcao = "Importar dados", xhtmlDaAcao = "importar.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
+    FERRAMENTAS_BANCO_FRM_IMPORTADOR,
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Arquivo Importacao", xhtmlDaAcao = "enviarArquivo.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ENVIAR)
+    FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Mapear Colunas", xhtmlDaAcao = "mapearColunas.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
+    FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS,
+    @InfoTipoAcaoFormulario(nomeAcao = "Relatório de Importacao", xhtmlDaAcao = "relatorio.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
+    FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Listar Dados", xhtmlDaAcao = "listarDadosBanco.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
     FERRAMENTAS_BANCO_FRM_LISTAR_DADOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Editar SQL", xhtmlDaAcao = "editarSQL.xhtml")
     FERRAMENTAS_BANCO_FRM_EDITAR_SQL,
@@ -96,7 +104,11 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_BANCO_FRM_EDITAR_HQL,
     @InfoTipoAcaoController(nomeAcao = "Listar via SQL")
     FERRAMENTAS_BANCO_CTR_LISTAR_SQL,
-    @InfoTipoAcaoController(nomeAcao = "Listar via HQL")
+    @InfoTipoAcaoController(nomeAcao = "Processar dados")
+    FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP,
+    @InfoTipoAcaoController(nomeAcao = "Gravar dados", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
+    FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP,
+    @InfoTipoAcaoController(nomeAcao = "Listar via HQL", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
     FERRAMENTAS_BANCO_CTR_LISTAR_HQL,
     @InfoTipoAcaoFormulario(nomeAcao = "Criar Bean de Consulta", xhtmlDaAcao = "beanDeConsulta.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_NOVO)
@@ -142,7 +154,19 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_BANCO_CTR_LISTAR_SQL:
             case FERRAMENTAS_BANCO_CTR_LISTAR_HQL:
             case FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA:
+            case FERRAMENTAS_BANCO_FRM_IMPORTADOR:
+
+            case FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO:
+
+            case FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS:
+
+            case FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO:
+
+            case FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP:
+
+            case FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP:
                 return SBInfoPersistencia.class;
+
             default:
                 throw new AssertionError(this.name());
 

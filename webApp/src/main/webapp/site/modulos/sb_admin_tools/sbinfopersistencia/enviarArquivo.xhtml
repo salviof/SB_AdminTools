@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
+        <ui:define name="conteudo">
+            <h:form enctype="multipart/form-data">
+
+                <p:fileUpload
+                    label="Escolher arquivos"
+                    cancelLabel="Cancelar Envio"
+                    invalidFileMessage="Tipo de Arquivo inválido"
+                    multiple="true"
+                    uploadLabel="Enviar"
+                    update="@form"
+                    fileUploadListener="#{pgAdminBanco.enviarArquivo}" >
+                </p:fileUpload>
+
+                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoFromMapearColunas}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" rendered="#{pgAdminBanco.umArquivoEnviado}" />
+
+            </h:form>
+
+
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+
