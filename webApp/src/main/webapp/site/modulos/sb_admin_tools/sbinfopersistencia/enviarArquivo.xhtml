@@ -20,7 +20,9 @@
                     fileUploadListener="#{pgAdminBanco.enviarArquivo}" >
                 </p:fileUpload>
 
-                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoFromMapearColunas}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" rendered="#{pgAdminBanco.umArquivoEnviado}" />
+                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoFromMapearColunas}"
+                                           tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
+                                           rendered="#{pgAdminBanco.umArquivoEnviado}" />
 
             </h:form>
 

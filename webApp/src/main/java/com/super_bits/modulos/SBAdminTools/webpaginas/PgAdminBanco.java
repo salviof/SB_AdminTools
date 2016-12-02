@@ -42,13 +42,9 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
     private List<EstruturaDeEntidade> entidadesDisponiveis;
     private EstruturaDeEntidade entidadeSelecionada;
-
     private EstruturaCampo campoSelecionado;
-
     private Map<EstruturaCampo, Integer> mapaCampos;
-
     private int numeroDaColunaCampoSelecionado;
-
     private AcaoDoSistema acaoFormImportador;
     private AcaoDoSistema acaoFormEnviarArquivo;
     private AcaoDoSistema acaoFromMapearColunas;
@@ -57,6 +53,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
     private String nomeArquivoEnviado;
     private String tamanhoArquivoEnviado;
     private String caminhoArquhivoImportacao;
+    private ImportacaoExcel<ItfBeanSimples> importador;
 
     @Override
     public void executarAcaoSelecionada() {
@@ -68,9 +65,11 @@ public class PgAdminBanco extends MB_PaginaConversation {
                 mapaDeCamposImp.put(cp.getNomeDeclarado(), numeroDaColunaCampoSelecionado);
             }
 
-            ImportacaoExcel<ItfBeanSimples> teste
+            importador
                     = new ImportacaoExcel<>(caminhoArquhivoImportacao,
                             mapaDeCamposImp, classe);
+            importador.processar();
+            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO);
         }
 
     }
@@ -115,6 +114,10 @@ public class PgAdminBanco extends MB_PaginaConversation {
         } catch (Throwable t) {
             SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro inicializando admin banco", t);
         }
+    }
+
+    public void zerarMapa() {
+        mapaCampos.clear();
     }
 
     public void adicionarCampo() {
@@ -175,6 +178,17 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
     public void setEntidadeSelecionada(EstruturaDeEntidade entidadeSelecionada) {
         this.entidadeSelecionada = entidadeSelecionada;
+        if (!entidadeSelecionada.equals(this.entidadeSelecionada)) {
+            mapaCampos.clear();
+        }
+    }
+
+    public Map<EstruturaCampo, Integer> getMapaCampos() {
+        return mapaCampos;
+    }
+
+    public ImportacaoExcel<ItfBeanSimples> getImportador() {
+        return importador;
     }
 
 }

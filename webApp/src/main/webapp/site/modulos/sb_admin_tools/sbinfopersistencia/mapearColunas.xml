@@ -9,27 +9,30 @@
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
-
                 <SBComp:seletorItem lista="#{pgAdminBanco.entidadesDisponiveis}"
                                     idOnChange="#{pgAdminBanco.idAreaExbicaoAcaoSelecionada}"
                                     itemSelecionado="#{pgAdminBanco.entidadeSelecionada}" />
-
-
-
             </h:form>
-
             <h:form>
+                #{pgAdminBanco.mapaCampos}
                 <SBComp:seletorItem lista="#{pgAdminBanco.entidadeSelecionada.campos}"
                                     itemSelecionado="#{pgAdminBanco.campoSelecionado}"
                                     />
+
+
+                <p:commandButton actionListener="#{pgAdminBanco.zerarMapa()}"
+                                 value="Limpar mapeamento"
+                                 update="@form"
+                                 />
+
                 <p:commandButton actionListener="#{pgAdminBanco.adicionarCampo()}"
                                  value="Adicionar campo"
                                  update="@form"
                                  />
 
+                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoCtrProcessar}"  tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"/>
+
                 <p:inputNumber value="#{pgAdminBanco.numeroDaColunaCampoSelecionado}" />
-
-
             </h:form>
         </ui:define>
     </ui:composition>

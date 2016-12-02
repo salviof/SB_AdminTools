@@ -50,6 +50,13 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Criar Ação",
             xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap")
     FERRAMENTAS_ACAO_MB_CRIAR,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Input",
+            xhtmlDaAcao = "inspecaoInput.xhtml",
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_PESQUISAR)
+    DEV_PROJETO_FRM_INSPECIONARINPUT,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Componente Visual",
+            xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
+    DEV_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL,
     @InfoTipoAcaoFormulario(nomeAcao = "Definir Slug Ação",
             xhtmlDaAcao = "nvAcaoDefSlug.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_EDITAR)
@@ -106,9 +113,11 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_BANCO_CTR_LISTAR_SQL,
     @InfoTipoAcaoController(nomeAcao = "Processar dados")
     FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP,
-    @InfoTipoAcaoController(nomeAcao = "Gravar dados", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
+    @InfoTipoAcaoController(nomeAcao = "Gravar dados",
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
     FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP,
-    @InfoTipoAcaoController(nomeAcao = "Listar via HQL", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
+    @InfoTipoAcaoController(nomeAcao = "Listar via HQL",
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
     FERRAMENTAS_BANCO_CTR_LISTAR_HQL,
     @InfoTipoAcaoFormulario(nomeAcao = "Criar Bean de Consulta", xhtmlDaAcao = "beanDeConsulta.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_NOVO)
@@ -132,6 +141,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case DEV_PROJETO_FRM_SELECAO_OBJETOS:
             case DEV_PROJETO_FRM_SELECAO_ACAO:
             case DEV_PROJETO_FRM_SELECAO_CAMPO:
+            case DEV_PROJETO_FRM_INSPECIONARINPUT:
                 return SBInfoProjetoAtual.class;
             case FERRAMENTAS_ACAO_MB_CRIAR:
             case FERRAMENTAS_ACAO_FRM_DEF_NOME_SLUG_ACAO:
@@ -140,6 +150,8 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_ACAO_FRM_OBJETO_ACAO:
             case FERRAMENTAS_ACAO_FRM_NOME_E_DESCRICAO:
             case FERRAMENTAS_ACAO_CTR_CRIAR:
+            case DEV_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL:
+
                 return AcaoDoSistema.class;
             case FERRAMENTAS_CONFIG_MB:
             case FERRAMENTAS_CONFIG_FRM_SBPROJETO:
@@ -166,7 +178,6 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
 
             case FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP:
                 return SBInfoPersistencia.class;
-
             default:
                 throw new AssertionError(this.name());
 
