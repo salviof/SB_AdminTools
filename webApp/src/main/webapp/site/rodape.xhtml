@@ -13,7 +13,22 @@
         <ui:composition>
 
             <p:separator/>
-            <SBComp:infoPagina/>
+
+            <p:commandButton value="Menu Admin"  onclick="PF('frmAdmin').show();" />
+
+            <p:commandButton value="InfoPagina"  onclick="PF('frmMenu').show();"/>
+
+            <p:dialog widgetVar="frmAdmin" modal="true"  closable="true"  width="400px;">
+                <SBComp:infoPagina/>
+            </p:dialog>
+
+            <p:dialog widgetVar="frmMenu" modal="true"  closable="true">
+                <SBComp:menuPadrao menuBasico="#{sessaoAtualSBWP.menusDaSessao.menuPrincipal}"
+
+                                   menuExtendido="#{sessaoAtualSBWP.menusDaSessao.menuAvancado}" />
+
+            </p:dialog>
+
 
         </ui:composition>
     </h:body>

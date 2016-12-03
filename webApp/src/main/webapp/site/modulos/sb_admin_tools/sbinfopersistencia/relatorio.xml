@@ -3,18 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
+                #{pgAdminBanco.importador.relatorioImportacao}
+                <h:outputText value="#{pgAdminBanco.importador.relatorioImportacao}" escape="false" />
+                Sucesso:
+                #{pgAdminBanco.importador.registrosSucesso}
+                Erros:
+                #{pgAdminBanco.importador.registrosErro}
 
-                <SBComp:seletorDeAcoes metodo="#{pgAdminSistema.executarAcaoSelecionada()}"
-                                       opcaoSelecionada="#{pgAdminSistema.acaoSelecionada}"
-                                       opcoes="#{pgAdminSistema.ferramentasDisponiveis}"
 
-                                       />
+
+
+                <p:commandButton value="Atualizar" update="@form" />
+
             </h:form>
+
         </ui:define>
     </ui:composition>
 </html>
