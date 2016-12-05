@@ -23,10 +23,10 @@ and open the template in the editor.
 
         <ui:define name="conteudo">
 
-            <p:fieldset style="margin: 2%" legend="#{pgTestesCampo.grupoSelecionado.nomeGrupo}">
+            <p:fieldset style="margin: 2%" legend="#{pgLabProjetoAtual.grupoSelecionado.nomeGrupo}">
                 <h:form>
-                    <SBFormulario:camposDoGrupo registro="#{pgTestesCampo.entidadeCarregada}"
-                                                grupoCampos="#{pgTestesCampo.grupoSelecionado}" />
+                    <SBFormulario:camposDoGrupo registro="#{pgLabProjetoAtual.entidadeCarregada}"
+                                                grupoCampos="#{pgLabProjetoAtual.grupoSelecionado}" />
                 </h:form>
             </p:fieldset>
 

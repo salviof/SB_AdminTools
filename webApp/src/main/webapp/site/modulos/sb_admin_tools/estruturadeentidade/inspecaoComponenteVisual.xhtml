@@ -3,11 +3,56 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
+
+                <div class="Fright">
+                    <h:form>
+                        <SBComp:botaoDeAcao_Pagina acao="#{pgLabProjetoAtual.acaoSelecaoTipoLab}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
+                    </h:form>
+                </div>
+
+                <div class="Container100">
+
+
+
+                    <h:form>
+                        <p:commandButton value="Atualizar Lab"  update="#{pgUtil.makeCaminhoCompletoID('viewLab')}" />
+
+                        <p:commandButton value="Aplicar Lab em visualização Real"  />
+                    </h:form>
+
+                    <p:panel header="LAB" styleClass="Container100"  id="viewLab">
+                        <SBComp:itemCardLab item="#{pgLabProjetoAtual.beanExemploEmResource}" />
+
+                    </p:panel>
+
+                    <p:panel header="Visualizacao Real" styleClass="Container100">
+
+                        <SBComp:itemCard item="#{pgLabProjetoAtual.beanExemploEmResource}" />
+                    </p:panel>
+
+                    <p:panel header="Log do Servidor">
+
+
+                    </p:panel>
+
+
+                    #{pgTestesCampo.beanExemploEmResource.infoBean.classe}
+                    #{pgTestesCampo.beanExemploEmResource.infoBean.visualizacaoItem}
+
+                    ITEM CARD:::
+
+                    <br/>
+                    CardLab:
+
+
+                </div>
+
 
 
 

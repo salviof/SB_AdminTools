@@ -6,46 +6,31 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
-    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
-        <ui:define name="conteudo">
-
-            <p:fieldset legend="Ver campo" class="Container33 Responsive">
+    <ui:composition  >
 
 
-                <p:fieldset legend="Ver campo" class="Container50 Responsive">
-                    <h:form>
-                        <p:panelGrid columns="2" >
-                            <p:outputLabel value="Nome do Campo" />
-                            <p:inputText value="#{pgLabProjetoAtual.strNomeCampo}" style="width: 300px;"/>
+        <p:fieldset legend="Ver campo" class="Container33 Responsive">
 
-                            <p:outputLabel />
-                            <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
-                                                   opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
-                                                   opcoes="#{pgLabProjetoAtual.acoesParaCampo}"
-                                                   />
-                        </p:panelGrid>
-
-                    </h:form>
-
-                </p:fieldset>
+            <p:outputLabel value="Selecione uma ação de formulário para navegar entre os campos" rendered="#{pgLabProjetoAtual.acaoFormularioSelecionada==null}" />
 
 
+            <p:fieldset  legend="Campos da ação: #{pgLabProjetoAtual.acaoFormularioSelecionada.nomeAcao}"  rendered="#{pgLabProjetoAtual.acaoFormularioSelecionada!=null}">
 
-                <p:outputLabel value="Navegação de campos" />
                 <h:panelGroup >
                     <h:form>
-                        <p:commandButton action="#{pgLabProjetoAtual.verProximoCampo()}" value="Proximo Campo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgLabProjetoAtual.verCampoAnterior()}" value="Campo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgLabProjetoAtual.verProximoGrupo()}" value=" Proximo grupo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgLabProjetoAtual.verGrupoAnterior()}" value="Grupo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoCampo()}" value="Proximo Campo" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verCampoAnterior()}" value="Campo Anterior" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoGrupo()}" value=" Proximo grupo" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verGrupoAnterior()}" value="Grupo Anterior" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
 
                     </h:form>
                 </h:panelGroup>
-
             </p:fieldset>
 
+        </p:fieldset>
 
-        </ui:define>
+
+
     </ui:composition>
 </html>
 

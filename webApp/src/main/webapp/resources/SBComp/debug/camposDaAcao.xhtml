@@ -25,9 +25,9 @@ and open the template in the editor.
 
 
 
-            <ui:repeat  value="#{pgTestesCampo.acaoFormularioSelecionada.gruposDeCampos}" var="grupo" >
+            <ui:repeat  value="#{pgLabProjetoAtual.acaoFormularioSelecionada.gruposDeCampos}" var="grupo" >
                 <p:fieldset style="margin: 2%" legend="#{grupo.nomeGrupo}">
-                    <SBFormulario:camposDoGrupo registro="#{pgTestesCampo.entidadeCarregada}"
+                    <SBFormulario:camposDoGrupo registro="#{pgLabProjetoAtual.entidadeCarregada}"
                                                 grupoCampos="#{grupo}" />
                 </p:fieldset>
             </ui:repeat>
