@@ -2,12 +2,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://java.sun.com/jsf/composite"
-      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:sb="http://superbitsframework/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -48,22 +44,19 @@
 
 
 
-            #{paginaAtual.isPermitidoExecutarAcao(opc)}
+            <!--     #{paginaAtual.isPermitidoExecutarAcao(opc)} -->
 
-            <p:commandButton style="margin-bottom: 5px; "
-                             id="btIcon#{cc.id}"
-                             value="#{opc.nomeAcao}"
-                             icon="#{opc.iconeAcao}"
-                             action="#{cc.attrs.metodo}"
-                             process="@form"
-
-                             >
-                <f:setPropertyActionListener
-                    target="#{cc.attrs.opcaoSelecionada}"
-                    value="#{opc}"/>
-
-            </p:commandButton>
-
+            <sb:botaoAcaoAcaoTarget
+                acao="#{opc}"
+                layout="#{cc.attrs.tipoVisualizacao}"
+                javaScriptOncomplete=""
+                idUpdate="#{cc.attrs.update}"
+                origem="#{opc}"
+                destino="#{cc.attrs.opcaoSelecionada}"
+                metodo="#{paginaAtual.infoPagina.executarAcaoSelecionada()}"
+                label="#{opc.nomeAcao}"
+                icone="#{opc.iconeAcao}"
+                />
 
 
 

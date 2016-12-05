@@ -34,12 +34,11 @@ import javax.inject.Named;
 public class Pg_paginaInicial extends MB_PaginaConversation {
 
     private String beanExemplo;
-
     private AcaoDoSistema paginaFerramentas;
 
     @PostConstruct
     public void init() {
-        paginaFerramentas = FabAcaoAdminDeveloper.DEV_PROJETO_MB.getAcaoDoSistema();
+        paginaFerramentas = FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getAcaoDoSistema();
     }
 
     public String getBeanExemplo() {

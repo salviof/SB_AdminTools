@@ -99,13 +99,12 @@
 
                 <p:column headerText="Ações" width="180">
 
-                    <center>     <SBComp:seletorDeAcoes
-
+                    <center>
+                        <SBComp:seletorDeAcoes
                             metodo="#{cc.attrs.metodo}"
                             opcaoSelecionada="#{paginaAtual.infoPagina.acaoSelecionada}"
                             opcoes="#{cc.attrs.opcoes}"
-                            visualizacaoBotao="#{layoutsComponenteSB.layoutBotoes.icone}"
-
+                            tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.icone}"
                             /> </center>
 
                 </p:column>

@@ -11,7 +11,7 @@
             <p:fieldset legend="Açoes de Gestão da entidade" class="Container20 Responsive">
 
                 <h:form>
-                    <p:selectOneMenu  value="#{pgTestesCampo.acaoGestaoSelecionada}"
+                    <p:selectOneMenu  value="#{pgLabProjetoAtual.acaoGestaoSelecionada}"
                                       effect="fold"
                                       converter="conversorGenerico"
                                       label="#{acaoGestao.nomeAcao}"
@@ -22,7 +22,7 @@
                             var="acaoGestao"
                             itemLabel="#{acaoGestao.nomeAcao}"
                             itemValue="#{acaoGestao}"
-                            value="#{pgTestesCampo.acoesDeGestaoDoSistema}" />
+                            value="#{pgLabProjetoAtual.acoesDeGestaoDoSistema}" />
                         <p:column style="width:10%">
                             <h:form>
                                 <p:commandButton icon="#{acaoGestao.iconeAcao}" disabled="#{true}" />

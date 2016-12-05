@@ -12,7 +12,7 @@ import com.super_bits.modulos.SBAdminTools.webpaginas.PgAdminSistema;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
 
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
-import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.PgTestesCampo;
+import com.super_bits.modulos.SBAdminTools.webpaginas.PgLabProjetoAtual;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 
@@ -37,7 +37,7 @@ public class SiteMap extends MB_SiteMapa {
     private PgAdminSistema paginaHomeAdmin;
 
     @Inject
-    private PgTestesCampo paginaTesteCampos;
+    private PgLabProjetoAtual paginaTesteCampos;
 
     @Inject
     private PgAdminBanco paginaAdminBanco;

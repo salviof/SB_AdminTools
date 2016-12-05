@@ -22,7 +22,7 @@ import javax.inject.Named;
  */
 @InfoPagina(nomeCurto = "SYS_ADM", tags = "Administração do Sistema")
 @ViewScoped
-@InfoAcaoAdminDeveloper(acao = FabAcaoAdminDeveloper.DEV_PROJETO_MB)
+@InfoAcaoAdminDeveloper(acao = FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB)
 @Named
 public class PgAdminSistema extends MB_PaginaConversation {
 
@@ -32,12 +32,14 @@ public class PgAdminSistema extends MB_PaginaConversation {
     public void ferramentas() {
 
         ferramentasDisponiveis = new ArrayList<>();
-        ferramentasDisponiveis.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_MB.getAcaoDoSistema());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getAcaoDoSistema());
         ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getAcaoDoSistema());
         ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getAcaoDoSistema());
         ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getAcaoDoSistema());
         ferramentasDisponiveis.add(FabAcaoDemonstracaoSB.DEMONSTRACAO_MB_COMPONENTE.getAcaoDoSistema());
-        executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_FERRAMENTAS);
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getAcaoDoSistema());
+
+        setAcaoSelecionada(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_FERRAMENTAS.getAcaoDoSistema());
         xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_PROJETO_FRM_FERRAMENTAS.getAcaoDoSistema().getComoFormulario().getXhtml();
     }
 

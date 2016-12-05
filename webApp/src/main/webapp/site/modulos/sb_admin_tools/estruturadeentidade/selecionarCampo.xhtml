@@ -16,12 +16,12 @@
                     <h:form>
                         <p:panelGrid columns="2" >
                             <p:outputLabel value="Nome do Campo" />
-                            <p:inputText value="#{pgTestesCampo.strNomeCampo}" style="width: 300px;"/>
+                            <p:inputText value="#{pgLabProjetoAtual.strNomeCampo}" style="width: 300px;"/>
 
                             <p:outputLabel />
-                            <SBComp:seletorDeAcoes metodo="#{pgTestesCampo.executarAcaoSelecionada()}"
-                                                   opcaoSelecionada="#{pgTestesCampo.acaoSelecionada}"
-                                                   opcoes="#{pgTestesCampo.acoesParaCampo}"
+                            <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
+                                                   opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
+                                                   opcoes="#{pgLabProjetoAtual.acoesParaCampo}"
                                                    />
                         </p:panelGrid>
 
@@ -34,10 +34,10 @@
                 <p:outputLabel value="Navegação de campos" />
                 <h:panelGroup >
                     <h:form>
-                        <p:commandButton action="#{pgTestesCampo.verProximoCampo()}" value="Proximo Campo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgTestesCampo.verCampoAnterior()}" value="Campo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgTestesCampo.verProximoGrupo()}" value=" Proximo grupo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
-                        <p:commandButton action="#{pgTestesCampo.verGrupoAnterior()}" value="Grupo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoCampo()}" value="Proximo Campo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verCampoAnterior()}" value="Campo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoGrupo()}" value=" Proximo grupo" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verGrupoAnterior()}" value="Grupo Anterior" update="#{pgUtil.makeCaminhoCompletoID('Assistente')}"/>
 
                     </h:form>
                 </h:panelGroup>

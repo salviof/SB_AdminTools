@@ -16,6 +16,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcao
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoGestaoEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 
 /**
@@ -29,15 +30,83 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             nomeAcao = "Manutenção",
             descricao = "Manutenção e Desenvolvimento do Projeto"
     )
-    DEV_PROJETO_MB,
-    @InfoTipoAcaoFormulario(nomeAcao = "Ferramentas",
-            descricao = "Ferramentas Disponíveis para Gestão do Sistema",
-            icone = "fa fa-suitcase")
-    DEV_PROJETO_FRM_FERRAMENTAS,
+    DEV_PROJETO_ADMIN_MB,
+    @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
+            nomeAcao = "Gestão de Objetos do Sistema",
+            descricao = "Administração e Debug de Objetos do Sistema",
+            xhtmlDaAcao = "objetosLab.xhtml"
+    )
+    DEV_OBJ_PROJETO_MB_LAB,
+    @InfoTipoAcaoFormulario(nomeAcao = "Ver campo",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/verCampo.xhtml",
+            icone = "fa fa-eye")
+    DEV_OBJ_PROJETO_FRM_VER_CAMPO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Ver Campo em todos formatos",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/verCampoTodosFormatos.xhtml",
+            icone = "fa fa-eye")
+    DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS,
+    @InfoTipoAcaoFormulario(nomeAcao = "Testar onChange",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarOnChange.xhtml",
+            icone = "fa fa-retweet")
+    DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE,
+    @InfoTipoAcaoFormulario(nomeAcao = "Laboratório de criação ",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/laboratorio.xhtml",
+            icone = "fa fa-flask")
+    DEV_OBJ_PROJETO_FRM_LABORARATORIO,
+    @InfoTipoAcaoFormulario(nomeAcao = "VER INSTRUÇÕES",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/instrucoes.xhtml",
+            icone = "fa fa-map-marker")
+    DEV_OBJ_PROJETO_FRM_INSTRUCOES,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar ids",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarIds.xhtml",
+            icone = "fa fa-info")
+    DEV_OBJ_PROJETO_FRM_CAMPO_IDS,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar posição",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarPosicao.xhtml",
+            icone = "fa fa-question-circle")
+    DEV_OBJ_PROJETO_FRM_INSP_POSICOES,
+    @InfoTipoAcaoFormulario(nomeAcao = "VER CAMPOS DA AÇÃO",
+            xhtmlDaAcao = "/resources/SBComp/debug/camposDaAcao.xhtml",
+            icone = "fa fa-question-circle")
+    DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO,
+    @InfoTipoAcaoFormulario(nomeAcao = "CAMPOS DO AGRUPO",
+            xhtmlDaAcao = "/resources/SBComp/debug/camposDoGrupo.xhtml",
+            icone = "fa fa-question-circle")
+    DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
+            xhtmlDaAcao = "/resources/SBComp/debug/visualizadorDeItem.xhtml", icone = "fa fa-eye"
+    )
+    DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM,
+    @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
+            xhtmlDaAcao = "/resources/SBComp/debug/inspecionarCampo.xhml", icone = "fa fa-gears"
+    )
+    DEV_OBJ_PROJETO_FRM_INSPECIONAR,
+    @InfoTipoAcaoFormulario(nomeAcao
+            = "Ficha técnica",
+            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarPropriedades.xhtml",
+            icone = "fa fa-cogs")
+    DEV_OBJ_PROJETO_FRM_FICHATECNICA,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Input",
+            xhtmlDaAcao = "inspecaoInput.xhtml",
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_PESQUISAR)
+    DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT,
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecao Tipo Laboratorio", xhtmlDaAcao = "selecaoTipoLab.xhtml",
+            iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
+    DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Componente Visual",
+            xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
+    DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL,
+    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Objeto de Entidade",
+            xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
+    DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Objeto",
             xhtmlDaAcao = "selecaoObjeto.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
     DEV_PROJETO_FRM_SELECAO_OBJETOS,
+    @InfoTipoAcaoFormulario(nomeAcao = "Ferramentas",
+            descricao = "Ferramentas Disponíveis para Gestão do Sistema",
+            icone = "fa fa-suitcase")
+    DEV_PROJETO_FRM_FERRAMENTAS,
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Ações",
             xhtmlDaAcao = "selecionarAcoes.xhtml",
             icone = "fa fa-cubes"
@@ -50,13 +119,6 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Criar Ação",
             xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap")
     FERRAMENTAS_ACAO_MB_CRIAR,
-    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Input",
-            xhtmlDaAcao = "inspecaoInput.xhtml",
-            iconeFonteAnsowame = FabIconeFontAwesome.REG_PESQUISAR)
-    DEV_PROJETO_FRM_INSPECIONARINPUT,
-    @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Componente Visual",
-            xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
-    DEV_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL,
     @InfoTipoAcaoFormulario(nomeAcao = "Definir Slug Ação",
             xhtmlDaAcao = "nvAcaoDefSlug.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_EDITAR)
@@ -133,16 +195,38 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     }
 
     @Override
-    public Class getEntidadeDominio() {
+    public Class
+            getEntidadeDominio() {
 
         switch (this) {
-            case DEV_PROJETO_MB:
+            case DEV_PROJETO_ADMIN_MB:
             case DEV_PROJETO_FRM_FERRAMENTAS:
+                return SBInfoProjetoAtual.class;
             case DEV_PROJETO_FRM_SELECAO_OBJETOS:
             case DEV_PROJETO_FRM_SELECAO_ACAO:
             case DEV_PROJETO_FRM_SELECAO_CAMPO:
-            case DEV_PROJETO_FRM_INSPECIONARINPUT:
-                return SBInfoProjetoAtual.class;
+
+            case DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT:
+            case DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL:
+            case DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS:
+
+            case DEV_OBJ_PROJETO_FRM_VER_CAMPO:
+            case DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS:
+            case DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE:
+            case DEV_OBJ_PROJETO_FRM_LABORARATORIO:
+            case DEV_OBJ_PROJETO_FRM_INSTRUCOES:
+            case DEV_OBJ_PROJETO_FRM_CAMPO_IDS:
+            case DEV_OBJ_PROJETO_FRM_INSP_POSICOES:
+            case DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO:
+            case DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO:
+
+            case DEV_OBJ_PROJETO_MB_LAB:
+            case DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO:
+            case DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM:
+            case DEV_OBJ_PROJETO_FRM_INSPECIONAR:
+            case DEV_OBJ_PROJETO_FRM_FICHATECNICA:
+                return EstruturaDeEntidade.class;
+
             case FERRAMENTAS_ACAO_MB_CRIAR:
             case FERRAMENTAS_ACAO_FRM_DEF_NOME_SLUG_ACAO:
             case FERRAMENTAS_ACAO_FRM_ICONE_ACAO:
@@ -150,15 +234,17 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_ACAO_FRM_OBJETO_ACAO:
             case FERRAMENTAS_ACAO_FRM_NOME_E_DESCRICAO:
             case FERRAMENTAS_ACAO_CTR_CRIAR:
-            case DEV_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL:
 
                 return AcaoDoSistema.class;
+
             case FERRAMENTAS_CONFIG_MB:
             case FERRAMENTAS_CONFIG_FRM_SBPROJETO:
             case FERRAMENTAS_CONFIG_FRM_CONFIGURACOES_GERAIS:
                 return SBInfoConfigModulo.class;
+
             case FERRAMENTAS_LOGS_MB:
                 return SBInfoLog.class;
+
             case FERRAMENTAS_BANCO_MB:
             case FERRAMENTAS_BANCO_FRM_LISTAR_DADOS:
             case FERRAMENTAS_BANCO_FRM_EDITAR_SQL:
@@ -167,17 +253,13 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_BANCO_CTR_LISTAR_HQL:
             case FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA:
             case FERRAMENTAS_BANCO_FRM_IMPORTADOR:
-
             case FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO:
-
             case FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS:
-
             case FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO:
-
             case FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP:
-
             case FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP:
                 return SBInfoPersistencia.class;
+
             default:
                 throw new AssertionError(this.name());
 
