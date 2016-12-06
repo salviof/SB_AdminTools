@@ -15,7 +15,9 @@ and open the template in the editor.
 
             <c:if test="#{prCampo!=null}" >
                 <p:panel header="Visualizacao de #{prCampo.label}"  >
-                    <SBComp:input registro="#{prCampo}" layoyt="#{layoutsComponenteSB.layoutCampo.esquerda}"/>
+                    <SBComp:input registro="#{prCampo}"
+                                  layout="#{layoutsComponenteSB.layoutCampo.esquerda}"
+                                  />
                 </p:panel>
             </c:if>
             <c:if test="#{prCampo==null}" >

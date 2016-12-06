@@ -18,14 +18,17 @@ public enum FabGrupoUsuario implements ItfFabrica {
     @Override
     public GrupoUsuarioSB getRegistro() {
         GrupoUsuarioSB novoGrupo = new GrupoUsuarioSB();
+        novoGrupo.setId(this.ordinal() + 1);
         switch (this) {
             case USUARIO_ANONIMO:
                 novoGrupo.setNome("Grupo Anonimo");
                 novoGrupo.setAtivo(true);
+                novoGrupo.setDescricao("Usuário não cadastrado");
                 novoGrupo.setXhtmlPaginaInicial("/site/exemplo/inicialAnonimo.xhtml");
                 break;
             case USUARIO_ADMINISTRADOR:
                 novoGrupo.setNome("Grupo Administrador");
+                novoGrupo.setDescricao("Usuário administrador");
                 novoGrupo.setDescricao("Grupo com acesso ao menu Administrador");
                 novoGrupo.setXhtmlPaginaInicial("/site/exemplo/inicialAdministrado.xhtml");
                 novoGrupo.setAtivo(true);

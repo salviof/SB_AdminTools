@@ -4,7 +4,7 @@
  */
 package com.super_bits.Super_Bits.SB_AdminTools.model.config;
 
-import com.super_bits.modulos.SBAcessosModel.controller.FabAcaoSeguranca;
+import com.super_bits.Super_Bits.SB_AdminTools.model.usuariosExemplo.FabGrupoUsuario;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.ItfConfigSBPersistencia;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 
@@ -52,7 +52,7 @@ public class ConfigPersistenciaSB_AdminTools implements ItfConfigSBPersistencia 
 
     @Override
     public Class<? extends ItfFabrica>[] fabricasRegistrosIniciais() {
-        return new Class[]{};
+        return new Class[]{FabGrupoUsuario.class, FabDadosIniciais.class};
     }
 
 }

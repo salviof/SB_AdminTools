@@ -51,7 +51,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private List<Class> entidadesPossiveis;
     private CaminhoCampoReflexao campoSelecionado;
     private GrupoCampos grupoSelecionado;
-    private String StrNomeCampo;
+    private String strNomeCampo;
     private List<ItfAcaoGerenciarEntidade> acoesDeGestaoDoSistema;
     private List<ItfAcaoFormulario> acoesFormularioDaGestao;
     private ItfAcaoGerenciarEntidade acaoGestaoSelecionada;
@@ -71,6 +71,12 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private List<AcaoDoSistema> tiposLabObjeto;
     private AcaoDoSistema acaoTipoInspencao;
 
+    private AcaoDoSistema acaoSelecaoTipoLab;
+    private AcaoDoSistema acaoAssitenteLocalizacao;
+    private AcaoDoSistema acaoDepurarCampo;
+
+    private List<AcaoDoSistema> acoesLocalizadoresDeObjetos;
+
     private boolean isUmaAcaoDosModulosPrincipais(ItfAcaoDoSistema pAcao) {
 
         return !pAcao.getModulo().isUmModuloNativo();
@@ -86,23 +92,36 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     }
 
+    public void alterarLocalizadorObjeto() {
+        System.out.println("Ação Assitente Localizazação alterada para:" + acaoAssitenteLocalizacao);
+    }
+
     @PostConstruct
     public void init() {
         try {
 
             acoesParaCampo = new ArrayList<>();
-            //      acaoFichaTecnica = FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_FICHATECNICA.getAcaoDoSistema().getComoFormulario();
-            //       acaoEditarVisualizacaoItem = FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
+            acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getAcaoDoSistema().getComoFormulario();
+            acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
+            //acaoEditarVisualizacaoItem = TESTES_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
-            //            acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VER_CAMPO.getAcaoDoSistema().getComoFormulario());
-            //           acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_TESTAR_ONCHANGE.getAcaoDoSistema().getComoFormulario());
-            //          acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
-            //         acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
-            //        acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getAcaoDoSistema().getComoFormulario());
-            //       acoesParaCampo.add(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
-            //      setAcaoSelecionada(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_INSTRUCOES.getAcaoDoSistema());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
             xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getAcaoDoSistema().getComoFormulario().getXhtml();
             acaoPadraoDeExibicao = acaoFichaTecnica;
+            acaoSelecaoTipoLab = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getAcaoDoSistema();
+            acoesLocalizadoresDeObjetos = new ArrayList();
+
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema());
+
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_ACAO.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_CAMPO.getAcaoDoSistema());
+
             tiposLabObjeto = new ArrayList<>();
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS.getAcaoDoSistema());
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL.getAcaoDoSistema());
@@ -160,7 +179,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         if (entidadeCarregada == null) {
             return false;
         } else {
-            if (StrNomeCampo == null) {
+            if (strNomeCampo == null) {
                 return false;
             }
 
@@ -171,9 +190,9 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     public void exibirFichaTecnica() {
         try {
             verificarAcaoSelecionada();
-            setAcaoSelecionada(acaoPadraoDeExibicao);
-            xhtmlAcaoAtual = acaoPadraoDeExibicao.getXhtml();
-            paginaUtil.atualizaTelaPorID(idAreaExbicaoAcaoSelecionada);
+            setAcaoDepurarCampo((AcaoDoSistema) acaoPadraoDeExibicao);
+
+            paginaUtil.atualizaTelaPorID("laboratorio");
         } catch (Throwable t) {
 
             String tituloErro = "Erro carregando ficha tecnica";
@@ -234,7 +253,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
                 idCampoAcaoSelecionado++;
             }
             campoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado).getCampos().get(idCampoAcaoSelecionado);
-            StrNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
+            strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
             String tituloErro = "Erro tentando obter Proximo campo anterior de" + getAcaoFormularioSelecionada();
@@ -253,7 +272,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             }
             grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
             campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
-            StrNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
+            strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
             String tituloErro = "Erro tentando obter Campo anterior de" + getAcaoFormularioSelecionada();
@@ -275,7 +294,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             }
             grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
             campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
-            StrNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
+            strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
             String tituloErro = "Erro tentando obter proximo Grupo anterior de" + getAcaoFormularioSelecionada();
@@ -283,6 +302,10 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             SBCore.enviarAvisoAoUsuario(tituloErro);
         }
 
+    }
+
+    public AcaoDoSistema getAcaoSelecaoTipoLab() {
+        return acaoSelecaoTipoLab;
     }
 
     public void verGrupoAnterior() {
@@ -297,7 +320,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             }
             grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
             campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
-            StrNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
+            strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
             String tituloErro = "Erro tentando obter Grupo anterior de" + getAcaoFormularioSelecionada();
@@ -316,11 +339,20 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     }
 
     public String getStrNomeCampo() {
-        return StrNomeCampo;
+        return strNomeCampo;
     }
 
-    public void setStrNomeCampo(String StrNomeCampo) {
-        this.StrNomeCampo = StrNomeCampo;
+    public void setStrNomeCampo(String pStrNomeCampo) {
+        if (pStrNomeCampo != null) {
+            if (!pStrNomeCampo.equals(strNomeCampo)) {
+                if (getEntidadeCarregada() == null) {
+                    carregaEntidade();
+                }
+                getCampoInstanciado();
+            }
+        }
+
+        this.strNomeCampo = pStrNomeCampo;
     }
 
     public ItfAcaoGerenciarEntidade getAcaoGestaoSelecionada() {
@@ -433,8 +465,29 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return tiposLabObjeto;
     }
 
+<<<<<<< HEAD
     public AcaoDoSistema getAcaoTipoInspencao() {
         return acaoTipoInspencao;
+=======
+    public List<AcaoDoSistema> getAcoesLocalizadoresDeObjetos() {
+        return acoesLocalizadoresDeObjetos;
+    }
+
+    public AcaoDoSistema getAcaoAssitenteLocalizacao() {
+        return acaoAssitenteLocalizacao;
+    }
+
+    public void setAcaoAssitenteLocalizacao(AcaoDoSistema acaoAssitenteLocalizacao) {
+        this.acaoAssitenteLocalizacao = acaoAssitenteLocalizacao;
+    }
+
+    public AcaoDoSistema getAcaoDepurarCampo() {
+        return acaoDepurarCampo;
+    }
+
+    public void setAcaoDepurarCampo(AcaoDoSistema acaoDepurarCampo) {
+        this.acaoDepurarCampo = acaoDepurarCampo;
+>>>>>>> 5f7706ef6b98c89ec4b8cede368cb6974ff58550
     }
 
 }
