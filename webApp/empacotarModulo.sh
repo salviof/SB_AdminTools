@@ -1,5 +1,5 @@
 #!/bin/bash
-pastaXHTMLS=../moduloWeb/src/main/resources/META-INF/resources/
+pastaXHTMLS=../moduloWeb/src/main/resources/META-INF/resources/site
 pastaMBPaginas=../moduloWeb/src/main/java/com/super_bits/modulos/paginas
 mkdir -p $pastaXHTMLS
 mkdir -p $pastaMBPaginas

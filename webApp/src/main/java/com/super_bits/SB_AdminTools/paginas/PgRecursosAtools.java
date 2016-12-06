@@ -22,7 +22,7 @@ import javax.inject.Named;
 @Named
 @InfoPagina(nomeCurto = "RC", tags = {"recursos"})
 @InfoAcaoDemonstracaoSB(acao = FabAcaoDemonstracaoSB.DEMONSTRACAO_MB_RECURSOS)
-public class PgRecursos extends MB_PaginaConversation implements ItfMB_Recursos {
+public class PgRecursosAtools extends MB_PaginaConversation implements ItfMB_Recursos {
 
     private ConteudoGenerico conteudoGenerico;
 

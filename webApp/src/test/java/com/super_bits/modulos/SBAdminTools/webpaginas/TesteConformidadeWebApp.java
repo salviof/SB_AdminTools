@@ -6,6 +6,7 @@
 package com.super_bits.modulos.SBAdminTools.webpaginas;
 
 import com.super_bits.Super_Bits.SB_AdminTools.model.config.ConfigPersistenciaSB_AdminTools;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.config.webPaginas.ConfigWPSB_AdminTools;
 import com.super_bits.config.webPaginas.ConfiguradorCoreWebAppSB_AdminTools;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
@@ -28,7 +29,7 @@ public class TesteConformidadeWebApp extends RelatorioTesteWebPaginas {
 
     @Override
     protected void configAmbienteDesevolvimento() {
-
+        Object teste = FabAcaoAdminDeveloper.class;
         SBCore.configurar(new ConfiguradorCoreWebAppSB_AdminTools(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
         SBPersistencia.configuraJPA(new ConfigPersistenciaSB_AdminTools());
         SBWebPaginas.configurar(new ConfigWPSB_AdminTools());

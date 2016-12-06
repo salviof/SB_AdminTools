@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    >
+
+
+
+    <ui:composition >
+
+
+
+
+        <div class="Container100">
+
+
+
+            <h:form>
+                <p:commandButton value="Atualizar Lab"  update="#{pgUtil.makeCaminhoCompletoID('laboratorio')}" />
+
+                <p:commandButton value="Aplicar Lab em visualização Real"  />
+            </h:form>
+
+            <p:fieldset legend="Relatorio:" toggleable="true">
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Formulario LaB:"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioLab}"/>
+                    <p:outputLabel value="Formulario Oficial"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.visualizacaoItem}"/>
+                    <p:outputLabel value="formularioLista"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioLista}"/>
+                    <p:outputLabel value="formularioVisualizacaoItemLista"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioVisualizacaoItemListas}"/>
+                    <p:outputLabel value="formularioVisualizacaoItem"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.visualizacaoItem}"/>
+
+                    <p:outputLabel value="formularioVisualizacaoItemNulo"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.visualizacaoItemNulo}"/>
+                    <p:outputLabel value="chamada"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.chamada}"/>
+                    <p:outputLabel value="exemplo"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.exemplo}"/>
+                    <p:outputLabel value="classe"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.classe}"/>
+                    <p:outputLabel value="descricao"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.descricao}"/>
+
+
+                </p:panelGrid>
+
+            </p:fieldset>
+            <p:fieldset legend="LAB" styleClass="Container100"  id="viewLab">
+                <SBComp:itemCardLab item="#{pgLabProjetoAtual.beanExemploEmResource}" />
+
+            </p:fieldset>
+
+            <p:fieldset legend="Visualizacao Real" styleClass="Container100">
+
+                <SBComp:itemCard item="#{pgLabProjetoAtual.beanExemploEmResource}" />
+            </p:fieldset>
+
+            <p:panel header="Log do Servidor">
+
+
+            </p:panel>
+
+
+
+
+        </div>
+
+
+
+    </ui:composition>
+
+</html>
