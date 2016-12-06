@@ -38,52 +38,52 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     )
     DEV_OBJ_PROJETO_MB_LAB,
     @InfoTipoAcaoFormulario(nomeAcao = "Ver campo",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/verCampo.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/verCampo.xhtml",
             icone = "fa fa-eye")
     DEV_OBJ_PROJETO_FRM_VER_CAMPO,
     @InfoTipoAcaoFormulario(nomeAcao = "Ver Campo em todos formatos",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/verCampoTodosFormatos.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/verCampoTodosFormatos.xhtml",
             icone = "fa fa-eye")
     DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Testar onChange",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarOnChange.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/inspecionarOnChange.xhtml",
             icone = "fa fa-retweet")
     DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE,
     @InfoTipoAcaoFormulario(nomeAcao = "Laboratório de criação ",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/laboratorio.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/laboratorio.xhtml",
             icone = "fa fa-flask")
     DEV_OBJ_PROJETO_FRM_LABORARATORIO,
     @InfoTipoAcaoFormulario(nomeAcao = "VER INSTRUÇÕES",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/instrucoes.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/instrucoes.xhtml",
             icone = "fa fa-map-marker")
     DEV_OBJ_PROJETO_FRM_INSTRUCOES,
     @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar ids",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarIds.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/inspecionarIds.xhtml",
             icone = "fa fa-info")
     DEV_OBJ_PROJETO_FRM_CAMPO_IDS,
     @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar posição",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarPosicao.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/inspecionarPosicao.xhtml",
             icone = "fa fa-question-circle")
     DEV_OBJ_PROJETO_FRM_INSP_POSICOES,
     @InfoTipoAcaoFormulario(nomeAcao = "VER CAMPOS DA AÇÃO",
-            xhtmlDaAcao = "/resources/SBComp/debug/camposDaAcao.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/camposDaAcao.xhtml",
             icone = "fa fa-question-circle")
     DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO,
     @InfoTipoAcaoFormulario(nomeAcao = "CAMPOS DO AGRUPO",
-            xhtmlDaAcao = "/resources/SBComp/debug/camposDoGrupo.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/camposDoGrupo.xhtml",
             icone = "fa fa-question-circle")
     DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO,
     @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
-            xhtmlDaAcao = "/resources/SBComp/debug/visualizadorDeItem.xhtml", icone = "fa fa-eye"
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/visualizadorDeItem.xhtml", icone = "fa fa-eye"
     )
     DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM,
     @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
-            xhtmlDaAcao = "/resources/SBComp/debug/inspecionarCampo.xhml", icone = "fa fa-gears"
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/inspecionarCampo.xhml", icone = "fa fa-gears"
     )
     DEV_OBJ_PROJETO_FRM_INSPECIONAR,
     @InfoTipoAcaoFormulario(nomeAcao
             = "Ficha técnica",
-            xhtmlDaAcao = "/resources/SBComp/debug/campo/inspecionarPropriedades.xhtml",
+            xhtmlDaAcao = "/site/modulos/sb_admin_tools/estruturadeentidade/debug/campo/inspecionarPropriedades.xhtml",
             icone = "fa fa-cogs")
     DEV_OBJ_PROJETO_FRM_FICHATECNICA,
     @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Input",
