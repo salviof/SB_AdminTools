@@ -9,21 +9,10 @@
     <ui:composition template="#{layoutsPaginas.modeloGeral.xhtmlVinculado}">
 
         <ui:define name="divConteudo">
-            <h:form>
-
-
-                <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
-                                       opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
-                                       opcoes="#{pgLabProjetoAtual.tiposLabObjeto}"
-                                       update="#{pgLabProjetoAtual.idAreaExbicaoAcaoSelecionada}"
-                                       />
-                #{pgLabProjetoAtual.xhtmlAcaoAtual}
-
-
-            </h:form>
 
             <h:panelGroup id="#{pgLabProjetoAtual.idAreaExbicaoAcaoSelecionada}">
-                #{pgLabProjetoAtual.xhtmlAcaoAtual}
+
+                <ui:include   src="#{pgLabProjetoAtual.xhtmlAcaoAtual}" />
             </h:panelGroup>
         </ui:define>
     </ui:composition>

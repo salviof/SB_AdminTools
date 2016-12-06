@@ -8,6 +8,7 @@ package com.super_bits.modulos.SBAdminTools.webpaginas;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
+import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoSelecionarAcao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
@@ -68,6 +69,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private int numeroDeFormularios;
     private int numeroDeAcoesController;
     private List<AcaoDoSistema> tiposLabObjeto;
+    private AcaoDoSistema acaoTipoInspencao;
 
     private boolean isUmaAcaoDosModulosPrincipais(ItfAcaoDoSistema pAcao) {
 
@@ -429,6 +431,10 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public List<AcaoDoSistema> getTiposLabObjeto() {
         return tiposLabObjeto;
+    }
+
+    public AcaoDoSistema getAcaoTipoInspencao() {
+        return acaoTipoInspencao;
     }
 
 }

@@ -97,7 +97,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
     DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL,
     @InfoTipoAcaoFormulario(nomeAcao = "Inspecionar Objeto de Entidade",
-            xhtmlDaAcao = "inspecaoComponenteVisual.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
+            xhtmlDaAcao = "inspecaoObjeto.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
     DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Objeto",
             xhtmlDaAcao = "selecaoObjeto.xhtml",

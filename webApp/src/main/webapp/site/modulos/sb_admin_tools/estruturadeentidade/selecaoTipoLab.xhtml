@@ -9,9 +9,11 @@
         <ui:define name="conteudo">
             <h:form>
 
-
-                menu componente visual
-
+                <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
+                                       opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
+                                       opcoes="#{pgLabProjetoAtual.tiposLabObjeto}"
+                                       update="#{pgLabProjetoAtual.idAreaExbicaoAcaoSelecionada}"
+                                       />
             </h:form>
         </ui:define>
     </ui:composition>
