@@ -15,12 +15,14 @@
             </h:form>
         </div>
         <h1> Isnpenção de Inputs</h1>
-        <SBComp:seletorDeAcoes
-            metodo="#{pgLabProjetoAtual.alterarLocalizadorObjeto()}"
-            opcaoSelecionada="#{pgLabProjetoAtual.acaoAssitenteLocalizacao}"
-            opcoes="#{pgLabProjetoAtual.acoesLocalizadoresDeObjetos}"
-            update="assistente"
-            />
+        <h:form>
+            <SBComp:seletorDeAcoes
+                metodo="#{pgLabProjetoAtual.alterarLocalizadorObjeto()}"
+                opcaoSelecionada="#{pgLabProjetoAtual.acaoAssitenteLocalizacao}"
+                opcoes="#{pgLabProjetoAtual.acoesLocalizadoresDeObjetos}"
+                update="assistente"
+                />
+        </h:form>
 
         <p:fieldset legend="Assistende de Localização de Campo" id="assistente" toggleable="true" >
 

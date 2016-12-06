@@ -6,27 +6,34 @@
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition  >
-        <h:panelGroup class="Container100">
-            <p:fieldset  legend="Dados da Entidade" class="Container20 Responsive">
-                <h:form >
 
+        <p:fieldset  legend="Dados da Entidade" class="Container60 Responsive" toggleable="true">
+            <h:form >
+                <p:panelGrid columns="2">
                     <p:panelGrid columns="2">
-                        <p:panelGrid columns="1" >
-                            <p:inputText value="#{pgLabProjetoAtual.strNomeDaEntidade}"/>
-                            <p:inputNumber value="#{pgLabProjetoAtual.idDaEntidade}" />
-                        </p:panelGrid>
-                        <p:commandButton icon="fa fa-refresh" action="#{pgLabProjetoAtual.carregaEntidade()}"
-                                         update="#{pgUtil.makeCaminhoCompletoID('laboratorio')} @form"/>
-                        <p:outputLabel value="Nome do tipo de  Entidade"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nomeDoObjeto}"/>
-                        <p:outputLabel value="Nome:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nome}"/>
-                        <p:outputLabel value="id:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.id}"/>
-                        <p:outputLabel value="Exibindo o Campo"/><p:outputLabel value="#{pgLabProjetoAtual.strNomeCampo}"/>
+                        <h:panelGroup>
+                            <p:panelGrid columns="1" >
+                                <p:inputText value="#{pgLabProjetoAtual.strNomeDaEntidade}"/>
+                                <p:inputNumber value="#{pgLabProjetoAtual.idDaEntidade}" />
+                            </p:panelGrid>
+                            <p:commandButton icon="fa fa-refresh" action="#{pgLabProjetoAtual.carregaEntidade()}"
+                                             update="#{pgUtil.makeCaminhoCompletoID('laboratorio')} @form"/>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{pgLabProjetoAtual.entidadeFoiCarregada}">
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel value="Nome do tipo de  Entidade"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nomeDoObjeto}"/>
+                                <p:outputLabel value="Nome:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nome}"/>
+                                <p:outputLabel value="id:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.id}"/>
+                                <p:outputLabel value="Exibindo o Campo"/><p:outputLabel value="#{pgLabProjetoAtual.strNomeCampo}"/>
+                            </p:panelGrid>
+                        </h:panelGroup>
                     </p:panelGrid>
+                </p:panelGrid>
 
-                </h:form>
+            </h:form>
 
-            </p:fieldset>
-        </h:panelGroup>
+        </p:fieldset>
+
     </ui:composition>
 </html>
 

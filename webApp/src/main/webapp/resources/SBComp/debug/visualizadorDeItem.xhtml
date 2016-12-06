@@ -16,48 +16,59 @@ and open the template in the editor.
 
 
 
-    <ui:composition template="/resources/SBComp/template/basico/conteudoEmBranco.xhtml"  >
-
-        <ui:define name="conteudo">
-
-
-            <div class="Container100">
+    <ui:composition >
 
 
 
-                <h:form>
-                    <p:commandButton value="Atualizar Lab"  update="#{pgUtil.makeCaminhoCompletoID('viewLab')}" />
 
-                    <p:commandButton value="Aplicar Lab em visualização Real"  />
-                </h:form>
-
-                <p:panel header="LAB" styleClass="Container100"  id="viewLab">
-                    <SBComp:itemCardLab item="#{pgTestesCampo.beanExemploEmResource}" />
-
-                </p:panel>
-
-                <p:panel header="Visualizacao Real" styleClass="Container100">
-                    #{pgRecursos.comprador.nome}
-                    <SBComp:itemCard item="#{pgTestesCampo.beanExemploEmResource}" />
-                </p:panel>
-
-                <p:panel header="Log do Servidor">
+        <div class="Container100">
 
 
-                </p:panel>
+
+            <h:form>
+                <p:commandButton value="Atualizar Lab"  update="#{pgUtil.makeCaminhoCompletoID('laboratorio')}" />
+
+                <p:commandButton value="Aplicar Lab em visualização Real"  />
+            </h:form>
+
+            <p:fieldset legend="Relatorio:" toggleable="true">
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Formulario LaB:"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioLab}"/>
+                    <p:outputLabel value="Formulario Oficial"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.visualizacaoItem}"/>
+                    <p:outputLabel value="formularioLista"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioLista}"/>
+                    <p:outputLabel value="formularioVisualizacaoItemLista"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.formularioVisualizacaoItemListas}"/>
+                    <p:outputLabel value="formularioVisualizacaoItem"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.visualizacaoItem}"/>
+
+                    <p:outputLabel value="formularioVisualizacaoItemNulo"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.visualizacaoItemNulo}"/>
+                    <p:outputLabel value="chamada"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.chamada}"/>
+                    <p:outputLabel value="exemplo"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.exemplo}"/>
+                    <p:outputLabel value="classe"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.classe}"/>
+                    <p:outputLabel value="descricao"/><p:outputLabel value="#{pgLabProjetoAtual.beanExemploEmResource.infoBean.descricao}"/>
 
 
-                #{pgTestesCampo.beanExemploEmResource.infoBean.classe}
-                #{pgTestesCampo.beanExemploEmResource.infoBean.visualizacaoItem}
+                </p:panelGrid>
 
-                ITEM CARD:::
+            </p:fieldset>
+            <p:fieldset legend="LAB" styleClass="Container100"  id="viewLab">
+                <SBComp:itemCardLab item="#{pgLabProjetoAtual.beanExemploEmResource}" />
 
-                <br/>
-                CardLab:
+            </p:fieldset>
+
+            <p:fieldset legend="Visualizacao Real" styleClass="Container100">
+
+                <SBComp:itemCard item="#{pgLabProjetoAtual.beanExemploEmResource}" />
+            </p:fieldset>
+
+            <p:panel header="Log do Servidor">
 
 
-            </div>
-        </ui:define>
+            </p:panel>
+
+
+
+
+        </div>
+
 
 
     </ui:composition>

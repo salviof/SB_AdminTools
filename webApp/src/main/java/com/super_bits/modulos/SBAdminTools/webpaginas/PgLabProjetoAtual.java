@@ -8,6 +8,7 @@ package com.super_bits.modulos.SBAdminTools.webpaginas;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
+import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoFormulario;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoSelecionarAcao;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
@@ -64,6 +65,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private List<ItfAcaoFormulario> acoesParaCampo;
     private ItfBeanSimples entidadeCarregada;
     private Class classeDaEntidade;
+    private ItfAcaoFormulario acaoFormLocalizarEntidade;
 
     private int numerodeManagedBeans;
     private int numeroDeFormularios;
@@ -74,6 +76,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private AcaoDoSistema acaoSelecaoTipoLab;
     private AcaoDoSistema acaoAssitenteLocalizacao;
     private AcaoDoSistema acaoDepurarCampo;
+
+    private ItfAcaoFormulario acaoLaboratorioComponenteVisual;
 
     private List<AcaoDoSistema> acoesLocalizadoresDeObjetos;
 
@@ -103,8 +107,9 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acoesParaCampo = new ArrayList<>();
             acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getAcaoDoSistema().getComoFormulario();
             acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
-            //acaoEditarVisualizacaoItem = TESTES_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
+            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
+            acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema().getComoFormulario();
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getAcaoDoSistema().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE.getAcaoDoSistema().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
@@ -448,8 +453,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     }
 
     public boolean isModoInspecionarCampo() {
-        return false;
-//        return !acaoSelecionada.equals(FabAcaoDemonstracaoSB.TESTES_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro());
+
+        return !acaoSelecionada.equals(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro());
     }
 
     public ItfAcaoFormulario getAcaoEditarVisualizacaoItem() {
@@ -465,10 +470,10 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return tiposLabObjeto;
     }
 
-<<<<<<< HEAD
     public AcaoDoSistema getAcaoTipoInspencao() {
         return acaoTipoInspencao;
-=======
+    }
+
     public List<AcaoDoSistema> getAcoesLocalizadoresDeObjetos() {
         return acoesLocalizadoresDeObjetos;
     }
@@ -487,7 +492,43 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void setAcaoDepurarCampo(AcaoDoSistema acaoDepurarCampo) {
         this.acaoDepurarCampo = acaoDepurarCampo;
->>>>>>> 5f7706ef6b98c89ec4b8cede368cb6974ff58550
+
+    }
+
+    public ItfAcaoFormulario getAcaoFormLocalizarEntidade() {
+        return acaoFormLocalizarEntidade;
+    }
+
+    public boolean isEntidadeFoiCarregada() {
+        if (entidadeCarregada != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isLaboratorioComponenteVisualLiberado() {
+        if (!isEntidadeFoiCarregada()) {
+            return false;
+        }
+        if (acaoLaboratorioComponenteVisual == null) {
+            return false;
+        }
+        return true;
+    }
+
+    public void alterarAcaoLaboratorioComponenteVisual() {
+        pagRecursos.setId(idDaEntidade);
+        pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
+        System.out.println("Ação alterada para" + acaoLaboratorioComponenteVisual);
+    }
+
+    public ItfAcaoFormulario getAcaoLaboratorioComponenteVisual() {
+        return acaoLaboratorioComponenteVisual;
+    }
+
+    public void setAcaoLaboratorioComponenteVisual(ItfAcaoFormulario acaoLaboratorioComponenteVisual) {
+        this.acaoLaboratorioComponenteVisual = acaoLaboratorioComponenteVisual;
     }
 
 }
