@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.super_bits.modulos.SBAdminTools.webpaginas;
+package com.super_bits.SB_AdminTools.paginas;
 
 import com.super_bits.Super_Bits.SB_AdminTools.model.exemplo.ConteudoGenerico;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;

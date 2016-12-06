@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
+        <ui:define name="conteudo">
+
+
+            <h:form>
+
+                <div class="Fright">
+                    <h:form>
+                        <SBComp:botaoDeAcao_Pagina acao="#{pgLabProjetoAtual.acaoSelecaoTipoLab}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
+                    </h:form>
+                </div>
+
+
+
+
+            </h:form>
+
+
+            <ui:include src="#{pgLabProjetoAtual.acaoFormLocalizarEntidade.xhtml}" />
+
+
+
+            <div class="SeparatorFull"/>
+
+
+
+
+
+
+
+            <h:panelGroup id="subMenu" >
+
+            </h:panelGroup>
+
+            <h:panelGroup id="laboratorio" >
+                [  #{pgRecursos.conteudoGenerico} ---]
+                <h:form>
+                    <SBComp:botaoDeAcao rendered="#{pgLabProjetoAtual.entidadeFoiCarregada}"
+                                        acao="#{pgLabProjetoAtual.acaoEditarVisualizacaoItem}"
+                                        armazenamentoAcaoExecutada="#{pgLabProjetoAtual.acaoLaboratorioComponenteVisual}"
+                                        tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
+                                        update="laboratorio"
+                                        metodo="#{pgLabProjetoAtual.alterarAcaoLaboratorioComponenteVisual()}"
+                                        />
+                </h:form>
+
+
+                <p:lifecycle />
+                #{pgLabProjetoAtual.acaoLaboratorioComponenteVisual.xhtml}
+                <ui:include src="#{pgLabProjetoAtual.acaoLaboratorioComponenteVisual.xhtml}"
+                            rendered="#{pgLabProjetoAtual.laboratorioComponenteVisualLiberado}"/>
+
+            </h:panelGroup>
+
+
+
+
+            menu componente visual
+
+
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

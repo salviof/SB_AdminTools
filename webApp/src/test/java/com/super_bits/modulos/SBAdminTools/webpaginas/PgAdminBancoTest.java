@@ -5,6 +5,7 @@
  */
 package com.super_bits.modulos.SBAdminTools.webpaginas;
 
+import com.super_bits.modulos.paginas.PgAdminBanco;
 import org.junit.Test;
 
 /**

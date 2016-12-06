@@ -1,52 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.super_bits.Super_Bits.model.adminTools</groupId>
-    <artifactId>modelRegras</artifactId>
-    <name>SB_AdminToolsModelRegras</name>
+    <groupId>com.super_bits.modulos</groupId>
+    <artifactId>modAdminTools</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>modAdminTools</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <projetoSB.nomeBanco>${project.name}</projetoSB.nomeBanco>
-        <projetoSB.cliente>Super_Bits</projetoSB.cliente>
-        <projetoSB.grupoProjeto>SB_AdminTools</projetoSB.grupoProjeto>
     </properties>
 
-
-
     <dependencies>
+
+        <dependency>
+            <groupId>com.super_bits.Super_Bits.model.adminTools</groupId>
+            <artifactId>modelRegras</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
 
         <dependency>
             <groupId>com.super_bits</groupId>
-            <artifactId>SBPersistencia</artifactId>
+            <artifactId>SBWebPaginas</artifactId>
             <version>1.5.2-SNAPSHOT</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.super_bits.modulos</groupId>
-            <artifactId>SBAcessosModel</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
-
             <type>jar</type>
         </dependency>
 
-
-
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-util</artifactId>
+            <version>9.3.6.v20151106</version>
+        </dependency>
     </dependencies>
+
 
 
     <build>
         <plugins>
+
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -62,16 +64,18 @@
                 </configuration>
             </plugin>
         </plugins>
+
+
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-
             </resource>
         </resources>
+
+
+
     </build>
-
-
 
 
 </project>
