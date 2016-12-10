@@ -1,3 +1,4 @@
 OS SEGUINTES ERROS DE CONFIGURAÇÃO FORAM ENCONTRADOS NO SISTEMA: 
  Você pode encontrar informações mais detalhadas do erro no SystemOut 
+->O arquivo xhtml da ação FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR não foi encontrado em /home/superBits/projetos/Super_Bits/source/SB_AdminTools/webApp/src/main/webapp/site/modulos/sb_admin_tools/estruturadeentidade/debug/inspecionarCampo.xhml
 

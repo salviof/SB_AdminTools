@@ -2,7 +2,7 @@ DIRETORIO_PROJETO=`pwd`
 DIRETORIO_WEBAPP_SERVLET=$DIRETORIO_PROJETO/src/main/webapp
 DIRETORIO_RESOURCES=$DIRETORIO_PROJETO/src/main/webapp/resources
 
-DIRETORIO_SB_COMP_RESOURCES=/home/superBits/recursos/SBComp
+DIRETORIO_SB_COMP_RESOURCES=/home/superBits/recursos
 DIRETORIO_ORIGEM_WEB_INF=/home/superBits/recursos/WEB-INF
 
 if [ ! -d $DIRETORIO_WEBAPP_SERVLET ]; then
@@ -15,9 +15,14 @@ if [ ! -d $DIRETORIO_WEBAPP_SERVLET ]; then
 fi
 
 
+cd $DIRETORIO_SB_COMP_RESOURCES
+./sincroniza.sh
+
+
 
 rsync -Cravzp --exclude='*/.git' --exclude='*/target'  $DIRETORIO_RESOURCES/SBComp  $DIRETORIO_SB_COMP_RESOURCES
-cd $DIRETORIO_SB_COMP_RESOURCES
+cd $DIRETORIO_SB_COMP_RESOURCES/SBComp
+
 ./sincroniza.sh
 
 

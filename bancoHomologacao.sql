@@ -186,7 +186,7 @@ CREATE TABLE `GrupoUsuarioSB` (
 
 LOCK TABLES `GrupoUsuarioSB` WRITE;
 /*!40000 ALTER TABLE `GrupoUsuarioSB` DISABLE KEYS */;
-INSERT INTO `GrupoUsuarioSB` VALUES (1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,'2016-12-05',NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL),(2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,'2016-12-05',NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL);
+INSERT INTO `GrupoUsuarioSB` VALUES (1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,'2016-12-06',NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL),(2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,'2016-12-06',NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL);
 /*!40000 ALTER TABLE `GrupoUsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -643,7 +643,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,NULL,'teste','',NULL,'2016-12-05',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,NULL,'teste','',NULL,'2016-12-06',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -708,4 +708,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2016-12-05 22:52:12
+=======
+-- Dump completed on 2016-12-06 11:48:54
+>>>>>>> 23449e519b0d1d58a410b9724bf02f10ce1b7602

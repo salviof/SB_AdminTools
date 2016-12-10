@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
+        <ui:define name="conteudo">
+            <p:fieldset legend="Açoes de Gestão da entidade" class="Container20 Responsive">
+
+                <h:form>
+                    <p:selectOneMenu  value="#{pgLabProjetoAtual.acaoGestaoSelecionada}"
+                                      effect="fold"
+                                      converter="conversorGenerico"
+                                      label="#{acaoGestao.nomeAcao}"
+                                      style="width:125px!important;"
+                                      >
+                        <f:selectItem itemLabel="Ação de Gestão" itemValue="" />
+                        <p:ajax global="true"   event="valueChange"  update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <f:selectItems
+                            var="acaoGestao"
+                            itemLabel="#{acaoGestao.nomeAcao}"
+                            itemValue="#{acaoGestao}"
+                            value="#{pgLabProjetoAtual.acoesDeGestaoDoSistema}" />
+                        <p:column style="width:10%">
+                            <h:form>
+                                <p:commandButton icon="#{acaoGestao.iconeAcao}" disabled="#{true}" />
+                            </h:form>
+                        </p:column>
+                        <p:column style="width:10%">
+                            #{acaoGestao.nomeAcao}
+                        </p:column>
+                    </p:selectOneMenu>
+                </h:form>
+            </p:fieldset>
+
+            <p:fieldset  legend="Localizador de campos" class="Container20 Responsive">
+
+                <h:form>
+                    <p:selectOneMenu  value="#{pgLabProjetoAtual.acaoFormularioSelecionada}"
+                                      effect="fold"
+                                      converter="conversorGenerico"
+                                      var="acaoFormulario"
+                                      style="width:125px!important;"
+                                      >
+                        <f:selectItem itemLabel="Ação do formulário"
+                                      itemValue="" />
+
+                        <f:selectItems value="#{pgLabProjetoAtual.acoesFormularioDaGestao}"
+                                       var="acaoFormulario"
+                                       itemValue="#{acaoFormulario}"
+                                       itemLabel="#{acaoFormulario.nomeAcao}"
+                                       />
+
+                        <p:ajax global="true"   event="valueChange"  update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:column style="width:10%">
+                            <h:form>
+                                <p:commandButton icon="#{acaoFormulario.iconeAcao}" disabled="#{true}" />
+                            </h:form>
+                        </p:column>
+
+                        <p:column style="width:10%">
+                            #{acaoFormulario.nomeAcao}
+                        </p:column>
+
+
+                    </p:selectOneMenu>
+
+                </h:form>
+
+
+
+
+                <h:form>
+                    <p:selectOneMenu  value="#{pgLabProjetoAtual.grupoSelecionado}"
+                                      effect="fold" converter="conversorGenerico"
+                                      var="grupo"
+                                      label="#{grupo.nomeGrupo}"
+                                      styleClass="campoResponsivo"
+                                      style="width:125px!important"
+                                      >
+                        <f:selectItem itemLabel="Grupo de Campos" itemValue="" />
+                        <f:selectItems value="#{pgLabProjetoAtual.acaoFormularioSelecionada.gruposDeCampos}"
+                                       var="#{grupo}"
+                                       itemLabel="#{grupo.nomeGrupo}"
+
+                                       />
+
+                        <p:column style="width:10%">
+                            #{grupo.nomeGrupo}
+                        </p:column>
+
+
+
+
+                    </p:selectOneMenu>
+                </h:form>
+
+
+            </p:fieldset>
+        </ui:define>
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+
