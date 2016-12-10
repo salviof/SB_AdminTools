@@ -465,10 +465,11 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return tiposLabObjeto;
     }
 
-<<<<<<< HEAD
     public AcaoDoSistema getAcaoTipoInspencao() {
         return acaoTipoInspencao;
-=======
+
+    }
+
     public List<AcaoDoSistema> getAcoesLocalizadoresDeObjetos() {
         return acoesLocalizadoresDeObjetos;
     }
@@ -487,7 +488,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void setAcaoDepurarCampo(AcaoDoSistema acaoDepurarCampo) {
         this.acaoDepurarCampo = acaoDepurarCampo;
->>>>>>> 5f7706ef6b98c89ec4b8cede368cb6974ff58550
+
     }
 
 }

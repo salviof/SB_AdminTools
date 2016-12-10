@@ -36,7 +36,7 @@ public enum FabDadosIniciais implements ItfFabrica {
             case CONTEUDOGENERICO1:
                 ConteudoGenerico contTeste = new ConteudoGenerico();
                 contTeste.setId(1);
-                contTeste.setNome("Conteúdo Teste");
+                contTeste.setNome("Conteúdo Teste ");
                 contTeste.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(5, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
                 return contTeste;
             default:

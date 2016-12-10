@@ -5,35 +5,14 @@
       xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
-        <ui:define name="conteudo">
-<<<<<<< HEAD
-            <h:form>
-
-=======
-
-
-            <h:form>
-
-
->>>>>>> 5f7706ef6b98c89ec4b8cede368cb6974ff58550
-                <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
-                                       opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
-                                       opcoes="#{pgLabProjetoAtual.tiposLabObjeto}"
-                                       update="#{pgLabProjetoAtual.idAreaExbicaoAcaoSelecionada}"
-                                       />
-<<<<<<< HEAD
-            </h:form>
-=======
-
-
-
-            </h:form>
-
-
-
->>>>>>> 5f7706ef6b98c89ec4b8cede368cb6974ff58550
-        </ui:define>
+    <ui:composition >
+        <h:form>
+            <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.executarAcaoSelecionada()}"
+                                   opcaoSelecionada="#{pgLabProjetoAtual.acaoSelecionada}"
+                                   opcoes="#{pgLabProjetoAtual.tiposLabObjeto}"
+                                   update="#{pgLabProjetoAtual.idAreaExbicaoAcaoSelecionada}"
+                                   />
+        </h:form>
     </ui:composition>
 </html>
 
