@@ -472,10 +472,6 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public AcaoDoSistema getAcaoTipoInspencao() {
         return acaoTipoInspencao;
-<<<<<<< HEAD:webApp/src/main/java/com/super_bits/modulos/SBAdminTools/webpaginas/PgLabProjetoAtual.java
-
-=======
->>>>>>> 23449e519b0d1d58a410b9724bf02f10ce1b7602:moduloWeb/src/main/java/com/super_bits/modulos/paginas/adminTools/PgLabProjetoAtual.java
     }
 
     public List<AcaoDoSistema> getAcoesLocalizadoresDeObjetos() {
@@ -497,8 +493,6 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     public void setAcaoDepurarCampo(AcaoDoSistema acaoDepurarCampo) {
         this.acaoDepurarCampo = acaoDepurarCampo;
 
-<<<<<<< HEAD:webApp/src/main/java/com/super_bits/modulos/SBAdminTools/webpaginas/PgLabProjetoAtual.java
-=======
     }
 
     public ItfAcaoFormulario getAcaoFormLocalizarEntidade() {
@@ -535,7 +529,6 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void setAcaoLaboratorioComponenteVisual(ItfAcaoFormulario acaoLaboratorioComponenteVisual) {
         this.acaoLaboratorioComponenteVisual = acaoLaboratorioComponenteVisual;
->>>>>>> 23449e519b0d1d58a410b9724bf02f10ce1b7602:moduloWeb/src/main/java/com/super_bits/modulos/paginas/adminTools/PgLabProjetoAtual.java
     }
 
 }
