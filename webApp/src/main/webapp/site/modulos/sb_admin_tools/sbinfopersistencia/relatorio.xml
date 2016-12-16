@@ -19,9 +19,16 @@
 
 
 
+
+
                 <p:commandButton value="Atualizar" update="@form" />
 
             </h:form>
+
+            <h:form>
+                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoPersistirBanco}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
+            </h:form>
+
 
         </ui:define>
     </ui:composition>

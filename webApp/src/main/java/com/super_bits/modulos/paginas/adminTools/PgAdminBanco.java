@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import org.primefaces.event.FileUploadEvent;
@@ -35,7 +36,7 @@ import org.primefaces.event.FileUploadEvent;
  * @author desenvolvedor
  */
 @InfoAcaoAdminDeveloper(acao = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB)
-@ViewScoped
+@SessionScoped
 @Named
 @InfoPagina(nomeCurto = "ADM_BANCO", tags = {"Administração de Banco"})
 public class PgAdminBanco extends MB_PaginaConversation {
@@ -50,6 +51,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
     private AcaoDoSistema acaoFromMapearColunas;
     private AcaoDoSistema acaoCtrProcessar;
     private AcaoDoSistema acaoCtrGravarDados;
+    private AcaoDoSistema acaoPersistirBanco;
     private String nomeArquivoEnviado;
     private String tamanhoArquivoEnviado;
     private String caminhoArquhivoImportacao;
@@ -70,6 +72,22 @@ public class PgAdminBanco extends MB_PaginaConversation {
                             mapaDeCamposImp, classe);
             importador.processar();
             executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO);
+        }
+        if (isAcaoSelecionadaIgualA(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR)) {
+
+            if (importador.isPlanilhaCarregada()) {
+                String mensagem = "Relatório de falhas:";
+                if (importador.getRegistrosSucesso().size() > 0) {
+
+                    for (ItfBeanSimples registro : importador.getRegistrosSucesso()) {
+                        if (UtilSBPersistencia.mergeRegistro(registro) == null) {
+                            mensagem += "Falha cadastrando " + registro.getNome();
+                        }
+                    }
+                    SBCore.enviarAvisoAoUsuario(mensagem);
+                }
+
+            }
         }
 
     }
@@ -104,6 +122,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
             acaoFromMapearColunas = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS.getAcaoDoSistema();
             acaoCtrProcessar = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP.getAcaoDoSistema();
             acaoCtrGravarDados = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP.getAcaoDoSistema();
+            acaoPersistirBanco = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR.getAcaoDoSistema();
             caminhoArquhivoImportacao = SBCore.getControleDeSessao().getSessaoAtual().getPastaTempDeSessao() + "/importacaoExel.xls";
             for (Class entidade : UtilSBPersistencia.getTodasEntidades()) {
                 entidadesDisponiveis.add(MapaObjetosProjetoAtual.getEstruturaObjeto(entidade));
@@ -189,6 +208,10 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
     public ImportacaoExcel<ItfBeanSimples> getImportador() {
         return importador;
+    }
+
+    public AcaoDoSistema getAcaoPersistirBanco() {
+        return acaoPersistirBanco;
     }
 
 }

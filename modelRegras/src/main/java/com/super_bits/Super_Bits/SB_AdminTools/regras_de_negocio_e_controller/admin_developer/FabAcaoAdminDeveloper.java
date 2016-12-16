@@ -173,6 +173,8 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_BANCO_FRM_EDITAR_HQL,
     @InfoTipoAcaoController(nomeAcao = "Listar via SQL")
     FERRAMENTAS_BANCO_CTR_LISTAR_SQL,
+    @InfoTipoAcaoController(nomeAcao = "Persistir dados", iconeFonteAnsowame = FabIconeFontAwesome.REG_BAIXAR)
+    FERRAMENTAS_BANCO_CTR_PERSISTIR,
     @InfoTipoAcaoController(nomeAcao = "Processar dados")
     FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP,
     @InfoTipoAcaoController(nomeAcao = "Gravar dados",
@@ -251,6 +253,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_BANCO_FRM_EDITAR_HQL:
             case FERRAMENTAS_BANCO_CTR_LISTAR_SQL:
             case FERRAMENTAS_BANCO_CTR_LISTAR_HQL:
+            case FERRAMENTAS_BANCO_CTR_PERSISTIR:
             case FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA:
             case FERRAMENTAS_BANCO_FRM_IMPORTADOR:
             case FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO:
