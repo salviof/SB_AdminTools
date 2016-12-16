@@ -9,12 +9,10 @@
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
-                #{pgAdminBanco.importador.relatorioImportacao}
+
                 <h:outputText value="#{pgAdminBanco.importador.relatorioImportacao}" escape="false" />
-                Sucesso:
-                #{pgAdminBanco.importador.registrosSucesso}
-                Erros:
-                #{pgAdminBanco.importador.registrosErro}
+
+
 
 
 

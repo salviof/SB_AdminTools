@@ -71,6 +71,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private int numeroDeFormularios;
     private int numeroDeAcoesController;
     private List<AcaoDoSistema> tiposLabObjeto;
+    private AcaoDoSistema acaoBancoAdm;
     private AcaoDoSistema acaoTipoInspencao;
 
     private AcaoDoSistema acaoSelecaoTipoLab;
@@ -131,6 +132,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS.getAcaoDoSistema());
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL.getAcaoDoSistema());
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT.getAcaoDoSistema());
+            acaoBancoAdm = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getAcaoDoSistema();
             for (ItfAcaoDoSistema acaoDoSistema : MapaAcoesSistema.getListaTodasAcoes()) {
 
                 if (isUmaAcaoDosModulosPrincipais(acaoDoSistema)) {
@@ -529,6 +531,10 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void setAcaoLaboratorioComponenteVisual(ItfAcaoFormulario acaoLaboratorioComponenteVisual) {
         this.acaoLaboratorioComponenteVisual = acaoLaboratorioComponenteVisual;
+    }
+
+    public AcaoDoSistema getAcaoBancoAdm() {
+        return acaoBancoAdm;
     }
 
 }
