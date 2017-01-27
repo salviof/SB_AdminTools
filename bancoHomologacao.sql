@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.30, for Linux (x86_64)
+-- MySQL dump 10.14  Distrib 5.5.50-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: SB_AdminToolsModelRegras
 -- ------------------------------------------------------
--- Server version	5.6.30
+-- Server version	5.5.50-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -102,8 +102,8 @@ CREATE TABLE `Cidade` (
   PRIMARY KEY (`id`),
   KEY `FK_dtib3lbguy27ekgrthr3qbn02` (`id_Localidade`),
   KEY `FK_eaqikr2831a8b1g70sv84role` (`unidadeFederativa_id`),
-  CONSTRAINT `FK_dtib3lbguy27ekgrthr3qbn02` FOREIGN KEY (`id_Localidade`) REFERENCES `Localidade` (`id`),
-  CONSTRAINT `FK_eaqikr2831a8b1g70sv84role` FOREIGN KEY (`unidadeFederativa_id`) REFERENCES `UnidadeFederativa` (`id`)
+  CONSTRAINT `FK_eaqikr2831a8b1g70sv84role` FOREIGN KEY (`unidadeFederativa_id`) REFERENCES `UnidadeFederativa` (`id`),
+  CONSTRAINT `FK_dtib3lbguy27ekgrthr3qbn02` FOREIGN KEY (`id_Localidade`) REFERENCES `Localidade` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,8 +136,8 @@ CREATE TABLE `ConteudoGenerico` (
   KEY `FK_60v2bh2g6gvav4fj60gm281py` (`localizacao_id`),
   KEY `FK_bxpx3dwqferbx720wl7jmmeoq` (`usuarioAlteracao_id`),
   KEY `FK_6fpiqrvn7bc4id4t2dwjkn1o3` (`usuarioInsercao_id`),
-  CONSTRAINT `FK_60v2bh2g6gvav4fj60gm281py` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`),
   CONSTRAINT `FK_6fpiqrvn7bc4id4t2dwjkn1o3` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
+  CONSTRAINT `FK_60v2bh2g6gvav4fj60gm281py` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`),
   CONSTRAINT `FK_bxpx3dwqferbx720wl7jmmeoq` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -186,7 +186,7 @@ CREATE TABLE `GrupoUsuarioSB` (
 
 LOCK TABLES `GrupoUsuarioSB` WRITE;
 /*!40000 ALTER TABLE `GrupoUsuarioSB` DISABLE KEYS */;
-INSERT INTO `GrupoUsuarioSB` VALUES (1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,'2016-12-13',NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL),(2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,'2016-12-13',NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL);
+INSERT INTO `GrupoUsuarioSB` VALUES (1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,'2017-01-13',NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL),(2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,'2017-01-13',NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL);
 /*!40000 ALTER TABLE `GrupoUsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,9 +211,9 @@ CREATE TABLE `Ips` (
   KEY `FK_1074a7ooid3slxgsd3kl3y0ye` (`tipo_id`),
   KEY `FK_957n3ouukan1rm7xd9bebpy3t` (`usuarioAlteracao_id`),
   KEY `FK_r3m6gytb2ha2oomronuuaui0i` (`usuarioInsercao_id`),
+  CONSTRAINT `FK_r3m6gytb2ha2oomronuuaui0i` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FK_1074a7ooid3slxgsd3kl3y0ye` FOREIGN KEY (`tipo_id`) REFERENCES `TipoIp` (`id`),
-  CONSTRAINT `FK_957n3ouukan1rm7xd9bebpy3t` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
-  CONSTRAINT `FK_r3m6gytb2ha2oomronuuaui0i` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`)
+  CONSTRAINT `FK_957n3ouukan1rm7xd9bebpy3t` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -433,8 +433,8 @@ CREATE TABLE `Permitido_Usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_9j92iu9201tx0dm010v5fq4wo` (`usuario_id`,`acesso_id`),
   KEY `FK_fk85i2tfymqt0wynyaoexq9tg` (`acesso_id`),
-  CONSTRAINT `FK_fk85i2tfymqt0wynyaoexq9tg` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`),
-  CONSTRAINT `FK_iwr4xspc3rxmi9d3ny0bv7iyv` FOREIGN KEY (`usuario_id`) REFERENCES `UsuarioSB` (`id`)
+  CONSTRAINT `FK_iwr4xspc3rxmi9d3ny0bv7iyv` FOREIGN KEY (`usuario_id`) REFERENCES `UsuarioSB` (`id`),
+  CONSTRAINT `FK_fk85i2tfymqt0wynyaoexq9tg` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -631,9 +631,9 @@ CREATE TABLE `UsuarioSB` (
   KEY `FK_gtnjpy9euexr0nh428wnhnj60` (`grupo_id`),
   KEY `FK_4f4coyrx3q04uo7byen68lkej` (`usuarioAlteracao_id`),
   KEY `FK_s0r9y9dy7c637ivd7rpo0d4r0` (`usuarioInsercao_id`),
+  CONSTRAINT `FK_s0r9y9dy7c637ivd7rpo0d4r0` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FK_4f4coyrx3q04uo7byen68lkej` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
-  CONSTRAINT `FK_gtnjpy9euexr0nh428wnhnj60` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`),
-  CONSTRAINT `FK_s0r9y9dy7c637ivd7rpo0d4r0` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`)
+  CONSTRAINT `FK_gtnjpy9euexr0nh428wnhnj60` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -643,7 +643,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,NULL,'teste','',NULL,'2016-12-13',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,NULL,'teste','',NULL,'2017-01-13',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -708,4 +708,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-12-13  7:56:50
+-- Dump completed on 2017-01-13 22:22:06

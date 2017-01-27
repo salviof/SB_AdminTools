@@ -8,31 +8,29 @@ package com.super_bits.modulos.paginas.adminTools;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
-import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoFormulario;
-import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoSelecionarAcao;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeSimples;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStrings;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoReflexao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
-import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
+import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.ItfMB_Recursos;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.anotacoes.InfoPagina;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
-import javax.inject.Named;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStrings;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.ItfMB_Recursos;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
@@ -110,7 +108,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
             acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
-            acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema().getComoFormulario();
+            acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema().getComoFormulario();
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getAcaoDoSistema().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE.getAcaoDoSistema().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
@@ -123,10 +121,10 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acaoSelecaoTipoLab = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getAcaoDoSistema();
             acoesLocalizadoresDeObjetos = new ArrayList();
 
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema());
 
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_ACAO.getAcaoDoSistema());
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_PROJETO_FRM_SELECAO_CAMPO.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_ACAO.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO.getAcaoDoSistema());
 
             tiposLabObjeto = new ArrayList<>();
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS.getAcaoDoSistema());

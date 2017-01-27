@@ -1,8 +1,8 @@
 VERSAO=1.0-SNAPSHOT
-NOME_PROJETO=webApp
-NOME_SOCIAL=SB_AdminToolswebApp
+NOME_PROJETO=modelRegras
+NOME_SOCIAL=SB_AdminToolsModelRegras
 #PODE SER BIBLIOTECA, MOBILE, DESKTOP, OU WEB
-TIPO_PROJETO=war
+TIPO_PROJETO=jar
 ENDERECO_WEB=demoAdminTools.superbits.org.br
 ENDERECO_WEB_REQUISITO=requisitoAdminTools.superbits.org.br
 NOME_CLIENTE=Super_Bits

@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import org.primefaces.event.FileUploadEvent;
 
@@ -71,7 +70,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
                     = new ImportacaoExcel<>(caminhoArquhivoImportacao,
                             mapaDeCamposImp, classe);
             importador.processar();
-            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO);
+            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO);
         }
         if (isAcaoSelecionadaIgualA(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR)) {
 

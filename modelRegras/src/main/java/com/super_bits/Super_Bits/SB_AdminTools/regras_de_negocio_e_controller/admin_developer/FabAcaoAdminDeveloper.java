@@ -102,20 +102,20 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Objeto",
             xhtmlDaAcao = "selecaoObjeto.xhtml",
             iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
-    DEV_PROJETO_FRM_SELECAO_OBJETOS,
+    DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Ferramentas",
             descricao = "Ferramentas Disponíveis para Gestão do Sistema",
             icone = "fa fa-suitcase")
-    DEV_PROJETO_FRM_FERRAMENTAS,
+    DEV_OBJ_PROJETO_FRM_FERRAMENTAS,
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Ações",
             xhtmlDaAcao = "selecionarAcoes.xhtml",
             icone = "fa fa-cubes"
     )
-    DEV_PROJETO_FRM_SELECAO_ACAO,
+    DEV_OBJ_PROJETO_FRM_SELECAO_ACAO,
     @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Campo",
             xhtmlDaAcao = "selecionarCampo.xhtml",
             icone = "fa fa-pencil-square-o")
-    DEV_PROJETO_FRM_SELECAO_CAMPO,
+    DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Criar Ação",
             xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap")
     FERRAMENTAS_ACAO_MB_CRIAR,
@@ -164,7 +164,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     @InfoTipoAcaoFormulario(nomeAcao = "Mapear Colunas", xhtmlDaAcao = "mapearColunas.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
     FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS,
     @InfoTipoAcaoFormulario(nomeAcao = "Relatório de Importacao", xhtmlDaAcao = "relatorio.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
-    FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO,
+    FERRAMENTAS_BANCO_FRM_RELATORIO_IMPORTACAO,
     @InfoTipoAcaoFormulario(nomeAcao = "Listar Dados", xhtmlDaAcao = "listarDadosBanco.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
     FERRAMENTAS_BANCO_FRM_LISTAR_DADOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Editar SQL", xhtmlDaAcao = "editarSQL.xhtml")
@@ -202,11 +202,11 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
 
         switch (this) {
             case DEV_PROJETO_ADMIN_MB:
-            case DEV_PROJETO_FRM_FERRAMENTAS:
+            case DEV_OBJ_PROJETO_FRM_FERRAMENTAS:
                 return SBInfoProjetoAtual.class;
-            case DEV_PROJETO_FRM_SELECAO_OBJETOS:
-            case DEV_PROJETO_FRM_SELECAO_ACAO:
-            case DEV_PROJETO_FRM_SELECAO_CAMPO:
+            case DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS:
+            case DEV_OBJ_PROJETO_FRM_SELECAO_ACAO:
+            case DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO:
 
             case DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT:
             case DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL:
@@ -258,7 +258,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             case FERRAMENTAS_BANCO_FRM_IMPORTADOR:
             case FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO:
             case FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS:
-            case FERRMANTAS_BANCO_FRM_RELATORIO_IMPORTACAO:
+            case FERRAMENTAS_BANCO_FRM_RELATORIO_IMPORTACAO:
             case FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP:
             case FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP:
                 return SBInfoPersistencia.class;
