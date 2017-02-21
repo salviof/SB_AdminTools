@@ -5,6 +5,7 @@
  */
 package com.super_bits.config.webPaginas;
 
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ItfConfigWebPagina;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.ParametroURL;
 import java.util.ArrayList;
@@ -54,6 +55,11 @@ public class ConfigWPSB_AdminTools implements ItfConfigWebPagina {
     @Override
     public boolean parametroDeAplicacaoEmSubDominio() {
         return false;
+    }
+
+    @Override
+    public ItfAcaoFormulario getAcaoPaginaInicial() {
+        return null;
     }
 
 }

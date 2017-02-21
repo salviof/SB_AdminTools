@@ -16,6 +16,7 @@ import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.importacao.ImportacaoExcel;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoReflexao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_PaginaConversation;
@@ -51,6 +52,8 @@ public class PgAdminBanco extends MB_PaginaConversation {
     private AcaoDoSistema acaoCtrProcessar;
     private AcaoDoSistema acaoCtrGravarDados;
     private AcaoDoSistema acaoPersistirBanco;
+    private CaminhoCampoReflexao caminhoCampoSelecionado;
+    private List<CaminhoCampoReflexao> camposDisponiveis;
     private String nomeArquivoEnviado;
     private String tamanhoArquivoEnviado;
     private String caminhoArquhivoImportacao;
