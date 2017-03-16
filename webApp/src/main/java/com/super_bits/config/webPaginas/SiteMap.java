@@ -9,10 +9,9 @@ import com.super_bits.SB_AdminTools.paginas.Pg_paginaInicial;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.FabMenuAdmin;
 import com.super_bits.modulos.paginas.adminTools.PgAdminBanco;
 import com.super_bits.modulos.paginas.adminTools.PgAdminSistema;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SB.siteMap.MB_SiteMapa;
-
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
 import com.super_bits.modulos.paginas.adminTools.PgLabProjetoAtual;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MB_SiteMapa;
 import javax.faces.bean.ApplicationScoped;
 import javax.inject.Inject;
 
