@@ -19,24 +19,26 @@
         <ui:insert name="head" />
     </h:head>
     <h:body>
+        <ui:include src="cabecalhoInicialDoBody.xhtml" />
 
-        <c:if test="#{sessaoAtualSBWP.identificado==true}">
-            <ui:include src="/site/topo.xhtml"/>
-        </c:if>
-        <!-- CODIGO QUE ENVIA INFORMACOES SOBRE A TELA DA SESSÃO DO USUÁRIO -->
-        <div style="visibility: hidden; float: bottom">
 
-        </div>
-        <c:if test="#{!sessaoAtualSBWP.tipoViewDefinido}">
 
-            <!--FIM DO CODIGO QUE ENVIA INFORMACOES SOBRE A TELA DA SESSÃO DO USUÁRIO -->
-        </c:if>
-        <div id="layout-portlets-cover">
-            <h:panelGroup id="mensagemUsuario" >
+        <h:panelGroup rendered="#{sessaoAtualSBWP.identificado}">
+            <div class="ManterNoTopo">
+                <ui:include src="/site/topo.xhtml"/>
+            </div>
+        </h:panelGroup>
+
+        <div >
+            <h:panelGroup id="mensagemUsuario">
                 <p:growl/>
             </h:panelGroup>
             <ui:insert name="content">
-                <ui:insert name="divConteudo" />
+
+                <div  style="margin-top: 80px ">
+                    <ui:insert name="divConteudo" />
+                </div>
+
             </ui:insert>
             <ui:include src="/site/rodape.xhtml"/>
         </div>

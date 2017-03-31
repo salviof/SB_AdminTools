@@ -10,39 +10,28 @@
 
     <!-- INTERFACE -->
     <cc:interface>
-
-        <cc:attribute name="acao" required="#{true}" type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario" />
+        <cc:attribute name="acao" required="true" type="com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario" />
         <cc:attribute name="registro" required="true" type="com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples" />
-        <cc:attribute name="somenteLeitura" default="#{true}" />
-
-
+        <cc:attribute name="somenteLeitura" default="#{false}" />
         <cc:attribute shortDescription="O layoyt indica os formatos possíveis de exibição do campo,
                       para visualizar todas as opções acesse: #layoutsComponenteSB.layoutCampo.  "
                       name="tipoVisualizacaoLabel"
                       type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
                       default="#{layoutsComponenteSB.layoutCampo.superior}"
                       />
-
-
-
     </cc:interface>
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-
-        <ui:repeat  var="grupo" value="#{cc.attrs.acao.gruposDeCampos}">
-
+        <c:forEach  var="grupo" items="#{cc.attrs.acao.gruposDeCampos}">
             <p:fieldset style="margin: 2%" legend="#{grupo.nomeGrupo}">
-
                 <SBFormulario:camposDoGrupo registro="#{cc.attrs.registro}"
                                             grupoCampos="#{grupo}"
                                             somenteLeitura="#{cc.attrs.somenteLeitura}"
                                             tipoVisualizacaoLabel="#{cc.attrs.tipoVisualizacaoLabel}"/>
 
                 <div class="EmptyBox10"/>
-
             </p:fieldset>
-
-        </ui:repeat>
+        </c:forEach>
 
     </cc:implementation>
 

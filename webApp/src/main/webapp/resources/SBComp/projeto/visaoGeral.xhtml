@@ -43,7 +43,7 @@
                     <p:panel  header="#{modulo.nome}" >
                         <h:form>
                             <p:fieldset legend="Escolha um bloco de ações para obter mais detalhes">
-                                <SBComp:seletorDeAcoes  tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" metodo="#{pgUtil.atualizaTelaPorID(pgProjetoSBVisaoGeral.idAreaExbicaoAcaoSelecionada)}"
+                                <SBComp:seletorDeAcoes  visualizacaoBotao="#{tipos.tipoVisualBotao.iconeENome}" metodo="#{pgUtil.atualizaTelaPorID(pgProjetoSBVisaoGeral.idAreaExbicaoAcaoSelecionada)}"
                                                         opcoes="#{modulo.acoesGestaoMB}"
                                                         opcaoSelecionada="#{pgProjetoSBVisaoGeral.acaoGEstaoSelecionada}"/>
                             </p:fieldset>
@@ -65,3 +65,13 @@
 
     </ui:composition>
 </html>
+
+
+
+
+
+
+
+
+
+

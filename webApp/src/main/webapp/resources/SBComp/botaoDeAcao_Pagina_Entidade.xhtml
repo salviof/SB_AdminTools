@@ -23,13 +23,18 @@
 
                       type="com.super_bits.modulosSB.SBCore.modulos.view.fabricasCompVisual.ItfComponenteVisualSB"
                       default="#{layoutsComponenteSB.layoutBotoes.icone}"
-                      shortDescription="Tipo de visualização do botão (Utilize #tipos.tipoVisualBotao"
+                      shortDescription="Tipo de visualização do botão (Utilize #layoutsComponenteSB.layoutBotoes.icone"
                       />
         <cc:attribute name="cor"
                       default="#{null}"
                       shortDescription="Cor do botão caso ele deva ser exibido por em uma cor especifica"
                       />
         <cc:attribute name="registro" />
+        <cc:attribute name="label"
+                      shortDescription="IDs que devem ser atualizados após clicar na alção"
+                      default="#{cc.attrs.acao.nomeAcao}"
+                      type="java.lang.String"
+                      />
 
     </cc:interface>
 
@@ -41,6 +46,7 @@
             registro="#{cc.attrs.registro}"
             javaScriptOncomplete="#{cc.attrs.javaScriptOncomplete}"
             idUpdate="#{cc.attrs.update}"
+            label="#{cc.attrs.label}"
             />
 
     </cc:implementation>

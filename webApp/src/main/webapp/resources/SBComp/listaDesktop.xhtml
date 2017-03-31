@@ -7,7 +7,9 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:sb="http://superbitsframework/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <!-- INTERFACE -->
     <cc:interface>
 
@@ -51,6 +53,7 @@
     </cc:interface>
     <!-- IMPLEMENTATION -->
     <cc:implementation>
+
         <h:panelGroup>
 
 
@@ -59,7 +62,7 @@
                          var="item"
                          emptyMessage="Nenhum #{cc.attrs.acaoDeListagem.nomeDominio} Encontrado"
                          paginator="true"
-
+                         rows="10"
                          >
 
                 <f:facet name="header">
@@ -67,44 +70,49 @@
                 </f:facet>
 
 
+                <p:columns var="coluna" value="#{cc.attrs.acaoDeListagem.campos}"
+                           sortBy="#{item[coluna.caminhoSemNomeClasse]}"
+                           filterBy="#{item[coluna.caminhoSemNomeClasse]}"
+                           filterMatchMode="contains"
 
-                <c:forEach
+                           >
 
-                    items= "#{cc.attrs.acaoDeListagem.campos}"
-                    var="coluna"
-
-                    >
-
-
-                    <p:column>
-                        <f:facet name="header">
-
-                            <h:outputText value= "#{coluna.labelDoCampo}" />
-
-                        </f:facet>
-
-                        <SBComp:input
-                            registro="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse)}"
-                            desabilitarEdicao="true"
-                            layout="#{layoutsComponenteSB.layoutCampo.semLabel}"
+                    <f:facet name="header">
+                        <h:outputText value= "#{coluna.label}"/>
+                    </f:facet>
 
 
-                            />
+                    <sb:inputSB
+                        registro="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse)}"
+                        desabilitarEdicao="true"
+                        layoutCampo="#{layoutsComponenteSB.layoutCampo.semLabel}"
+                        possuiIDOnChange="false"
+                        possuiMetodoOnChange="false"
 
-                    </p:column>
+                        label="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse).label}"
 
-                </c:forEach>
 
+
+
+                        />
+
+
+
+
+
+
+                </p:columns>
 
 
                 <p:column headerText="Ações" width="180">
 
-                    <center>
-                        <SBComp:seletorDeAcoes
+                    <center>     <SBComp:seletorDeAcoes
+
                             metodo="#{cc.attrs.metodo}"
                             opcaoSelecionada="#{paginaAtual.infoPagina.acaoSelecionada}"
                             opcoes="#{cc.attrs.opcoes}"
-                            tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.icone}"
+                            visualizacaoBotao="#{layoutsComponenteSB.layoutBotoes.icone}"
+
                             /> </center>
 
                 </p:column>
