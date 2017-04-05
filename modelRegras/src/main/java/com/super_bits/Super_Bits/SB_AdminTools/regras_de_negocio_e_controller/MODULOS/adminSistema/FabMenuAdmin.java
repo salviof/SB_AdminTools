@@ -59,7 +59,7 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
                 return menu;
             case MENU_ROOT:
 
-                AcaoDoSistema acaoFerramentas = FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getAcaoDoSistema();
+                AcaoDoSistema acaoFerramentas = FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro();
 
                 SessaoMenuSB ferramentasDeAcao = new SessaoMenuSB(acaoFerramentas);
 

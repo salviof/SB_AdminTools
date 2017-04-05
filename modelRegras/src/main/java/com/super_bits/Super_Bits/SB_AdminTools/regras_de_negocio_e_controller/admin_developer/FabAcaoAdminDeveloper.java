@@ -188,15 +188,6 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA;
 
     @Override
-    public AcaoDoSistema getAcaoDoSistema() {
-
-        AcaoDoSistema acao = (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);
-
-        return acao;
-
-    }
-
-    @Override
     public Class
             getEntidadeDominio() {
 
@@ -277,7 +268,8 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
 
     @Override
     public AcaoDoSistema getRegistro() {
-        return getAcaoDoSistema();
+        AcaoDoSistema acao = (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);
+        return acao;
     }
 
 }

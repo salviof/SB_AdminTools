@@ -19,15 +19,15 @@ import javax.inject.Named;
 public class PgMapaDeAcoes {
 
     public AcaoDoSistema getAcaoSelecaoDeAcao() {
-        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_ACAO.getAcaoDoSistema();
+        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_ACAO.getRegistro();
     }
 
     public AcaoDoSistema getAcaoSelecaoDeObjeto() {
-        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema();
+        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getRegistro();
     }
 
     public AcaoDoSistema getAcaoSelecaoDeCampo() {
-        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO.getAcaoDoSistema();
+        return FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO.getRegistro();
     }
 
 }

@@ -35,15 +35,6 @@ public enum FabAcaoExemplos implements ItfFabricaAcoes {
     CONTEUDO_GENERICO_CTR_SALVAR_MERGE;
 
     @Override
-    public AcaoDoSistema getAcaoDoSistema() {
-
-        AcaoDoSistema acao = (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);
-
-        return acao;
-
-    }
-
-    @Override
     public Class getEntidadeDominio() {
         return ConteudoGenerico.class;
     }
@@ -55,7 +46,7 @@ public enum FabAcaoExemplos implements ItfFabricaAcoes {
 
     @Override
     public AcaoDoSistema getRegistro() {
-        return getAcaoDoSistema();
+        return (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);
     }
 
 }
