@@ -105,33 +105,33 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         try {
 
             acoesParaCampo = new ArrayList<>();
-            acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getAcaoDoSistema().getComoFormulario();
+            acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getRegistro().getComoFormulario();
             acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
-            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getAcaoDoSistema().getComoFormulario();
+            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
-            acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema().getComoFormulario();
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getAcaoDoSistema().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getAcaoDoSistema().getComoFormulario());
-            xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getAcaoDoSistema().getComoFormulario().getXhtml();
+            acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getRegistro().getComoFormulario();
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getRegistro().getComoFormulario());
+            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
+            xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getRegistro().getComoFormulario().getXhtml();
             acaoPadraoDeExibicao = acaoFichaTecnica;
-            acaoSelecaoTipoLab = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getAcaoDoSistema();
+            acaoSelecaoTipoLab = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getRegistro();
             acoesLocalizadoresDeObjetos = new ArrayList();
 
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getRegistro());
 
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_ACAO.getAcaoDoSistema());
-            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO.getAcaoDoSistema());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_ACAO.getRegistro());
+            acoesLocalizadoresDeObjetos.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO.getRegistro());
 
             tiposLabObjeto = new ArrayList<>();
-            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS.getAcaoDoSistema());
-            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL.getAcaoDoSistema());
-            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT.getAcaoDoSistema());
-            acaoBancoAdm = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getAcaoDoSistema();
+            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS.getRegistro());
+            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL.getRegistro());
+            tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT.getRegistro());
+            acaoBancoAdm = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro();
             for (ItfAcaoDoSistema acaoDoSistema : MapaAcoesSistema.getListaTodasAcoes()) {
 
                 if (isUmaAcaoDosModulosPrincipais(acaoDoSistema)) {
@@ -432,6 +432,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         this.grupoSelecionado = grupoSelecionado;
     }
 
+    @Override
     public void setAcaoSelecionada(ItfAcaoDoSistema acaoSelecionada) {
         this.acaoSelecionada = acaoSelecionada;
     }
@@ -534,6 +535,16 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public AcaoDoSistema getAcaoBancoAdm() {
         return acaoBancoAdm;
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return acaoSelecionada;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+
     }
 
 }

@@ -8,6 +8,7 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.util.ArrayList;
@@ -32,15 +33,15 @@ public class PgAdminSistema extends MB_PaginaConversation {
     public void ferramentas() {
 
         ferramentasDisponiveis = new ArrayList<>();
-        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getAcaoDoSistema());
-        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getAcaoDoSistema());
-        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getAcaoDoSistema());
-        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getAcaoDoSistema());
-        ferramentasDisponiveis.add(FabAcaoDemonstracaoSB.DEMONSTRACAO_MB_COMPONENTE.getAcaoDoSistema());
-        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getAcaoDoSistema());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getRegistro());
+        ferramentasDisponiveis.add(FabAcaoDemonstracaoSB.DEMONSTRACAO_MB_COMPONENTE.getRegistro());
+        ferramentasDisponiveis.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getRegistro());
 
-        setAcaoSelecionada(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FERRAMENTAS.getAcaoDoSistema());
-        xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FERRAMENTAS.getAcaoDoSistema().getComoFormulario().getXhtml();
+        setAcaoSelecionada(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FERRAMENTAS.getRegistro());
+        xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FERRAMENTAS.getRegistro().getComoFormulario().getXhtml();
     }
 
     public List<ItfAcaoDoSistema> getFerramentasDisponiveis() {
@@ -50,6 +51,16 @@ public class PgAdminSistema extends MB_PaginaConversation {
 
     public void setFerramentasDisponiveis(List<ItfAcaoDoSistema> ferramentasDisponiveis) {
         this.ferramentasDisponiveis = ferramentasDisponiveis;
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return null;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+
     }
 
 }

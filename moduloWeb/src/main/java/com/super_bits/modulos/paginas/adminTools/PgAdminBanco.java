@@ -116,12 +116,12 @@ public class PgAdminBanco extends MB_PaginaConversation {
     public void inicio() {
         try {
             entidadesDisponiveis = new ArrayList<>();
-            acaoFormImportador = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR.getAcaoDoSistema();
-            acaoFormEnviarArquivo = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO.getAcaoDoSistema();
-            acaoFromMapearColunas = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS.getAcaoDoSistema();
-            acaoCtrProcessar = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP.getAcaoDoSistema();
-            acaoCtrGravarDados = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP.getAcaoDoSistema();
-            acaoPersistirBanco = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR.getAcaoDoSistema();
+            acaoFormImportador = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR.getRegistro();
+            acaoFormEnviarArquivo = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO.getRegistro();
+            acaoFromMapearColunas = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS.getRegistro();
+            acaoCtrProcessar = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP.getRegistro();
+            acaoCtrGravarDados = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP.getRegistro();
+            acaoPersistirBanco = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR.getRegistro();
             caminhoArquhivoImportacao = SBCore.getControleDeSessao().getSessaoAtual().getPastaTempDeSessao() + "/importacaoExel.xls";
             for (Class entidade : UtilSBPersistencia.getTodasEntidades()) {
                 entidadesDisponiveis.add(MapaObjetosProjetoAtual.getEstruturaObjeto(entidade));
@@ -211,6 +211,16 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
     public AcaoDoSistema getAcaoPersistirBanco() {
         return acaoPersistirBanco;
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return campoSelecionado;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        campoSelecionado = (EstruturaCampo) pBeanSimples;
     }
 
 }
