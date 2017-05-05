@@ -213,4 +213,14 @@ public class PgAdminBanco extends MB_PaginaConversation {
         return acaoPersistirBanco;
     }
 
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return campoSelecionado;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        campoSelecionado = (EstruturaCampo) pBeanSimples;
+    }
+
 }

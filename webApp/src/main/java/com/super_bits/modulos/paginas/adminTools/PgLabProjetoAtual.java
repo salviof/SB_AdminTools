@@ -536,4 +536,14 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return acaoBancoAdm;
     }
 
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return campoSelecionado;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        campoSelecionado = (CaminhoCampoReflexao) pBeanSimples;
+    }
+
 }

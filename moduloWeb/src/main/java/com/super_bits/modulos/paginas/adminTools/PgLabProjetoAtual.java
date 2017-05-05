@@ -432,7 +432,6 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         this.grupoSelecionado = grupoSelecionado;
     }
 
-    @Override
     public void setAcaoSelecionada(ItfAcaoDoSistema acaoSelecionada) {
         this.acaoSelecionada = acaoSelecionada;
     }
@@ -539,12 +538,12 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     @Override
     public ItfBeanSimples getBeanSelecionado() {
-        return acaoSelecionada;
+        return campoSelecionado;
     }
 
     @Override
     public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
-
+        campoSelecionado = (CaminhoCampoReflexao) pBeanSimples;
     }
 
 }

@@ -8,6 +8,7 @@ package com.super_bits.SB_AdminTools.paginas;
 import com.super_bits.Super_Bits.SB_AdminTools.model.exemplo.ConteudoGenerico;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.InfoAcaoDemonstracaoSB;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SBBeanModel.ItfMB_Recursos;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
@@ -37,6 +38,16 @@ public class PgRecursosAtools extends MB_PaginaConversation implements ItfMB_Rec
 
     public void setConteudoGenerico(ConteudoGenerico conteudoGenerico) {
         this.conteudoGenerico = conteudoGenerico;
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return conteudoGenerico;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        setConteudoGenerico(conteudoGenerico);
     }
 
 }

@@ -60,7 +60,7 @@ public class PgAdminSistema extends MB_PaginaConversation {
 
     @Override
     public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

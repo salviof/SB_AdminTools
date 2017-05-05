@@ -8,6 +8,7 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.util.ArrayList;
@@ -50,6 +51,16 @@ public class PgAdminSistema extends MB_PaginaConversation {
 
     public void setFerramentasDisponiveis(List<ItfAcaoDoSistema> ferramentasDisponiveis) {
         this.ferramentasDisponiveis = ferramentasDisponiveis;
+    }
+
+    @Override
+    public ItfBeanSimples getBeanSelecionado() {
+        return null;
+    }
+
+    @Override
+    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
