@@ -73,4 +73,14 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
         }
     }
 
+    @Override
+    public MenuSBFW getMenuPrincipal() {
+        return getRegistro();
+    }
+
+    @Override
+    public MenuSBFW getMenuSecundario() {
+        return null;
+    }
+
 }

@@ -9,7 +9,7 @@ import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeNormal;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Localizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoClasse;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabCampos;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
  * @author desenvolvedor
  */
 @Entity
-@InfoClasse(tags = {"Conteúdo Generico"}, plural = "Conteúdos Genericos para testes")
+@InfoObjetoSB(tags = {"Conteúdo Generico"}, plural = "Conteúdos Genericos para testes")
 public class ConteudoGenerico extends EntidadeNormal {
 
     @InfoCampo(tipo = FabCampos.ID)
