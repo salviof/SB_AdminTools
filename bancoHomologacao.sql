@@ -36,10 +36,15 @@ CREATE TABLE `AcaoDoSistema` (
   `tipoAcao` varchar(255) DEFAULT NULL,
   `tipoAcaoGenerica` varchar(255) DEFAULT NULL,
   `nomeDominio` varchar(255) DEFAULT NULL,
+  `xhtml` varchar(255) DEFAULT NULL,
+  `acaoTemModal` bit(1) DEFAULT NULL,
+  `campoJustificativa` varchar(255) DEFAULT NULL,
   `idMetodo` int(11) DEFAULT NULL,
+  `precisaComunicacao` bit(1) DEFAULT NULL,
   `precisaJustificativa` bit(1) DEFAULT NULL,
   `temLogExecucao` bit(1) DEFAULT NULL,
-  `xhtml` varchar(255) DEFAULT NULL,
+  `textoComunicacaoPersonalizado` varchar(255) DEFAULT NULL,
+  `xhtmlModalVinculado` varchar(255) DEFAULT NULL,
   `temVisualizar` bit(1) DEFAULT NULL,
   `modulo_id` int(11) DEFAULT NULL,
   `acaoPrincipal_id` int(11) DEFAULT NULL,
@@ -68,7 +73,7 @@ DROP TABLE IF EXISTS `Bairro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Bairro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `coordenadas` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `id_Cidade` int(11) DEFAULT NULL,
@@ -192,23 +197,26 @@ DROP TABLE IF EXISTS `GrupoUsuarioSB`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `GrupoUsuarioSB` (
+  `tipoGrupoUsuario` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `XhtmlPaginaInicial` varchar(255) DEFAULT NULL,
   `ativo` bit(1) NOT NULL,
   `dataHoraAlteracao` datetime DEFAULT NULL,
-  `dataHoraCriacao` date DEFAULT NULL,
   `dataHoraInsersao` datetime DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `tipoGrupoNativo` bit(1) NOT NULL,
+  `moduloPrincipal_id` int(11) DEFAULT NULL,
   `usuarioAlteracao_id` int(11) DEFAULT NULL,
   `usuarioInsercao_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_3wv40cn2xjarnckhmw50xibgh` (`nome`),
+  KEY `FKrcx4qo1ruqe8koyfg2vb238jg` (`moduloPrincipal_id`),
   KEY `FKn20xy684qdisrx1r0wyeffosn` (`usuarioAlteracao_id`),
   KEY `FK7s5bl86yjv1r1rfn9i964cq7g` (`usuarioInsercao_id`),
   CONSTRAINT `FK7s5bl86yjv1r1rfn9i964cq7g` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
-  CONSTRAINT `FKn20xy684qdisrx1r0wyeffosn` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`)
+  CONSTRAINT `FKn20xy684qdisrx1r0wyeffosn` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
+  CONSTRAINT `FKrcx4qo1ruqe8koyfg2vb238jg` FOREIGN KEY (`moduloPrincipal_id`) REFERENCES `ModuloAcaoSistema` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -218,7 +226,7 @@ CREATE TABLE `GrupoUsuarioSB` (
 
 LOCK TABLES `GrupoUsuarioSB` WRITE;
 /*!40000 ALTER TABLE `GrupoUsuarioSB` DISABLE KEYS */;
-INSERT INTO `GrupoUsuarioSB` VALUES (1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,'2017-03-31',NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL),(2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,'2017-03-31',NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL);
+INSERT INTO `GrupoUsuarioSB` VALUES ('GrupoUsuarioSB',1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL,NULL),('GrupoUsuarioSB',2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `GrupoUsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -292,11 +300,14 @@ DROP TABLE IF EXISTS `Localizacao`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Localizacao` (
+  `tipoLocalizacao` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `complemento` varchar(255) DEFAULT NULL,
   `latitude` bigint(20) NOT NULL,
   `longitude` bigint(20) NOT NULL,
-  `nome` varchar(150) DEFAULT NULL,
+  `nome` varchar(100) DEFAULT NULL,
+  `cep` varchar(255) DEFAULT NULL,
+  `logradouro` varchar(255) DEFAULT NULL,
   `bairro_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK1x27cqle98ktlx448eo2lticm` (`bairro_id`),
@@ -321,6 +332,7 @@ DROP TABLE IF EXISTS `ModuloAcaoSistema`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ModuloAcaoSistema` (
+  `tipoModulo` varchar(31) NOT NULL,
   `id` int(11) NOT NULL,
   `dataHoraCriacao` date DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
@@ -643,28 +655,30 @@ DROP TABLE IF EXISTS `UsuarioSB`;
 CREATE TABLE `UsuarioSB` (
   `tipoUsuario` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `CEP` varchar(255) DEFAULT NULL,
   `apelido` varchar(255) DEFAULT NULL,
   `ativo` bit(1) NOT NULL,
   `complemento` varchar(255) DEFAULT NULL,
   `dataCadastro` date DEFAULT NULL,
   `dataHoraAlteracao` datetime DEFAULT NULL,
   `dataHoraInsersao` datetime DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(120) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `senha` varchar(255) DEFAULT NULL,
+  `senha` varchar(10) DEFAULT NULL,
   `telefone` varchar(255) DEFAULT NULL,
   `grupo_id` int(11) DEFAULT NULL,
+  `localizacao_id` int(11) DEFAULT NULL,
   `usuarioAlteracao_id` int(11) DEFAULT NULL,
   `usuarioInsercao_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_m1rxw56li2lkr3guust77ltso` (`email`),
   UNIQUE KEY `UK_d8hre5rs465kuoya4b9epuot7` (`apelido`),
+  UNIQUE KEY `UK_m1rxw56li2lkr3guust77ltso` (`email`),
   KEY `FKpu9xpcabqjpw3jjdb6mu4w3a9` (`grupo_id`),
+  KEY `FKddt81m657meu8v89qakv0792x` (`localizacao_id`),
   KEY `FKa0hk7be13ip4xg104xlxghvba` (`usuarioAlteracao_id`),
   KEY `FKg5805u50psplpao25esj3i4om` (`usuarioInsercao_id`),
   CONSTRAINT `FKg5805u50psplpao25esj3i4om` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKa0hk7be13ip4xg104xlxghvba` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
+  CONSTRAINT `FKddt81m657meu8v89qakv0792x` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`),
   CONSTRAINT `FKpu9xpcabqjpw3jjdb6mu4w3a9` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -675,7 +689,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,NULL,'teste','',NULL,'2017-03-31',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2017-05-17',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -762,4 +776,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-31  3:55:14
+-- Dump completed on 2017-05-17 23:49:25

@@ -7,11 +7,11 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <!-- INTERFACE -->
-    <cc:interface>
+    <cc:interface componentType="inputGenerico">
 
         <cc:attribute name="registro"
                       required="true"
-                      type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoInstanciado"
+                      type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado"
                       default="#{pgUtil.campoNaoImplementado}"
                       shortDescription="Exibe um atributo de um Objeto para insersão de dados do usuário (Ou Visualização)"
                       />
@@ -62,7 +62,7 @@
                     opcoes="#{cc.attrs.registro.listaDeOpcoes}"
                     idAtualizarOnChange="#{cc.attrs.idAtualizarOnChange}"
                     metodoOnChange="#{cc.attrs.metodoOnChange}"
-
+                    xhtmlVisualizacao="#{cc.attrs.xhtmlInclude}"
                     />
 
             </c:catch>

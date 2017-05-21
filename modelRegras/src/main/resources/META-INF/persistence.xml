@@ -27,6 +27,7 @@
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Regiao</class>
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Regiao</class>
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Localizacao</class>
+        <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.LocalizacaoPostavel</class>
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Localidade</class>
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Cidade</class>
         <class>com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Bairro</class>

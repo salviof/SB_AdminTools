@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="campo" type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado"  required="true"/>
+
+    </cc:interface>
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+
+        <p:commandButton icon="fa fa-map"
+                         actionListener="#{pgUtil.exibirModal('/resources/SBComp/modal/pesquisaEndereco')}" />
+        <p:commandButton icon="fa fa-location-arrow" />
+
+    </cc:implementation>
+
+</html>

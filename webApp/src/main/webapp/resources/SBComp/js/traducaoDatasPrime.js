@@ -92,3 +92,4 @@ PrimeFacesExt.locales.TimePicker['pt_BR'] = {
     nowButtonText: 'Agora',
     deselectButtonText: 'Limpar seleção'
 };
+

@@ -10,7 +10,7 @@
 
         <cc:attribute name="registro"
                       required="true"
-                      type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoInstanciado"
+                      type="com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado"
                       default="#{pgUtil.campoNaoImplementado}" />
         <cc:attribute name="campoLocalizacaoCEP" default="#{null}"  />
         <cc:attribute name="desabilitarEdicao" type="java.lang.Boolean" default="#{false}" />

@@ -9,20 +9,33 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <ui:composition>
         <p:fieldset  legend="Ver campo" >
+            <h:form >
+                <c:catch var="erro" >
+                    <c:if test="#{prCampo!=null}" >
+                        <p:panel header="Visualizacao de #{prCampo.label}"  >
+                            <SBComp:input registro="#{prCampo}"
+                                          layout="#{layoutsComponenteSB.layoutCampo.esquerda}"
+                                          />
+                        </p:panel>
+                    </c:if>
 
-            <c:if test="#{prCampo!=null}" >
-                <p:panel header="Visualizacao de #{prCampo.label}"  >
-                    <SBComp:input registro="#{prCampo}"
-                                  layout="#{layoutsComponenteSB.layoutCampo.esquerda}"
-                                  />
-                </p:panel>
-            </c:if>
-            <c:if test="#{prCampo==null}" >
-                O parametro campo enviado para visualização é nulo
-            </c:if>
+
+                </c:catch>
+                <c:if test="#{erro!=null}">
+                    <p>Erro reindeizando componente: ${erro} <br />
+                        Mensagem do Erro: ${erro.message}</p>
+                    <br/>
+
+                </c:if>
+
+                <c:if test="#{prCampo==null}" >
+                    O parametro campo enviado para visualização é nulo
+                </c:if>
+            </h:form>
         </p:fieldset>
 
 

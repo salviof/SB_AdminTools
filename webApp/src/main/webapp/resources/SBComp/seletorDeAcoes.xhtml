@@ -57,8 +57,14 @@
                             target="#{cc.attrs.opcaoSelecionada}"
                             value="#{opc}"/>
                         <c:if test="#{cc.attrs.update!=null}">
-                            <f:ajax execute="@form"/>
+
                         </c:if>
+                        <p:ajax event="dialogReturn" listener="#{paginaAtual.infoPagina.metodoRespostaModal}"
+                                rendered="#{opc.acaoTemModal}"
+                                />
+
+                        <p:ajax listener="#{pgUtil.atualizaTelaPorID(cc.attrs.update)}"
+                                rendered="#{pgUtil.isAtributoPreenchidoComExpressao(cc, 'update')}" />
                     </p:commandButton>
                     <p:tooltip for="btIcon#{cc.id}" value="#{opc.nomeAcao}" trackMouse="true" />
                 </c:when>
@@ -70,6 +76,7 @@
 
                     <p:commandLink action="#{cc.attrs.metodo}" >
                         <div class="ContainerIndent">
+
                             <div class="Container25 Responsive">
                                 <div class="ContainerIndent">
                                     <div class="Card RedBack SoftRed TexAlCenter HoverEffect">
@@ -81,8 +88,11 @@
                                 </div>
                             </div>
                         </div>
-                        <f:setPropertyActionListener target="#{cc.attrs.opcaoSelecionada}" value="#{opc}"/>
 
+                        <f:setPropertyActionListener target="#{cc.attrs.opcaoSelecionada}" value="#{opc}"/>
+                        <p:ajax event="dialogReturn" listener="#{paginaAtual.infoPagina.metodoRespostaModal}"
+                                rendered="#{opc.acaoTemModal}"
+                                />
                         <c:if test="#{cc.attrs.update!=null}">
                             <f:ajax execute="#{cc.attrs.update}"/>
                         </c:if>
@@ -94,18 +104,39 @@
                 <c:otherwise>
 
                     <p:commandButton style="margin-bottom: 5px; "
-                                     id="btIcon#{cc.id}"
+
                                      value="#{opc.nomeAcao}"
                                      icon="#{opc.iconeAcao}"
                                      action="#{cc.attrs.metodo}"
-                                     process="@form"
-
+                                     rendered="#{!pgUtil.isAtributoPreenchidoComExpressao(cc, 'update')}"
                                      >
+
                         <f:setPropertyActionListener
                             target="#{cc.attrs.opcaoSelecionada}"
                             value="#{opc}"/>
+                        <p:ajax event="dialogReturn" listener="#{paginaAtual.infoPagina.metodoRespostaModal}"
+                                rendered="#{opc.acaoTemModal}"
+                                />
 
                     </p:commandButton>
+                    <p:commandButton style="margin-bottom: 5px; "
+
+                                     value="#{opc.nomeAcao}"
+                                     icon="#{opc.iconeAcao}"
+                                     action="#{cc.attrs.metodo}"
+                                     rendered="#{pgUtil.isAtributoPreenchidoComExpressao(cc, 'update')}"
+                                     update="#{cc.attrs.update}"
+                                     >
+
+                        <f:setPropertyActionListener
+                            target="#{cc.attrs.opcaoSelecionada}"
+                            value="#{opc}"/>
+                        <p:ajax event="dialogReturn" listener="#{paginaAtual.infoPagina.metodoRespostaModal}"
+                                rendered="#{opc.acaoTemModal}"
+                                />
+
+                    </p:commandButton>
+
 
 
                 </c:otherwise>

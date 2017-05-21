@@ -20,6 +20,13 @@ ajustesCard{
 ajustesDivGeral{
 
 }
+/* Colocando modal de dialogo por cima de tudo*/
+.ui-dialog{
+    z-index: 20000!important;
+}
+.ui-growl{
+    z-index: 20000!important;
+}
 
 
 .linha-separacao{
@@ -98,10 +105,6 @@ ajustesDivGeral{
     margin-left: 4%;
 }
 
-.campoResponsivo{
-    width:   94%!important;
-
-}
 
 .seletorResponsivo{
     width:   80%!important;
@@ -211,4 +214,26 @@ ajustesDivGeral{
     top: 0;
     width: 100%;
     z-index: 9999;
+}
+
+.tamanhoIconePequeno{
+    width: 10px;
+}
+
+
+.tamanho20px{
+    width: 10px;
+}
+
+
+.ui-growl-message {
+    padding: 0 0 5px 0!important;
+    width: 80%!important;
+    float: left!important;
+}
+.ui-growl {
+    position: fixed;
+    top: 60px!important;
+    right: 100px!important;
+    width: 80%!important;
 }

@@ -98,6 +98,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void alterarLocalizadorObjeto() {
         System.out.println("Ação Assitente Localizazação alterada para:" + acaoAssitenteLocalizacao);
+        paginaUtil.atualizaTelaPorID("infoLab");
     }
 
     @PostConstruct

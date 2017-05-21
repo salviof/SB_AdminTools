@@ -58,19 +58,19 @@
                 </p:panelGrid>
                 <p:commandButton value="Atualizar" update="laboratorio" />
 
-                <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.alterarLocalizadorObjeto()}"
+
+                <SBComp:seletorDeAcoes metodo="#{pgLabProjetoAtual.testeConformidade()}"
                                        opcaoSelecionada="#{pgLabProjetoAtual.acaoDepurarCampo}"
                                        opcoes="#{pgLabProjetoAtual.acoesParaCampo}"
-                                       tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
-                                       update="laboratorio"
+                                       visualizacaoBotao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
+                                       update="#{pgUtil.makeCaminhoCompletoID('infoLab')}"
                                        />
 
 
             </h:form>
 
             <h:panelGroup  id="infoLab" rendered="#{pgLabProjetoAtual.acaoDepurarCampo!=null}">
-                #{pgLabProjetoAtual.acaoDepurarCampo.comoFormulario.xhtml}
-                [CPINST #{pgLabProjetoAtual.campoInstanciado} ]
+                V-1.0                #{pgLabProjetoAtual.acaoDepurarCampo.comoFormulario.xhtml}
 
                 <ui:include src="#{pgLabProjetoAtual.acaoDepurarCampo.comoFormulario.xhtml}" >
                     <ui:param name="prCampo" value="#{pgLabProjetoAtual.campoInstanciado}" />
