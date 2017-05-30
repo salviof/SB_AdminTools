@@ -17,7 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAc
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCampos;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoReflexao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
@@ -216,7 +216,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             if (idDaEntidade == 0) {
                 throw new UnsupportedOperationException("O id da entidade (Código do registro) não foi definido ");
             }
-            classeDaEntidade = UtilSBCoreReflexaoCampos.getClasseByNome(strNomeDaEntidade);
+            classeDaEntidade = UtilSBCoreReflexaoCaminhoCampo.getClasseByNome(strNomeDaEntidade);
             if (classeDaEntidade == null) {
                 throw new UnsupportedOperationException("A classe da entidade não foi encontrada ");
             }

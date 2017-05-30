@@ -7,7 +7,6 @@ package com.super_bits.config.webPaginas;
 
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ItfConfigWebPagina;
-import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.TIPO_ESTRUTURA_LOCAL_XHTML_PADRAO;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.parametrosURL.ParametroURL;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,11 +60,6 @@ public class ConfigWPSB_AdminTools implements ItfConfigWebPagina {
     @Override
     public ItfAcaoFormulario getAcaoPaginaInicial() {
         return null;
-    }
-
-    @Override
-    public TIPO_ESTRUTURA_LOCAL_XHTML_PADRAO getTipoEstruturaPadrao() {
-        return TIPO_ESTRUTURA_LOCAL_XHTML_PADRAO.MUDULO_NOME_ENTIDADE;
     }
 
 }

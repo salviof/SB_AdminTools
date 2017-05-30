@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeNormal
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Localizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabCampos;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,27 +26,27 @@ import javax.persistence.TemporalType;
 @InfoObjetoSB(tags = {"Conteúdo Generico"}, plural = "Conteúdos Genericos para testes")
 public class ConteudoGenerico extends EntidadeNormal {
 
-    @InfoCampo(tipo = FabCampos.ID)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     @Id
     private int id;
-    @InfoCampo(tipo = FabCampos.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
     private String nome;
-    @InfoCampo(tipo = FabCampos.AAA_DESCRITIVO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO)
     private String descricao;
     @ManyToOne(targetEntity = Localizacao.class)
-    @InfoCampo(label = "Endereço", tipo = FabCampos.OBJETO_DE_UMA_LISTA)
+    @InfoCampo(label = "Endereço", tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA)
     private Localizacao localizacao;
-    @InfoCampo(tipo = FabCampos.REG_USUARIO_ALTERACAO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.REG_USUARIO_ALTERACAO)
     @ManyToOne(targetEntity = UsuarioSB.class)
     private UsuarioSB usuarioAlteracao;
-    @InfoCampo(tipo = FabCampos.REG_DATAALTERACAO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.REG_DATAALTERACAO)
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAlteracao;
-    @InfoCampo(tipo = FabCampos.REG_USUARIO_INSERCAO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.REG_USUARIO_INSERCAO)
     @ManyToOne(targetEntity = UsuarioSB.class)
     private UsuarioSB usuarioInsercao;
     @Temporal(TemporalType.TIMESTAMP)
-    @InfoCampo(tipo = FabCampos.REG_DATAINSERCAO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.REG_DATAINSERCAO)
     private Date dataInsercao;
 
     @Override
