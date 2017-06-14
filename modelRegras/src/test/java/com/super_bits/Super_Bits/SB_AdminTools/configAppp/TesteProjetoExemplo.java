@@ -5,7 +5,8 @@
  */
 package com.super_bits.Super_Bits.SB_AdminTools.configAppp;
 
-import com.super_bits.Super_Bits.SB_AdminTools.model.config.ConfigPersistenciaSB_AdminTools;
+
+import com.super_bits.modulosSB.Persistencia.ConfigGeral.ConfigPersistenciaExemplo;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.Persistencia.ERROS.TesteJunitSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
@@ -54,7 +55,7 @@ public class TesteProjetoExemplo extends TesteJunitSBPersistencia {
         //Nas classes de ambiente padrão do sistema  modo desenvolvimento significa execuções via JUNIT, HOmologação Jetty na sua maquina, e Produção na Web
         SBCore.configurar(new ConfiguradorCoreSB_AdminTools(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
         //Configuração do arquivo de persistencia
-        SBPersistencia.configuraJPA(new ConfigPersistenciaSB_AdminTools());
+        SBPersistencia.configuraJPA(new ConfigPersistenciaExemplo());
     }
 
     @Test

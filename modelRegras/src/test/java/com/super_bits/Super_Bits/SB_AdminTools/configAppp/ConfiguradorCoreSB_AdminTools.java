@@ -5,8 +5,7 @@
  */
 package com.super_bits.Super_Bits.SB_AdminTools.configAppp;
 
-import com.super_bits.configSBFW.acessos.ConfigAcessosAdminSistemaModelo;
-import com.super_bits.configSBFW.acessos.UtilSB_AdminToolsGlobalVar;
+
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ConfiguradorCoreDeProjetoJarAbstrato;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
 
@@ -46,8 +45,8 @@ public class ConfiguradorCoreSB_AdminTools extends ConfiguradorCoreDeProjetoJarA
      */
     @Override
     public void defineFabricasDeACao(ItfConfiguracaoCoreCustomizavel pConfig) {
-        pConfig.setClasseConfigPermissao(ConfigAcessosAdminSistemaModelo.class);
-        pConfig.setFabricaDeAcoes(UtilSB_AdminToolsGlobalVar.pAcoesDoSistema());
+        //pConfig.setClasseConfigPermissao(ConfigAcessosAdminSistemaModelo.class);
+        //pConfig.setFabricaDeAcoes(UtilSB_.pAcoesDoSistema());
     }
 
 }
