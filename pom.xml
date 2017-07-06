@@ -6,7 +6,7 @@
 
     <groupId>com.super_bits</groupId>
     <artifactId>SB_FRAMEWORK</artifactId>
-    <version>1.5.2-SNAPSHOT</version>
+    <version>0.9-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
