@@ -24,7 +24,7 @@
         <dependency>
             <groupId>com.super_bits</groupId>
             <artifactId>SBWebPaginas</artifactId>
-            <version>1.5.2-SNAPSHOT</version>
+            <version>0.9-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
 
