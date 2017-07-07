@@ -49,7 +49,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private String strNomeDaEntidade;
     private List<String> strEntidadesPossiveis;
     private List<Class> entidadesPossiveis;
-    private CaminhoCampoReflexao campoSelecionado;
+    private Itf campoSelecionado;
     private GrupoCampos grupoSelecionado;
     private String strNomeCampo;
     private List<ItfAcaoGerenciarEntidade> acoesDeGestaoDoSistema;
