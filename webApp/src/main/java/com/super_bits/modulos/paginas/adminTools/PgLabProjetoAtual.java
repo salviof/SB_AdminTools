@@ -21,6 +21,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreRefl
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoReflexao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFBeans.SBBeanModel.ItfMB_Recursos;
@@ -50,11 +51,9 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private String strNomeDaEntidade;
     private List<String> strEntidadesPossiveis;
     private List<Class> entidadesPossiveis;
-<<<<<<< HEAD
-    private Itf campoSelecionado;
-=======
-    private CaminhoCampoExibicaoFormulario campoSelecionado;
->>>>>>> fc327315866cdb93184cca00e726b292e5bfdb06
+
+    private ItfCampoExibicaoFormulario campoSelecionado;
+
     private GrupoCampos grupoSelecionado;
     private String strNomeCampo;
     private List<ItfAcaoGerenciarEntidade> acoesDeGestaoDoSistema;
@@ -342,8 +341,9 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     }
 
-    public CaminhoCampoExibicaoFormulario getCampoSelecionado() {
+    public ItfCampoExibicaoFormulario getCampoSelecionado() {
         return campoSelecionado;
+
     }
 
     public void setCampoSelecionado(CaminhoCampoExibicaoFormulario campoSelecionado) {
