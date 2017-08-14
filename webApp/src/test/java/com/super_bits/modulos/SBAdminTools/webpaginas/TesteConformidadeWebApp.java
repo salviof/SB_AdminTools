@@ -9,8 +9,10 @@ import com.super_bits.Super_Bits.SB_AdminTools.model.config.ConfigPersistenciaSB
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.config.webPaginas.ConfigWPSB_AdminTools;
 import com.super_bits.config.webPaginas.ConfiguradorCoreWebAppSB_AdminTools;
+import com.super_bits.modulos.SBAcessosModel.model.acoes.UtilFabricaDeAcoesAcessosModel;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.SBWebPaginas;
 import com.super_bits.modulosSB.webPaginas.TratamentoDeErros.RelatorioTesteWebPaginas;
 import org.junit.Test;
@@ -23,6 +25,8 @@ public class TesteConformidadeWebApp extends RelatorioTesteWebPaginas {
 
     @Test
     public void teste() {
+        ItfAcaoDoSistema acao = UtilFabricaDeAcoesAcessosModel.getNovaAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR, false);
+
         exibirRelatorioCompleto();
 
     }
