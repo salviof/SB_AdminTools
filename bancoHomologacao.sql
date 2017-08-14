@@ -1,8 +1,8 @@
--- MySQL dump 10.14  Distrib 5.5.50-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.24-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: SB_AdminToolsModelRegras
 -- ------------------------------------------------------
--- Server version	5.5.50-MariaDB
+-- Server version	10.1.24-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,12 +31,15 @@ CREATE TABLE `AcaoDoSistema` (
   `iconeAcao` varchar(255) DEFAULT NULL,
   `idDescritivoJira` varchar(255) DEFAULT NULL,
   `nomeAcao` varchar(255) DEFAULT NULL,
+  `nomeSlugDominio` varchar(255) DEFAULT NULL,
   `nomeUnico` varchar(255) DEFAULT NULL,
   `precisaPermissao` bit(1) NOT NULL,
   `tipoAcao` varchar(255) DEFAULT NULL,
   `tipoAcaoGenerica` varchar(255) DEFAULT NULL,
   `nomeDominio` varchar(255) DEFAULT NULL,
+  `estadoFormulario` int(11) DEFAULT NULL,
   `xhtml` varchar(255) DEFAULT NULL,
+  `nomeUnicoAcoesDisponiveis` tinyblob,
   `acaoTemModal` bit(1) DEFAULT NULL,
   `campoJustificativa` varchar(255) DEFAULT NULL,
   `idMetodo` int(11) DEFAULT NULL,
@@ -76,10 +79,10 @@ CREATE TABLE `Bairro` (
   `id` int(11) NOT NULL,
   `coordenadas` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
-  `id_Cidade` int(11) DEFAULT NULL,
+  `cidade_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKp595io3klfr6qj0llm3h4pgdj` (`id_Cidade`),
-  CONSTRAINT `FKp595io3klfr6qj0llm3h4pgdj` FOREIGN KEY (`id_Cidade`) REFERENCES `Cidade` (`id`)
+  KEY `FKc6grs1jdy5u4dhdfsyd61jgk5` (`cidade_id`),
+  CONSTRAINT `FKc6grs1jdy5u4dhdfsyd61jgk5` FOREIGN KEY (`cidade_id`) REFERENCES `Cidade` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,9 +176,9 @@ CREATE TABLE `ConteudoGenerico` (
   KEY `FKavy7i0exbj1cjxqra6vbjf28x` (`localizacao_id`),
   KEY `FKaiubrt7j0mx89ji26fnlvmu1t` (`usuarioAlteracao_id`),
   KEY `FKisc6ukpucc28wml662a2g4tvb` (`usuarioInsercao_id`),
-  CONSTRAINT `FKisc6ukpucc28wml662a2g4tvb` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKaiubrt7j0mx89ji26fnlvmu1t` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
-  CONSTRAINT `FKavy7i0exbj1cjxqra6vbjf28x` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`)
+  CONSTRAINT `FKavy7i0exbj1cjxqra6vbjf28x` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`),
+  CONSTRAINT `FKisc6ukpucc28wml662a2g4tvb` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -251,8 +254,8 @@ CREATE TABLE `Ips` (
   KEY `FKg91qw90kdtcwkq94o48c8sfah` (`tipo_id`),
   KEY `FK332ut8y08mn06rtgbpyqei73p` (`usuarioAlteracao_id`),
   KEY `FK92k8tn1tlblje3ees74kebihi` (`usuarioInsercao_id`),
-  CONSTRAINT `FK92k8tn1tlblje3ees74kebihi` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FK332ut8y08mn06rtgbpyqei73p` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
+  CONSTRAINT `FK92k8tn1tlblje3ees74kebihi` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKg91qw90kdtcwkq94o48c8sfah` FOREIGN KEY (`tipo_id`) REFERENCES `TipoIp` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -449,8 +452,8 @@ CREATE TABLE `Permitido_Grupos` (
   PRIMARY KEY (`id`),
   KEY `FKonpllqmu9mxhrobrxvvdvqgw3` (`acesso_id`),
   KEY `FKqy7db3uujsot9o8hi9tr16ifw` (`grupo_id`),
-  CONSTRAINT `FKqy7db3uujsot9o8hi9tr16ifw` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`),
-  CONSTRAINT `FKonpllqmu9mxhrobrxvvdvqgw3` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`)
+  CONSTRAINT `FKonpllqmu9mxhrobrxvvdvqgw3` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`),
+  CONSTRAINT `FKqy7db3uujsot9o8hi9tr16ifw` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -477,8 +480,8 @@ CREATE TABLE `Permitido_Usuarios` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK9j92iu9201tx0dm010v5fq4wo` (`usuario_id`,`acesso_id`),
   KEY `FKeb1qf23eyq6brt5o1sbbka3oq` (`acesso_id`),
-  CONSTRAINT `FKkk1bvscvwf4sxlf15t8pk4e10` FOREIGN KEY (`usuario_id`) REFERENCES `UsuarioSB` (`id`),
-  CONSTRAINT `FKeb1qf23eyq6brt5o1sbbka3oq` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`)
+  CONSTRAINT `FKeb1qf23eyq6brt5o1sbbka3oq` FOREIGN KEY (`acesso_id`) REFERENCES `PermissaoSB` (`id`),
+  CONSTRAINT `FKkk1bvscvwf4sxlf15t8pk4e10` FOREIGN KEY (`usuario_id`) REFERENCES `UsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -531,8 +534,8 @@ CREATE TABLE `Regiao_Bairro` (
   `bairros_id` int(11) NOT NULL,
   KEY `FKew8f3d6bl78s7v7htp3thaj1d` (`bairros_id`),
   KEY `FKewbhodadapv1i3pyarhm5vpsa` (`Regiao_id`),
-  CONSTRAINT `FKewbhodadapv1i3pyarhm5vpsa` FOREIGN KEY (`Regiao_id`) REFERENCES `Regiao` (`id`),
-  CONSTRAINT `FKew8f3d6bl78s7v7htp3thaj1d` FOREIGN KEY (`bairros_id`) REFERENCES `Bairro` (`id`)
+  CONSTRAINT `FKew8f3d6bl78s7v7htp3thaj1d` FOREIGN KEY (`bairros_id`) REFERENCES `Bairro` (`id`),
+  CONSTRAINT `FKewbhodadapv1i3pyarhm5vpsa` FOREIGN KEY (`Regiao_id`) REFERENCES `Regiao` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -543,32 +546,6 @@ CREATE TABLE `Regiao_Bairro` (
 LOCK TABLES `Regiao_Bairro` WRITE;
 /*!40000 ALTER TABLE `Regiao_Bairro` DISABLE KEYS */;
 /*!40000 ALTER TABLE `Regiao_Bairro` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `Regiao_Cidade`
---
-
-DROP TABLE IF EXISTS `Regiao_Cidade`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `Regiao_Cidade` (
-  `Regiao_id` int(11) NOT NULL,
-  `cidades_id` int(11) NOT NULL,
-  KEY `FKfsk6ad509qjvl3tq708ja5fka` (`cidades_id`),
-  KEY `FKt3jpk9krgwonv1rudvexltlrq` (`Regiao_id`),
-  CONSTRAINT `FKt3jpk9krgwonv1rudvexltlrq` FOREIGN KEY (`Regiao_id`) REFERENCES `Regiao` (`id`),
-  CONSTRAINT `FKfsk6ad509qjvl3tq708ja5fka` FOREIGN KEY (`cidades_id`) REFERENCES `Cidade` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Regiao_Cidade`
---
-
-LOCK TABLES `Regiao_Cidade` WRITE;
-/*!40000 ALTER TABLE `Regiao_Cidade` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Regiao_Cidade` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -620,32 +597,6 @@ LOCK TABLES `UnidadeFederativa` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `UnidadeFederativa_Cidade`
---
-
-DROP TABLE IF EXISTS `UnidadeFederativa_Cidade`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `UnidadeFederativa_Cidade` (
-  `UnidadeFederativa_id` int(11) NOT NULL,
-  `cidades_id` int(11) NOT NULL,
-  UNIQUE KEY `UK_75jpqvcgk4mtl3ti7gyrpx6ao` (`cidades_id`),
-  KEY `FKnljxw1cb29570ahd5ufhucvm3` (`UnidadeFederativa_id`),
-  CONSTRAINT `FKnljxw1cb29570ahd5ufhucvm3` FOREIGN KEY (`UnidadeFederativa_id`) REFERENCES `UnidadeFederativa` (`id`),
-  CONSTRAINT `FK17n56pa7clew2jc67jtutk9xl` FOREIGN KEY (`cidades_id`) REFERENCES `Cidade` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `UnidadeFederativa_Cidade`
---
-
-LOCK TABLES `UnidadeFederativa_Cidade` WRITE;
-/*!40000 ALTER TABLE `UnidadeFederativa_Cidade` DISABLE KEYS */;
-/*!40000 ALTER TABLE `UnidadeFederativa_Cidade` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `UsuarioSB`
 --
 
@@ -676,9 +627,9 @@ CREATE TABLE `UsuarioSB` (
   KEY `FKddt81m657meu8v89qakv0792x` (`localizacao_id`),
   KEY `FKa0hk7be13ip4xg104xlxghvba` (`usuarioAlteracao_id`),
   KEY `FKg5805u50psplpao25esj3i4om` (`usuarioInsercao_id`),
-  CONSTRAINT `FKg5805u50psplpao25esj3i4om` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKa0hk7be13ip4xg104xlxghvba` FOREIGN KEY (`usuarioAlteracao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKddt81m657meu8v89qakv0792x` FOREIGN KEY (`localizacao_id`) REFERENCES `Localizacao` (`id`),
+  CONSTRAINT `FKg5805u50psplpao25esj3i4om` FOREIGN KEY (`usuarioInsercao_id`) REFERENCES `UsuarioSB` (`id`),
   CONSTRAINT `FKpu9xpcabqjpw3jjdb6mu4w3a9` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -689,7 +640,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2017-05-17',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2017-08-13',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -727,8 +678,8 @@ CREATE TABLE `modulos_grupo` (
   `modulo_id` int(11) NOT NULL,
   UNIQUE KEY `UKngph303pxo2b2mrtpfkoacmwq` (`grupo_id`,`modulo_id`),
   KEY `FK1616eg4vq1ubds5aof20ci82b` (`modulo_id`),
-  CONSTRAINT `FKf5g7yb014obr43smkvslw1hmu` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`),
-  CONSTRAINT `FK1616eg4vq1ubds5aof20ci82b` FOREIGN KEY (`modulo_id`) REFERENCES `ModuloAcaoSistema` (`id`)
+  CONSTRAINT `FK1616eg4vq1ubds5aof20ci82b` FOREIGN KEY (`modulo_id`) REFERENCES `ModuloAcaoSistema` (`id`),
+  CONSTRAINT `FKf5g7yb014obr43smkvslw1hmu` FOREIGN KEY (`grupo_id`) REFERENCES `GrupoUsuarioSB` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -739,6 +690,32 @@ CREATE TABLE `modulos_grupo` (
 LOCK TABLES `modulos_grupo` WRITE;
 /*!40000 ALTER TABLE `modulos_grupo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `modulos_grupo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `regiao_cidades`
+--
+
+DROP TABLE IF EXISTS `regiao_cidades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regiao_cidades` (
+  `regiao_id` int(11) NOT NULL,
+  `cidade_id` int(11) NOT NULL,
+  KEY `FKl4njys9fksqduv028a4j3mera` (`cidade_id`),
+  KEY `FKgcjw6nyiocwydbhjayj1q0qe2` (`regiao_id`),
+  CONSTRAINT `FKgcjw6nyiocwydbhjayj1q0qe2` FOREIGN KEY (`regiao_id`) REFERENCES `Regiao` (`id`),
+  CONSTRAINT `FKl4njys9fksqduv028a4j3mera` FOREIGN KEY (`cidade_id`) REFERENCES `Cidade` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regiao_cidades`
+--
+
+LOCK TABLES `regiao_cidades` WRITE;
+/*!40000 ALTER TABLE `regiao_cidades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `regiao_cidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -776,4 +753,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-17 23:49:25
+-- Dump completed on 2017-08-13  9:42:04

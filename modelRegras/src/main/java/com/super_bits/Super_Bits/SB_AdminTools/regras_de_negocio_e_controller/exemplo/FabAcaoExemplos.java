@@ -30,7 +30,7 @@ public enum FabAcaoExemplos implements ItfFabricaAcoes {
     @InfoTipoAcaoFormulario(campos = {"id", "nome", "descricao", "localizacao"})
     CONTEUDO_GENERICO_FRM_EDITAR,
     @InfoTipoAcaoFormulario(iconeFonteAnsowame = FabIconeFontAwesome.REG_VISUALIZAR)
-    CONTEUDO_GENERICO_FRM_VISULIZAR,
+    CONTEUDO_GENERICO_FRM_VISUALIZAR,
     @InfoTipoAcaoController()
     CONTEUDO_GENERICO_CTR_SALVAR_MERGE;
 
