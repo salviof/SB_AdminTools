@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition  >
+
+        <p:fieldset  legend="Dados da Entidade" class="Container60 Responsive" toggleable="true">
+            <h:form >
+                <p:panelGrid columns="2">
+                    <p:panelGrid columns="2">
+                        <h:panelGroup>
+                            <p:panelGrid columns="1" >
+                                <p:inputText value="#{pgLabProjetoAtual.strNomeDaEntidade}"/>
+                                <p:inputNumber value="#{pgLabProjetoAtual.idDaEntidade}" />
+                            </p:panelGrid>
+                            <p:commandButton icon="fa fa-refresh" action="#{pgLabProjetoAtual.carregaEntidade()}"
+                                             update="#{pgUtil.makeCaminhoCompletoID('laboratorio')} @form"/>
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{pgLabProjetoAtual.entidadeFoiCarregada}">
+                            <p:panelGrid columns="2" >
+                                <p:outputLabel value="Nome do tipo de  Entidade"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nomeDoObjeto}"/>
+                                <p:outputLabel value="Nome:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.nome}"/>
+                                <p:outputLabel value="id:"/><p:outputLabel value="#{pgLabProjetoAtual.entidadeCarregada.id}"/>
+                                <p:outputLabel value="Exibindo o Campo"/><p:outputLabel value="#{pgLabProjetoAtual.strNomeCampo}"/>
+                            </p:panelGrid>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                </p:panelGrid>
+
+            </h:form>
+
+        </p:fieldset>
+
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition  >
+
+
+        <p:fieldset legend="Ver campo" class="Container33 Responsive">
+
+            <p:outputLabel value="Selecione uma ação de formulário para navegar entre os campos" rendered="#{pgLabProjetoAtual.acaoFormularioSelecionada==null}" />
+
+
+            <p:fieldset  legend="Campos da ação: #{pgLabProjetoAtual.acaoFormularioSelecionada.nomeAcao}"  rendered="#{pgLabProjetoAtual.acaoFormularioSelecionada!=null}">
+
+                <h:panelGroup >
+                    <h:form>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoCampo()}" value="Proximo Campo" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verCampoAnterior()}" value="Campo Anterior" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verProximoGrupo()}" value=" Proximo grupo" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+                        <p:commandButton action="#{pgLabProjetoAtual.verGrupoAnterior()}" value="Grupo Anterior" update="#{pgUtil.makeCaminhoCompletoID('assistente')}"/>
+
+                    </h:form>
+                </h:panelGroup>
+            </p:fieldset>
+
+        </p:fieldset>
+
+
+
+    </ui:composition>
+</html>
+
+
+
+
+
+
+
+
+
+
