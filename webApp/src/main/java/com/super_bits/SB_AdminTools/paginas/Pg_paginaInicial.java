@@ -30,7 +30,7 @@ import javax.inject.Named;
  */
 @ViewScoped
 @Named
-@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_MB_HOME)
+@InfoAcaoPaginaDoSistema(acao = FabAcaoPaginasDoSistema.PAGINA_NATIVA_HOME_MB_PADRAO)
 @InfoPagina(tags = {"home"}, nomeCurto = "HOME")
 public class Pg_paginaInicial extends MB_PaginaConversation {
 

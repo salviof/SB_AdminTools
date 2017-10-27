@@ -5,12 +5,7 @@
 
       xmlns:p="http://primefaces.org/ui">
 
-    <h:form>
-        <p:remoteCommand actionListener="#{paginaAtual.infoPagina.fecharPaginaMatandoViewScoped()}"
-                         name="matarViewNoServidor"
-                         autoRun="false"
-                         />
-    </h:form>
+
 
     <!-- CODIGO QUE ENVIA INFORMACOES SOBRE A TELA DA SESSÃO DO USUÁRIO -->
     <h:panelGroup rendered="#{!sessaoAtualSBWP.tipoViewDefinido}" style="visibility: hidden;" >

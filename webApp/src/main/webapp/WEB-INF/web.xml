@@ -27,7 +27,7 @@
     <!-- Time in seconds that facelets should be checked for changes since last request. A value of -1 disables refresh checking. -->
     <context-param>
         <param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
-        <param-value>0</param-value>
+        <param-value>3</param-value>
     </context-param>
 
 
@@ -160,7 +160,7 @@
     </servlet-mapping>
 
 
-      <servlet>
+    <servlet>
         <servlet-name>slvGestorDeArquivosDeSessao</servlet-name>
         <servlet-class>com.super_bits.modulosSB.webPaginas.controller.servletes.servletArquivoDeSessao.ServletArquivoDeSessao</servlet-class>
     </servlet>
