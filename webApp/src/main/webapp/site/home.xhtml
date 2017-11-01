@@ -4,7 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:SBMensagem="http://xmlns.jcp.org/jsf/composite/SBComp/composite/mensagem"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:p="http://primefaces.org/ui">
     <ui:composition template="/resources/SBComp/template/basico/modeloAnonimo.xhtml">
         <ui:define name="head"  >
@@ -16,7 +17,7 @@
         </ui:define>
         <ui:define name="divConteudo">
             <div class="ContainerIndent">
-                <SBComp:linhaComTitulo titulo="Admin Tools SB Framework"/>
+                <SBMensagem:linhaComTitulo titulo="Admin Tools SB Framework"/>
                 <h4>
                     Neste projeto são desenvolvidas as Ferramentas formidáveis para o desenvolvimento, <br/>
                     é um lugar, para realizar aquele sonho de criar um sistema estalando os dedos, onde a preguiça  não é pecado,
@@ -39,11 +40,11 @@
             <div class="Container40" >
 
                 Preparado?
-                <SBComp:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}"
-                                   tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.gigante}"
-                                   />
+                <SBAcaoNav:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}"
+                                      tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.gigante}"
+                                      />
 
-                <SBComp:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
+                <SBAcaoNav:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
                 URL:  #{infoWebApp.getAcaoComLink(pg_paginaInicial.paginaFerramentas).urlDeAcesso}
 
             </div>
@@ -53,7 +54,7 @@
             <blockquote class="blockquote-reverse">                <p>A informação é poder. Mas tal como acontece com todo o poder, há aqueles que querem guardá-lo para si</p>
                 <footer>Aaron Swartz</footer>   </blockquote></pre>
                 *(Compartilhe Conhecimento), Faça parte da comunidade atravez do site
-                <SBComp:linkExterno endereco="http://salviof.github.io/SuperBits_FrameWork/"  />
+                <SBAcaoNav:linkExterno endereco="http://salviof.github.io/SuperBits_FrameWork/"  />
             </div>
             <h:panelGroup id="#{pg_paginaInicial.idAreaExbicaoAcaoSelecionada}">
 
@@ -64,7 +65,7 @@
                                   actionListener="#{pgUtil.exibirModal('/site/modulos/sb_admin_tools/modais/inspecaoObjeto')}"/>
             </h:form>
 
-            <SBComp:infoPagina />
+
 
 
 

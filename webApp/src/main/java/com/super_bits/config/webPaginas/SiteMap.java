@@ -5,15 +5,10 @@
  */
 package com.super_bits.config.webPaginas;
 
-import com.super_bits.SB_AdminTools.paginas.Pg_paginaInicial;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.FabMenuAdmin;
-import com.super_bits.modulos.paginas.adminTools.PgAdminBanco;
-import com.super_bits.modulos.paginas.adminTools.PgAdminSistema;
-import com.super_bits.modulos.paginas.adminTools.PgLabProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MB_SiteMapa;
 import javax.faces.bean.ApplicationScoped;
-import javax.inject.Inject;
 
 /**
  *
@@ -28,18 +23,6 @@ import javax.inject.Inject;
  */
 @ApplicationScoped
 public class SiteMap extends MB_SiteMapa {
-
-    @Inject
-    private Pg_paginaInicial paginaInicial;
-
-    @Inject
-    private PgAdminSistema paginaHomeAdmin;
-
-    @Inject
-    private PgLabProjetoAtual paginaTesteCampos;
-
-    @Inject
-    private PgAdminBanco paginaAdminBanco;
 
     /// Injete aqui todas as Paginas que extendem o objeto MB_pagina
     @Override

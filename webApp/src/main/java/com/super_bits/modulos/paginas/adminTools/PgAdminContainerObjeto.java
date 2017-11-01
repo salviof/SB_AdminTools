@@ -1,0 +1,223 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.super_bits.modulos.paginas.adminTools;
+
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
+import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
+import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.UtilSBCoreArquivos;
+import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
+import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.view.ContainerVisualizacaoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.view.ContainersVisualizacaoDoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.view.NovoContainerVisualizacaoObjeto;
+import com.super_bits.modulosSB.SBCore.modulos.view.ServicoVisualizacaoAbstrato;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_paginaCadastroEntidades;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.beans.InfoParametroURL;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MapaDeFormularios;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.parametrosURL.ParametroURL;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
+
+/**
+ *
+ * @author SalvioF
+ */
+@InfoAcaoAdminDeveloper(acao = FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB)
+@InfoPagina(nomeCurto = "OBJCont", tags = {"Containers De Objetos"})
+@Named
+@ViewScoped
+public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<EstruturaDeEntidade> {
+
+    private String pesquisa;
+    private ItfBeanSimples itemDoContainer;
+    private ContainersVisualizacaoDoObjeto containersExistentes;
+    private List<BeanInfoContainerVisualizacao> containersComUrl;
+    private ContainerVisualizacaoObjeto containerSelecionado;
+
+    private List<Integer> colunasDisponiveisCriacao;
+    private List<String> visualizacoesExistentes;
+
+    private NovoContainerVisualizacaoObjeto novoContainer;
+
+    @InfoParametroURL(nome = "nomeVisualizacao", tipoParametro = TIPO_PARTE_URL.TEXTO, valorPadrao = ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_PADRAO, obrigatorio = false)
+    private ParametroURL parametroNomeVisualizacao;
+
+    @InfoParametroURL(nome = "Quantidade de Colunas ocupadas pelo container", tipoParametro = TIPO_PARTE_URL.TEXTO, valorPadrao = "3", obrigatorio = false)
+    private ParametroURL parametroQtdColuna;
+
+    @InfoParametroURL(nome = "Mostrar mobile", tipoParametro = TIPO_PARTE_URL.TEXTO, valorPadrao = "nao")
+    private ParametroURL parametroMostrarMobile;
+
+    @InfoParametroURL(nome = "Estrutura de Entidade", tipoParametro = TIPO_PARTE_URL.TEXTO, obrigatorio = false)
+    private ParametroURL parametroNomeEntidade;
+
+    @Override
+    public EstruturaDeEntidade getEntidadeSelecionada() {
+        return super.getEntidadeSelecionada(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setEntidadeSelecionada(EstruturaDeEntidade entidadeSelecionada) {
+
+        super.setEntidadeSelecionada(entidadeSelecionada); //To change body of generated methods, choose Tools | Templates.
+        try {
+
+            containersExistentes = new ContainersVisualizacaoDoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(entidadeSelecionada.getNomeEntidade()), ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_ITEM.LABORATORIO);
+            visualizacoesExistentes = containersExistentes.getListaVisualizacoesPossiveis();
+            containersComUrl = new ArrayList();
+            for (ContainerVisualizacaoObjeto c : containersExistentes.getContainersEncontrados()) {
+                String urldesktopUnico = MapaDeFormularios.getUrlFormulario(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITEM_DESKTOP.getRegistro(),
+                        c.getNomeTipoVisualizacao(), String.valueOf(c.getColunas()), "nao", c.getNomeEntidade());
+                String urlMobileUnico = null;
+                if (c.isTemVersaoMobile()) {
+                    urlMobileUnico = MapaDeFormularios.getUrlFormulario(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITEM_MOBILE.getRegistro(),
+                            c.getNomeTipoVisualizacao(), String.valueOf(c.getColunas()), "nao", c.getNomeEntidade());
+                }
+                String urldesktopGrupo = MapaDeFormularios.getUrlFormulario(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_DESKTOP.getRegistro(), c.getNomeTipoVisualizacao(),
+                        String.valueOf(c.getColunas()), "nao", c.getNomeEntidade());
+                String urlMobileGrupo = null;
+                if (c.isTemVersaoMobile()) {
+                    urlMobileGrupo = MapaDeFormularios.getUrlFormulario(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_MOBILE.getRegistro(), c.getNomeTipoVisualizacao(), String.valueOf(c.getColunas()), c.getNomeEntidade());
+                }
+                containersComUrl.add(new BeanInfoContainerVisualizacao(c,
+                        urldesktopUnico,
+                        urlMobileUnico,
+                        urldesktopGrupo,
+                        urlMobileGrupo
+                ));
+            }
+
+        } catch (Throwable t) {
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro obtendo containers do objeto", t);
+        }
+
+    }
+
+    private void selecionarContainerViaParametros() {
+        if (parametroQtdColuna != null) {
+            if (parametroQtdColuna.isValorDoParametroFoiConfigurado()
+                    && parametroNomeVisualizacao.isValorDoParametroFoiConfigurado()
+                    && parametroNomeEntidade.isValorDoParametroFoiConfigurado()
+                    && parametroQtdColuna.isValorDoParametroFoiConfigurado()
+                    && parametroMostrarMobile.isParametroObrigatorio()) {
+                boolean versaoMobile = false;
+                if (parametroMostrarMobile.getValor().toString().toUpperCase().equals("SIM")) {
+                    versaoMobile = true;
+                }
+                containersExistentes = new ContainersVisualizacaoDoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(parametroNomeEntidade.getValor().toString()), ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_ITEM.LABORATORIO);
+                containerSelecionado = containersExistentes.getContainerAdequado(parametroNomeVisualizacao.getValor().toString(), Integer.valueOf(parametroQtdColuna.getValor().toString()), versaoMobile);
+
+            }
+        }
+
+    }
+
+    @PostConstruct
+    public void inicio() {
+        listarDados();
+        colunasDisponiveisCriacao = new ArrayList<>();
+        for (int i = 1; i < 13; i++) {
+            colunasDisponiveisCriacao.add(i);
+        }
+        selecionarContainerViaParametros();
+
+    }
+
+    @Override
+    public void listarDados() {
+
+        setEntidadesListadas(MapaObjetosProjetoAtual.getListaTodosEstruturaObjeto());
+    }
+
+    @Override
+    public void executarAcao(EstruturaDeEntidade pEntidadeSelecionada) {
+        super.executarAcao(pEntidadeSelecionada); //To change body of generated methods, choose Tools | Templates.
+
+        if (isAcaoSelecionadaIgualA(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_NOVAVISUALIZACAO)) {
+            novoContainer = new NovoContainerVisualizacaoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(getEntidadeSelecionada().getNomeEntidade()));
+        }
+    }
+
+    public boolean isContainersCarregados() {
+        return containersExistentes != null;
+    }
+
+    public List<String> getVisualizacoesExistentes() {
+        return visualizacoesExistentes;
+    }
+
+    public void gerarNovaVisualizacao() {
+        String caminhoArquivoXHTML = novoContainer.getEntrLocalArquivoDesktop();
+        String caminhoMobile = novoContainer.getEntrLocalArquivoMobile();
+
+        if (new File(caminhoArquivoXHTML).exists()) {
+            SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização já existe, edite o arquivo" + caminhoArquivoXHTML + "com seu editor preferido");
+        } else {
+            UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoArquivoXHTML);
+            if (!UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
+
+                SBCore.getCentralDeMensagens().enviarMsgErroAoUsuario("Erro criando arquivo modo Desenvolvimento");
+            } else {
+                SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoArquivoXHTML);
+                containersExistentes.reloadVisualizacoes();
+            }
+        }
+
+        if (caminhoMobile != null) {
+            if (new File(caminhoMobile).exists()) {
+                SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização Mobile já existe, edite o arquivo" + caminhoMobile + "com seu editor preferido");
+            } else {
+                UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoMobile);
+                if (UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
+                    SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoMobile);
+                }
+            }
+        }
+
+    }
+
+    public void publicarVisualizacaoLaboratorio() {
+
+    }
+
+    public void publicarVisualizacaoLaboratorioMobile() {
+
+    }
+
+    public ItfBeanSimples getItemDoContainer() {
+        return itemDoContainer;
+    }
+
+    public ContainersVisualizacaoDoObjeto getContainersExistentes() {
+        return containersExistentes;
+    }
+
+    public List<BeanInfoContainerVisualizacao> getContainersComUrl() {
+        return containersComUrl;
+    }
+
+    public ContainerVisualizacaoObjeto getContainerSelecionado() {
+        return containerSelecionado;
+    }
+
+    public List<Integer> getColunasDisponiveisCriacao() {
+        return colunasDisponiveisCriacao;
+    }
+
+    public NovoContainerVisualizacaoObjeto getNovoContainer() {
+        return novoContainer;
+    }
+
+}

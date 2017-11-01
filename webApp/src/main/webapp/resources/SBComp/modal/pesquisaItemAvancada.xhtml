@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:sb="http://superbitsframework/ui"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <h:head>
+
+        <script>
+            function enviarArquivo(slugEntidade, idNomeArquivo) {
+                //      document.getElementById["form:botoes"].style.display = 'none';
+                PF('enviarArquivo').show();
+            }
+        </script>
+        <title>Pesquisa Avançada</title>
+        <ui:include src="folhasDeEstiloModal.xhtml" />
+
+    </h:head>
+
+    <h:body>
+        <div class="Fright">
+            <h:form >
+                <p:commandButton icon="fa fa-close" actionListener="#{pgModalSBJSF.fecharModal()}" />
+            </h:form>
+        </div>
+
+        <h:form>
+            <p:inputText value="#{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.comoCampoSeltorItem.filtro}" style="font-size: 25px!important; width: 100%;"
+                         placeholder="Pesquise por #{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.nomeDoObjetoPlural} cadastrados "
+                         styleClass="CampoResponsivo"
+                         rendered="false"
+                         >
+                <p:ajax event="blur" update="formularioItens" />
+
+            </p:inputText>
+
+            <p:focus />
+        </h:form>
+
+        <h:form id="formularioItens">
+            <div class="Container100">
+
+
+                <p:dataTable sortMode="multiple"
+                             value="#{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.comoCampoSeltorItem.seletor.origem}"
+                             var="item"
+                             emptyMessage="Nenhum #{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.nomeDoObjeto} Encontrado"
+                             paginator="true"
+                             rows="10"
+                             >
+                    <f:facet name="header">
+
+
+
+                    </f:facet>
+
+
+                    <p:columns var="coluna" value="#{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.comoCampoSeltorItem.grupoCampoExibicao.campos}"
+                               sortBy="#{item[coluna.caminhoSemNomeClasse]}"
+                               filterBy="#{item[coluna.caminhoSemNomeClasse]}"
+                               filterMatchMode="contains"
+
+                               >
+
+                        <f:facet name="header">
+                            <h:outputText value= "#{coluna.label}"/>
+                        </f:facet>
+
+                        <sb:inputSB
+                            registro="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse)}"
+                            desabilitarEdicao="true"
+                            layoutCampo="#{layoutsComponenteSB.layoutCampo.semLabel}"
+                            possuiIDOnChange="false"
+                            possuiMetodoOnChange="false"
+                            atualizarFormOnChange="false"
+                            atualizarGrupoOnChange="false"
+                            obrigatorio="false"
+                            label="#{item.getCampoByNomeOuAnotacao(coluna.caminhoSemNomeClasse).label}"
+
+                            />
+
+                    </p:columns>
+
+
+
+
+
+
+
+                    <p:column headerText="" width="50">
+
+                        <p:commandButton icon="fa fa-hand-pointer-o " actionListener="#{pgModalSBJSF.fecharModal()}" >
+                            <f:setPropertyActionListener target="#{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.valor}" value="#{item}" />
+
+                        </p:commandButton>
+
+                    </p:column>
+
+                </p:dataTable>
+
+
+
+
+
+
+            </div>
+
+
+        </h:form>
+
+
+    </h:body>
+
+</html>

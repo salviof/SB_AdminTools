@@ -1,0 +1,40 @@
+/* NESTE ARQUIVO FICAM OS ESTILOS PARA CAMPOS DE IMPUT */
+@charset "utf-8";
+/* CSS Document */
+
+
+.campoSimples{
+
+
+}
+
+.seletorResponsivo{
+    width:   100%!important;
+}
+
+.tabelaFormulario{
+    width:   100%!important;
+}
+
+
+.invisivel{
+
+    display: none;
+}
+
+.Coluna20{
+    width: 20%;
+}
+.Coluna80{
+    width: 80%;
+}
+
+.Coluna10{
+    width: 10%;
+}
+.Coluna90{
+    width: 90%;
+}
+.IconePequeno{
+    width: 10px;
+}

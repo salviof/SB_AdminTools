@@ -28,6 +28,7 @@ public class TesteConformidadeWebApp extends RelatorioTesteWebPaginas {
         ItfAcaoDoSistema acao = UtilFabricaDeAcoesAcessosModel.getNovaAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR, false);
 
         exibirRelatorioCompleto();
+        criarMapaDeAcoesEscopoAplicacao();
 
     }
 

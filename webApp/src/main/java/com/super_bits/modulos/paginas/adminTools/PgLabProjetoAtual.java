@@ -111,7 +111,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acoesParaCampo = new ArrayList<>();
             acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getRegistro().getComoFormulario();
             acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
-            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro().getComoFormulario();
+            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB.getRegistro().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
             acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getRegistro().getComoFormulario();
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getRegistro().getComoFormulario());
@@ -119,7 +119,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getRegistro().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getRegistro().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getRegistro().getComoFormulario());
+
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
             xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getRegistro().getComoFormulario().getXhtml();
             acaoPadraoDeExibicao = acaoFichaTecnica;
@@ -460,7 +460,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public boolean isModoInspecionarCampo() {
 
-        return !acaoSelecionada.equals(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro());
+        return !acaoSelecionada.equals(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB.getRegistro());
     }
 
     public ItfAcaoFormulario getAcaoEditarVisualizacaoItem() {

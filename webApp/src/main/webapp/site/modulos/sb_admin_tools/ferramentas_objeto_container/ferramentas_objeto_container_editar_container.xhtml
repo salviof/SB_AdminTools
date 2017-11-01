@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
+      xmlns:SBFormAtual="http://xmlns.jcp.org/jsf/composite/SBComp/composite/paginaAtualDeEntidade"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <!-- template conteúdo com formulario-->
+    <ui:composition template="#{layoutsPaginas.formularioAcaoAtual.xhtmlVinculado}" >
+
+
+        <ui:define name="conteudoDireita">
+            <SBFormAtual:botaoAcaoPersonalizada acao="#{pgAdminContainerObjeto.acaoListarRegistros}" />
+
+        </ui:define>
+        <ui:define name="conteudoCard">
+            <div class="ContainerIndent">
+                <p:panelGrid columns="2">
+                    <p:outputLabel value="Nome do Componente" />
+                    <p:outputLabel value="#{pgAdminContainerObjeto.entidadeSelecionada.nome}" />
+
+                    <p:outputLabel value="Visualização do container Padrão:"/>
+                    <p:outputLabel value="#{pgAdminContainerObjeto.entidadeSelecionada.xhtmlVisao}"/>
+                    <p:outputLabel value="#{pgAdminContainerObjeto.entidadeSelecionada.xhtmlVisao}"/>
+
+                </p:panelGrid>
+
+            </div>
+
+            <c:forEach var="container" items="#{pgAdminContainerObjeto.containersComUrl}" >
+                <p:link href="#{container.urlVisualizacaoDeskTopUnico}" value="#{container.containerVisualizacao.nomeTipoVisualizacao}"/>
+            </c:forEach>
+            #{layoutsComponenteSB.layoutCampo}
+            #{acoesPaginas_do_Sistema_CONTEUDO_GENERICO_MB}
+
+
+
+        </ui:define>
+        <ui:define name="botoesDeAcao">
+
+        </ui:define>
+    </ui:composition>
+
+</html>

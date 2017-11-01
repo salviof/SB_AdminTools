@@ -44,6 +44,13 @@
         </exception-handler-factory>
     </factory>
 
+    <factory>
+        <exception-handler-factory>
+            com.super_bits.modulosSB.webPaginas.TratamentoDeErros.FabricaManipuladorErrosJsf
+        </exception-handler-factory>
+    </factory>
+
+
 
     <lifecycle>
         <phase-listener>org.primefaces.component.lifecycle.LifecyclePhaseListener</phase-listener>

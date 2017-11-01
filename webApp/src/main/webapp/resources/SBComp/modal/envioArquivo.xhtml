@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <h:head>
+
+        <script>
+            function enviarArquivo(slugEntidade, idNomeArquivo) {
+                //      document.getElementById["form:botoes"].style.display = 'none';
+                PF('enviarArquivo').show();
+            }
+        </script>
+        <ui:include src="folhasDeEstiloModal.xhtml" />
+    </h:head>
+
+
+
+
+
+    <h:body>
+        <h:form rendered="false">
+            <p:remoteCommand actionListener="#{pgModalSBJSF.fecharPaginaMatandoViewScoped()}"
+                             name="fecharModal"
+                             autoRun="false"
+                             />
+            <p:commandButton value="Teste Fechar" update="@form" oncomplete="fecharModal();" />
+        </h:form>
+
+
+        <h:form>
+            <h:panelGroup styleClass="Container10" >.</h:panelGroup>
+            <h:panelGroup styleClass="Container30" >
+
+                <p:fileUpload
+
+                    mode="advanced"
+
+                    styleClass="inputUploadGrande"
+                    label="Escolher #{pgModalSBJSF.paginaVinculada.modalDados.campoSelecionado.label}"
+                    fileUploadListener="#{pgModalSBJSF.paginaVinculada.modalDados.enviarArquivoDoCampoUpload}"
+                    auto="true"
+                    />
+
+            </h:panelGroup>
+
+        </h:form>
+
+    </h:body>
+
+</html>

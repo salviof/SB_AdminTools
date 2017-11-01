@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+    <h:head>
+
+
+    </h:head>
+
+    <h:body>
+        <h:form>
+
+            #{pgModalRequisito.paginaVinculada.acaoVinculada.nomeUnico} <br/>
+            <p:link href="https://vipsol.atlassian.net/wiki/display/SKEDR/#{pgModalSBJSF.paginaVinculada.acaoVinculada.idDescritivoJira}"
+                    value="#{pgModalSBJSF.paginaVinculada.acaoVinculada.idDescritivoJira}"
+                    target="requisitoJira:"
+                    >
+                Ver requisito, que originou a tarefa
+            </p:link>
+
+            <div class="Container25" >
+                <p:inputText value="#{pgModalRequisito.nomeUnicoAcao}" />
+            </div>
+            <div class="Container25" >
+
+            </div>
+            <div class="Container25" >
+
+            </div>
+
+
+        </h:form>
+
+        <h:form>
+
+            <p:commandButton value="Atualizar"
+                             actionListener="#{pgModalRequisito.atualizarRequisito}"
+                             update="@form"
+                             />
+
+            <p:fieldset legend="#{pgModalRequisito.requisitoVinculadoAcao.nome}" rendered="#{pgModalRequisito.requisitoVinculadoAcao!=null}">
+                <a href="#{pgModalRequisito.requisitoVinculadoAcao.urlRequisito}"
+                   target="sbReqDoMomento"
+                   >
+                    Lnk para tarefa Vinculada:    #{pgModalRequisito.requisitoVinculadoAcao.urlRequisito}
+
+                </a> <br/>
+
+                <br/>
+                <br/>
+                <p:textEditor
+
+                    value="#{pgModalRequisito.requisitoVinculadoAcao.descricao}" readonly="true" />
+
+                <br/>
+                <p:fieldset legend="Comentários:" >
+                    <c:forEach items="#{pgModalRequisito.requisitoVinculadoAcao.comentarios}" var="cm">
+                        #{cm.nomeUsuario}->#{cm.comentario}  <br/>
+                    </c:forEach>
+
+                </p:fieldset>
+
+
+            </p:fieldset>
+        </h:form>
+
+
+    </h:body>
+
+</html>

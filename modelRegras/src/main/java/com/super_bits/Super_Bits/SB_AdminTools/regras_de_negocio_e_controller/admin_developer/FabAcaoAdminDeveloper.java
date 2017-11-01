@@ -6,8 +6,8 @@ package com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.a
 
 import com.super_bits.modulos.SBAcessosModel.controller.FabModulosSistemaSB;
 import com.super_bits.modulos.SBAcessosModel.controller.InfoModulosSistemaSB;
+import com.super_bits.modulos.SBAcessosModel.fabricas.ItfFabricaDeAcoesPersistencia;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
-import com.super_bits.modulos.SBAcessosModel.model.acoes.UtilFabricaDeAcoesAcessosModel;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoConfigModulo;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoLog;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoPersistencia;
@@ -15,7 +15,6 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoController;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoGestaoEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 
@@ -24,22 +23,23 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icone
  * @author desenvolvedor
  */
 @InfoModulosSistemaSB(modulo = FabModulosSistemaSB.ADMIN_TOOLS)
-public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
+public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
 
     @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
             nomeAcao = "Manutenção",
-            descricao = "Manutenção e Desenvolvimento do Projeto"
+            descricao = "Manutenção e Desenvolvimento do Projeto",
+            entidade = SBInfoProjetoAtual.class
     )
     DEV_PROJETO_ADMIN_MB,
     @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
             nomeAcao = "Gestão de Objetos do Sistema",
             descricao = "Administração e Debug de Objetos do Sistema",
-            xhtmlDaAcao = "objetosLab.xhtml"
+            xhtmlDaAcao = "objetosLab.xhtml", entidade = EstruturaDeEntidade.class
     )
     DEV_OBJ_PROJETO_MB_LAB,
     @InfoTipoAcaoFormulario(nomeAcao = "Ver campo",
             xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/campo/verCampo.xhtml",
-            icone = "fa fa-eye")
+            icone = "fa fa-eye", entidade = EstruturaDeEntidade.class)
     DEV_OBJ_PROJETO_FRM_VER_CAMPO,
     @InfoTipoAcaoFormulario(nomeAcao = "Ver Campo em todos formatos",
             xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/campo/verCampoTodosFormatos.xhtml",
@@ -72,14 +72,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     @InfoTipoAcaoFormulario(nomeAcao = "CAMPOS DO AGRUPO",
             xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/camposDoGrupo.xhtml",
             icone = "fa fa-question-circle")
-    DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO,
-    @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
-            xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/visualizadorDeItem.xhtml", icone = "fa fa-eye"
-    )
-    DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM,
-    @InfoTipoAcaoFormulario(nomeAcao = "Visualizacao Do Item",
-            xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/inspecionarCampo.xhml", icone = "fa fa-gears"
-    )
+
     DEV_OBJ_PROJETO_FRM_INSPECIONAR,
     @InfoTipoAcaoFormulario(nomeAcao
             = "Ficha técnica",
@@ -116,8 +109,30 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             xhtmlDaAcao = "selecionarCampo.xhtml",
             icone = "fa fa-pencil-square-o")
     DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO,
+    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Containers de Objeto", icone = "fa fa-paint-brush", entidade = EstruturaDeEntidade.class, utilizarMesmoFormEdicao = false)
+    FERRAMENTAS_OBJETO_CONTAINER_MB,
+    @InfoTipoAcaoFormulario(nomeAcao = "Criar nova visualização", icone = "fa fa-paint-brush")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_NOVAVISUALIZACAO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Informações Do Item", icone = "fa fa-search")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_EDITAR_CONTAINER,
+    @InfoTipoAcaoFormulario(nomeAcao = "Listar Objetos de container")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_LISTAR,
+    @InfoTipoAcaoFormulario(icone = "fa fa-desktop")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITEM_DESKTOP,
+    @InfoTipoAcaoFormulario(icone = "fa fa-mobile")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITEM_MOBILE,
+    @InfoTipoAcaoFormulario(icone = "fa fa-object-group")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_MOBILE,
+    @InfoTipoAcaoFormulario(icone = "fa fa-object-group fa fa-desktop")
+    FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_DESKTOP,
+    @InfoTipoAcaoController(nomeAcao = "Criar Visualizacao", icone = "fa fa-gears"
+    )
+    FERRAMENTAS_OBJETO_CONTAINER_CTR_CRIAR_VISUALIZACAO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Criar visualização especial", icone = "fa fa-gears"
+    )
+
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Criar Ação",
-            xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap")
+            xhtmlDaAcao = "criarAcao.xhtml", icone = "fa fa-sitemap", entidade = AcaoDoSistema.class)
     FERRAMENTAS_ACAO_MB_CRIAR,
     @InfoTipoAcaoFormulario(nomeAcao = "Definir Slug Ação",
             xhtmlDaAcao = "nvAcaoDefSlug.xhtml",
@@ -144,7 +159,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             iconeFonteAnsowame = FabIconeFontAwesome.REG_NOVO)
     FERRAMENTAS_ACAO_CTR_CRIAR,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Variaveis de Ambiente", xhtmlDaAcao = "gestaoConfiguracoesSistema.xhtml",
-            icone = "fa fa-cogs")
+            icone = "fa fa-cogs", entidade = SBInfoConfigModulo.class)
     FERRAMENTAS_CONFIG_MB,
     @InfoTipoAcaoFormulario(nomeAcao = "SBProjeto", xhtmlDaAcao = "editarSBProjeto.xhtml",
             icone = "fa fa-sliders")
@@ -153,9 +168,9 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
             icone = "fa fa-sliders")
     FERRAMENTAS_CONFIG_FRM_CONFIGURACOES_GERAIS,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Logs", xhtmlDaAcao = "logs.xhtml",
-            icone = "fa fa-file-text-o")
+            icone = "fa fa-file-text-o", entidade = SBInfoLog.class)
     FERRAMENTAS_LOGS_MB,
-    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml")
+    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml", entidade = SBInfoPersistencia.class)
     FERRAMENTAS_BANCO_MB,
     @InfoTipoAcaoFormulario(nomeAcao = "Importar dados", xhtmlDaAcao = "importar.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
     FERRAMENTAS_BANCO_FRM_IMPORTADOR,
@@ -188,88 +203,8 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaAcoes {
     FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA;
 
     @Override
-    public Class
-            getEntidadeDominio() {
-
-        switch (this) {
-            case DEV_PROJETO_ADMIN_MB:
-            case DEV_OBJ_PROJETO_FRM_FERRAMENTAS:
-                return SBInfoProjetoAtual.class;
-            case DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS:
-            case DEV_OBJ_PROJETO_FRM_SELECAO_ACAO:
-            case DEV_OBJ_PROJETO_FRM_SELECAO_CAMPO:
-
-            case DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT:
-            case DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL:
-            case DEV_OBJ_PROJETO_FRM_INSPECIONAR_OBJETOS:
-
-            case DEV_OBJ_PROJETO_FRM_VER_CAMPO:
-            case DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS:
-            case DEV_OBJ_PROJETO_FRM_TESTAR_ONCHANGE:
-            case DEV_OBJ_PROJETO_FRM_LABORARATORIO:
-            case DEV_OBJ_PROJETO_FRM_INSTRUCOES:
-            case DEV_OBJ_PROJETO_FRM_CAMPO_IDS:
-            case DEV_OBJ_PROJETO_FRM_INSP_POSICOES:
-            case DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO:
-            case DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO:
-
-            case DEV_OBJ_PROJETO_MB_LAB:
-            case DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO:
-            case DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM:
-            case DEV_OBJ_PROJETO_FRM_INSPECIONAR:
-            case DEV_OBJ_PROJETO_FRM_FICHATECNICA:
-                return EstruturaDeEntidade.class;
-
-            case FERRAMENTAS_ACAO_MB_CRIAR:
-            case FERRAMENTAS_ACAO_FRM_DEF_NOME_SLUG_ACAO:
-            case FERRAMENTAS_ACAO_FRM_ICONE_ACAO:
-            case FERRAMENTAS_ACAO_FRM_XHTML_ACAO:
-            case FERRAMENTAS_ACAO_FRM_OBJETO_ACAO:
-            case FERRAMENTAS_ACAO_FRM_NOME_E_DESCRICAO:
-            case FERRAMENTAS_ACAO_CTR_CRIAR:
-
-                return AcaoDoSistema.class;
-
-            case FERRAMENTAS_CONFIG_MB:
-            case FERRAMENTAS_CONFIG_FRM_SBPROJETO:
-            case FERRAMENTAS_CONFIG_FRM_CONFIGURACOES_GERAIS:
-                return SBInfoConfigModulo.class;
-
-            case FERRAMENTAS_LOGS_MB:
-                return SBInfoLog.class;
-
-            case FERRAMENTAS_BANCO_MB:
-            case FERRAMENTAS_BANCO_FRM_LISTAR_DADOS:
-            case FERRAMENTAS_BANCO_FRM_EDITAR_SQL:
-            case FERRAMENTAS_BANCO_FRM_EDITAR_HQL:
-            case FERRAMENTAS_BANCO_CTR_LISTAR_SQL:
-            case FERRAMENTAS_BANCO_CTR_LISTAR_HQL:
-            case FERRAMENTAS_BANCO_CTR_PERSISTIR:
-            case FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA:
-            case FERRAMENTAS_BANCO_FRM_IMPORTADOR:
-            case FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO:
-            case FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS:
-            case FERRAMENTAS_BANCO_FRM_RELATORIO_IMPORTACAO:
-            case FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP:
-            case FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP:
-                return SBInfoPersistencia.class;
-
-            default:
-                throw new AssertionError(this.name());
-
-        }
-
-    }
-
-    @Override
-    public String getNomeModulo() {
-        return UtilFabricaDeAcoesAcessosModel.getModuloByFabrica(this).getNome();
-    }
-
-    @Override
     public AcaoDoSistema getRegistro() {
-        AcaoDoSistema acao = (AcaoDoSistema) UtilFabricaDeAcoesAcessosModel.getNovaAcao(this);
-        return acao;
+        return (AcaoDoSistema) ItfFabricaDeAcoesPersistencia.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

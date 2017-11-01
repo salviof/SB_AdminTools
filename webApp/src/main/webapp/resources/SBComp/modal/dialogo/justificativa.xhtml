@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:SBInput="http://xmlns.jcp.org/jsf/composite/SBComp/composite/input"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <title>#{pgModalSBJSF.comunicacaoDoModal.mensagem}</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="formulario">
+            <div class="ContainerIndent" >
+                <div class="Container10" >
+                    <SBInput:input registro="#{pgModalSBJSF.campoJustificativa}"
+                                   layout="#{layoutsComponenteSB.layoutCampo.superior}"
+                                   />
+                </div>
+
+                <div class="Container10" >
+                    <p:inputTextarea value="#{pgModalSBJSF.justificativa}"
+                                     style="width: 600px!important; "
+                                     placeholder="Justifique esta alteração"
+                                     required="true"
+                                     id="justificativa"
+
+                                     >
+                        <f:validateLength minimum="10" />
+                    </p:inputTextarea>
+                    <p:message for="justificativa"/>
+                </div>
+
+
+            </div>
+
+
+            <br/>
+            <center>
+                <ui:repeat value="#{pgModalSBJSF.comunicacaoDoModal.repostas}" var="resp" >
+                    <SBAcaoNav:botaoRespostaModal
+                        resposta="#{resp}"
+
+                        />
+
+
+                </ui:repeat>
+            </center>
+
+        </h:form>
+
+
+
+
+    </h:body>
+
+</html>
