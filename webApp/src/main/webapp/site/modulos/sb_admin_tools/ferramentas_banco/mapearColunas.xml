@@ -2,23 +2,25 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:SBInput="http://xmlns.jcp.org/jsf/composite/SBComp/composite/input"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
-                <SBComp:seletorItem lista="#{pgAdminBanco.entidadesDisponiveis}"
+                <SBInput:seletorItem lista="#{pgAdminBanco.entidadesDisponiveis}"
                                     idOnChange="#{pgAdminBanco.idAreaExbicaoAcaoSelecionada}"
                                     itemSelecionado="#{pgAdminBanco.entidadeSelecionada}" />
             </h:form>
             <h:form>
                 #{pgAdminBanco.mapaCampos}
-                <SBComp:seletorItem lista="#{pgAdminBanco.entidadeSelecionada.campos}"
+                <SBInput:seletorItem lista="#{pgAdminBanco.entidadeSelecionada.campos}"
                                     itemSelecionado="#{pgAdminBanco.campoSelecionado}"
                                     />
 
+                
 
                 <p:commandButton actionListener="#{pgAdminBanco.zerarMapa()}"
                                  value="Limpar mapeamento"
@@ -30,7 +32,7 @@
                                  update="@form"
                                  />
 
-                <SBComp:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoCtrProcessar}"  tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"/>
+                <SBAcaoNav:botaoDeAcao_Pagina acao="#{pgAdminBanco.acaoCtrProcessar}"  tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"/>
 
                 <p:inputNumber value="#{pgAdminBanco.numeroDaColunaCampoSelecionado}" />
             </h:form>

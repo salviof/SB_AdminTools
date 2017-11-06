@@ -3,15 +3,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition>
 
-        TOPO PAGINA
-
-
+        <SBAcaoNav:SBmenuPadraoExtendido menu="#{sessaoAtualSBWP.menusDaSessao}" />
 
     </ui:composition>
 </html>

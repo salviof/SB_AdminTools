@@ -7,6 +7,7 @@ package com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.M
 
 import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
+import com.super_bits.modulos.SBAcessosModel.fabricas.FabAcaoProjetoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
@@ -60,11 +61,20 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
             case MENU_ROOT:
 
                 AcaoDoSistema acaoFerramentas
-                        = FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro();
+                        = FabAcaoProjetoSB.PROJETO_FRM_VISAO_GERAL.getRegistro();
 
                 SessaoMenuSB ferramentasDeAcao = new SessaoMenuSB(acaoFerramentas);
 
                 ferramentasDeAcao.addAcao(acaoFerramentas);
+                  SessaoMenuSB sessaoFerramentas=new SessaoMenuSB(FabAcaoProjetoSB.PROJETO_FRM_VISAO_GERAL.getRegistro());
+        
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_LOGS_MB.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getRegistro());
+        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB .getRegistro());
 
                 return menu;
 

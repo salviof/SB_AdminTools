@@ -2,14 +2,14 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:SBComp="http://xmlns.jcp.org/jsf/composite/SBComp"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
         <ui:define name="conteudo">
             <h:form>
 
-                <SBComp:seletorDeAcoes metodo="#{pgAdminSistema.executarAcaoSelecionada()}"
+                <SBAcaoNav:seletorDeAcoes metodo="#{pgAdminSistema.executarAcaoSelecionada()}"
                                        opcaoSelecionada="#{pgAdminSistema.acaoSelecionada}"
                                        opcoes="#{pgAdminSistema.ferramentasDisponiveis}"
                                        />

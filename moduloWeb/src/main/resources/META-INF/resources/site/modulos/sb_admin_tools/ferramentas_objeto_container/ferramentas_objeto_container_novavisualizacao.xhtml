@@ -1,0 +1,52 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:SBMensagem="http://xmlns.jcp.org/jsf/composite/SBComp/composite/mensagem"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+
+    xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:panelGroup styleClass="Container100" >
+
+    </h:panelGroup>
+    <p:fieldset legend="Selecione as propriedades do container novo para: #{pgAdminContainerObjeto.entidadeSelecionada.nomeEntidade}" >
+
+
+        <p:panelGrid columns="2">
+            <p:outputLabel  value="Nome da Visualização"/> <p:inputText  value="#{pgAdminContainerObjeto.novoContainer.nomeTipoVisualizacao}"/>
+
+            <p:outputLabel  value="Ocupação de colunas"/>
+            <p:selectOneButton value="#{pgAdminContainerObjeto.novoContainer.colunas}" >
+                <f:selectItems value="#{pgAdminContainerObjeto.colunasDisponiveisCriacao}" itemLabel="#{opc}" var="opc" itemValue="#{opc}" />
+            </p:selectOneButton>
+
+            <p:outputLabel  value="Criar versão mobile separadamente?"/>
+
+            <p:selectBooleanButton offLabel="Não" onLabel="Sim" value="#{pgAdminContainerObjeto.novoContainer.temVersaoMobile}"/>
+            <p:outputLabel  value="Criar Javascript Associado?"/><p:selectBooleanButton offLabel="Não" onLabel="Sim" value="#{pgAdminContainerObjeto.novoContainer.temJavaScript}"/>
+            <p:outputLabel  value="Criar folha de estilo Associada?"/><p:selectBooleanButton offLabel="Não" onLabel="Sim" value="#{pgAdminContainerObjeto.novoContainer.temCSS}"/>
+            <p:commandButton value="Criar Visualização"
+
+                             actionListener="#{pgAdminContainerObjeto.gerarNovaVisualizacao()}"
+                             />
+
+
+
+        </p:panelGrid>
+    </p:fieldset>
+
+
+
+</ui:composition>
+
+
+
+
+
+
+
+
+
+
+

@@ -10,23 +10,7 @@
             <h:form>
 
 
-                <SBComp:listaMobile
-                    acaoDeListagem="#{paginaAtual.infoPagina.comoPaginaEntidade.acaoListarRegistros}"
-                    itemSelecionado="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
-                    itens="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadesListadas}"
-                    metodo="#{paginaAtual.infoPagina.comoPaginaEntidade.executarAcao(item)}"
-                    opcoes="#{paginaAtual.infoPagina.comoPaginaEntidade.acoesRegistros}"
-                    rendered="#{paginaAtual.sessao.tipoView.umMobile}"
-                    />
-
-                <SBComp:listaDesktop
-                    acaoDeListagem="#{paginaAtual.infoPagina.comoPaginaEntidade.acaoListarRegistros}"
-                    itemSelecionado="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadeSelecionada}"
-                    itens="#{paginaAtual.infoPagina.comoPaginaEntidade.entidadesListadas}"
-                    metodo="#{paginaAtual.infoPagina.comoPaginaEntidade.executarAcao(item)}"
-                    opcoes="#{paginaAtual.infoPagina.comoPaginaEntidade.acoesRegistros}"
-                    rendered="#{!paginaAtual.sessao.tipoView.umMobile}"
-                    />
+          
 
 
 

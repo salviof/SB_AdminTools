@@ -9,7 +9,6 @@ import com.super_bits.Super_Bits.SB_AdminTools.model.exemplo.ConteudoGenerico;
 import com.super_bits.Super_Bits.SB_AdminTools.model.usuariosExemplo.FabGrupoUsuario;
 import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStrings;
-import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.UtilSBCoreArquivoTexto;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 
 /**
@@ -19,7 +18,8 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabrica;
 public enum FabDadosIniciais implements ItfFabrica {
 
     USUARIO_TESTE,
-    CONTEUDOGENERICO1;
+    CONTEUDOGENERICO1,
+    CONTEUDOGENERICO2;
 
     @Override
     public Object getRegistro() {
@@ -39,6 +39,13 @@ public enum FabDadosIniciais implements ItfFabrica {
                 contTeste.setNome("Conteúdo Teste ");
                 contTeste.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(5, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
                 return contTeste;
+            case CONTEUDOGENERICO2:
+                ConteudoGenerico contTeste2 = new ConteudoGenerico();
+                contTeste2.setId(1);
+                contTeste2.setNome("Conteúdo Teste 222");
+                contTeste2.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(5, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                return contTeste2;
+
             default:
                 throw new AssertionError(this.name());
 

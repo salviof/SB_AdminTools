@@ -23,7 +23,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCam
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
-import com.super_bits.modulosSB.webPaginas.JSFBeans.SBBeanModel.ItfMB_Recursos;
+
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.B_Pagina.BeanDeclarado;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -44,8 +43,7 @@ import javax.inject.Named;
 @Named
 public class PgLabProjetoAtual extends MB_PaginaConversation {
 
-    @Inject
-    private ItfMB_Recursos pagRecursos;
+    
     private int idDaEntidade;
     private String strNomeDaEntidade;
     private List<String> strEntidadesPossiveis;
@@ -111,7 +109,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acoesParaCampo = new ArrayList<>();
             acaoFichaTecnica = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FICHATECNICA.getRegistro().getComoFormulario();
             acaoDepurarCampo = (AcaoDoSistema) acaoFichaTecnica;
-            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro().getComoFormulario();
+            acaoEditarVisualizacaoItem = FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB.getRegistro().getComoFormulario();
             acoesParaCampo.add(acaoFichaTecnica);
             acaoFormLocalizarEntidade = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_OBJETOS.getRegistro().getComoFormulario();
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO.getRegistro().getComoFormulario());
@@ -119,7 +117,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DA_ACAO_FORMULARIO.getRegistro().getComoFormulario());
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPO_EM_TODOS_FORMATOS.getRegistro().getComoFormulario());
-            acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_VER_CAMPOS_DO_GRUPO_FORMULARIO.getRegistro().getComoFormulario());
+
             acoesParaCampo.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSTRUCOES.getRegistro().getComoFormulario());
             xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_SELECAO_TIPO_LABORATORIO.getRegistro().getComoFormulario().getXhtml();
             acaoPadraoDeExibicao = acaoFichaTecnica;
@@ -460,7 +458,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public boolean isModoInspecionarCampo() {
 
-        return !acaoSelecionada.equals(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_CAMPO_FRM_VISUALIZACAO_ITEM.getRegistro());
+        return !acaoSelecionada.equals(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB.getRegistro());
     }
 
     public ItfAcaoFormulario getAcaoEditarVisualizacaoItem() {
@@ -469,7 +467,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public BeanDeclarado getBeanExemploEmResource() {
 
-        return pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade));
+        return null; //pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade));
     }
 
     public List<AcaoDoSistema> getTiposLabObjeto() {
@@ -524,8 +522,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     }
 
     public void alterarAcaoLaboratorioComponenteVisual() {
-        pagRecursos.setId(idDaEntidade);
-        pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
+    //    pagRecursos.setId(idDaEntidade);
+     //   pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
         System.out.println("Ação alterada para" + acaoLaboratorioComponenteVisual);
     }
 
