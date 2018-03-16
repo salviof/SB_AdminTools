@@ -8,10 +8,11 @@ import com.super_bits.modulos.SBAcessosModel.controller.FabModulosSistemaSB;
 import com.super_bits.modulos.SBAcessosModel.controller.InfoModulosSistemaSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.ItfFabricaDeAcoesPersistencia;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoConfigModulo;
+
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoLog;
-import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoPersistencia;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SbInfoPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoProjetoAtual;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SbInfoConfigModulo;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoController;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoGestaoEntidade;
@@ -159,7 +160,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
             iconeFonteAnsowame = FabIconeFontAwesome.REG_NOVO)
     FERRAMENTAS_ACAO_CTR_CRIAR,
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Variaveis de Ambiente", xhtmlDaAcao = "gestaoConfiguracoesSistema.xhtml",
-            icone = "fa fa-cogs", entidade = SBInfoConfigModulo.class)
+            icone = "fa fa-cogs", entidade = SbInfoConfigModulo.class)
     FERRAMENTAS_CONFIG_MB,
     @InfoTipoAcaoFormulario(nomeAcao = "SBProjeto", xhtmlDaAcao = "editarSBProjeto.xhtml",
             icone = "fa fa-sliders")
@@ -170,7 +171,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Logs", xhtmlDaAcao = "logs.xhtml",
             icone = "fa fa-file-text-o", entidade = SBInfoLog.class)
     FERRAMENTAS_LOGS_MB,
-    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml", entidade = SBInfoPersistencia.class)
+    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml", entidade = SbInfoPersistencia.class)
     FERRAMENTAS_BANCO_MB,
     @InfoTipoAcaoFormulario(nomeAcao = "Importar dados", xhtmlDaAcao = "importar.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
     FERRAMENTAS_BANCO_FRM_IMPORTADOR,
