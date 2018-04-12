@@ -41,6 +41,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
     @InfoTipoAcaoFormulario(nomeAcao = "Ver campo",
             xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/campo/verCampo.xhtml",
             icone = "fa fa-eye", entidade = EstruturaDeEntidade.class)
+
     DEV_OBJ_PROJETO_FRM_VER_CAMPO,
     @InfoTipoAcaoFormulario(nomeAcao = "Ver Campo em todos formatos",
             xhtmlDaAcao = "/site/modulos/sb_admin_tools/dev_obj_projeto/debug/campo/verCampoTodosFormatos.xhtml",
