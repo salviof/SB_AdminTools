@@ -7,7 +7,7 @@
       xmlns:SBMensagem="http://xmlns.jcp.org/jsf/composite/SBComp/composite/mensagem"
       xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:p="http://primefaces.org/ui">
-    <ui:composition template="/resources/SBComp/template/basico/modeloAnonimo.xhtml">
+    <ui:composition template="#{layoutsPaginas.modeloGeralAnonimo.xhtmlVinculado}">
         <ui:define name="head"  >
             <style>
                 .botaoBox {
@@ -46,7 +46,10 @@
 
                 <SBAcaoNav:linkDeAcao acao="#{pg_paginaInicial.paginaFerramentas}" tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}" />
                 URL:  #{infoWebApp.getAcaoComLink(pg_paginaInicial.paginaFerramentas).urlDeAcesso}
-
+                <SBAcaoNav:linkDeAcao
+                    acao="#{acoesSB_Admin_Tools_Containers_de_Objeto.ferramentas_objeto_container_mb}"
+                    tipoVisualizacao="#{layoutsComponenteSB.layoutBotoes.iconeENome}"
+                    />
             </div>
             <div class="SeparatorFull"/>
             <div class="ContainerIndent">

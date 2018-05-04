@@ -237,9 +237,7 @@ public class BeanExemplo
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, valoresAceitos = {
         @ValorAceito(valor = "Teste")
-        ,
-        @ValorAceito(valor = "Teste2")}
-    )
+        ,   @ValorAceito(valor = "Teste2")})
     private BeanExemplo beanSelecionadoDaListaDescritiva;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, fabricaDeOpcoes = FabTipoBeanSBGenerico.class)

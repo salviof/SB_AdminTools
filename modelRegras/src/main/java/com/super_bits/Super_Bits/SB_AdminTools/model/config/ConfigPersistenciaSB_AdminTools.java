@@ -16,7 +16,7 @@ public class ConfigPersistenciaSB_AdminTools implements ItfConfigSBPersistencia 
 
     @Override
     public String bancoPrincipal() {
-        return "SB_AdminTools";
+        return "SB_AdminToolsModelRegras";
     }
 
     @Override

@@ -19,7 +19,11 @@ public enum FabDadosIniciais implements ItfFabrica {
 
     USUARIO_TESTE,
     CONTEUDOGENERICO1,
-    CONTEUDOGENERICO2;
+    CONTEUDOGENERICO2,
+    CONTEUDOGENERICO3,
+    CONTEUDOGENERICO4,
+    CONTEUDOGENERICO5,
+    CONTEUDOGENERICO6;
 
     @Override
     public Object getRegistro() {
@@ -41,10 +45,37 @@ public enum FabDadosIniciais implements ItfFabrica {
                 return contTeste;
             case CONTEUDOGENERICO2:
                 ConteudoGenerico contTeste2 = new ConteudoGenerico();
-                contTeste2.setId(1);
+                contTeste2.setId(2);
                 contTeste2.setNome("Conteúdo Teste 222");
-                contTeste2.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(5, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                contTeste2.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(3, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
                 return contTeste2;
+            case CONTEUDOGENERICO3:
+                ConteudoGenerico contTeste3 = new ConteudoGenerico();
+                contTeste3.setId(3);
+                contTeste3.setNome("Conteúdo Teste 33");
+                contTeste3.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(2, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                return contTeste3;
+
+            case CONTEUDOGENERICO4:
+                ConteudoGenerico contTeste4 = new ConteudoGenerico();
+                contTeste4.setId(4);
+                contTeste4.setNome("Conteúdo Teste 444");
+                contTeste4.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(7, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                return contTeste4;
+
+            case CONTEUDOGENERICO5:
+                ConteudoGenerico contTeste5 = new ConteudoGenerico();
+                contTeste5.setId(2);
+                contTeste5.setNome("Conteúdo Teste 555");
+                contTeste5.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(2, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                return contTeste5;
+
+            case CONTEUDOGENERICO6:
+                ConteudoGenerico contTeste6 = new ConteudoGenerico();
+                contTeste6.setId(2);
+                contTeste6.setNome("Conteúdo Teste 666");
+                contTeste6.setDescricao(UtilSBCoreStrings.GetLorenIpsilum(5, UtilSBCoreStrings.TIPO_LOREN.PALAVRAS));
+                return contTeste6;
 
             default:
                 throw new AssertionError(this.name());

@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
  * @author desenvolvedor
  */
 @Entity
-@InfoObjetoSB(tags = {"Conteúdo Generico"}, plural = "Conteúdos Genericos para testes")
+@InfoObjetoSB(tags = {"Conteúdo Generico "}, plural = "Conteúdos Genericos para testes")
 public class ConteudoGenerico extends EntidadeNormal {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
