@@ -5,7 +5,6 @@
  */
 package com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema;
 
-import com.super_bits.Super_Bits.Controle_Usuario_Basico.regras_de_negocio_e_controller.FabAcaoSeguranca;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.fabricas.FabAcaoProjetoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
@@ -54,8 +53,8 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
                 AcaoDoSistema acaosessao = new AcaoDoSistema();
                 acaosessao.setNome("Permissões ");
                 SessaoMenuSB adminUsuario = new SessaoMenuSB(acaosessao);
-                adminUsuario.addAcao(FabAcaoSeguranca.GRUPO_MB_GERENCIAR.getRegistro());
-                adminUsuario.addAcao(FabAcaoSeguranca.USUARIO_MB_GERENCIAR.getRegistro());
+                //    adminUsuario.addAcao(FabAcaoSeguranca.GRUPO_MB_GERENCIAR.getRegistro());
+                //  adminUsuario.addAcao(FabAcaoSeguranca.USUARIO_MB_GERENCIAR.getRegistro());
                 menu.addSessao(adminUsuario);
                 return menu;
             case MENU_ROOT:
@@ -66,15 +65,15 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
                 SessaoMenuSB ferramentasDeAcao = new SessaoMenuSB(acaoFerramentas);
 
                 ferramentasDeAcao.addAcao(acaoFerramentas);
-                  SessaoMenuSB sessaoFerramentas=new SessaoMenuSB(FabAcaoProjetoSB.PROJETO_FRM_VISAO_GERAL.getRegistro());
-        
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_LOGS_MB.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getRegistro());
-        ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB .getRegistro());
+                SessaoMenuSB sessaoFerramentas = new SessaoMenuSB(FabAcaoProjetoSB.PROJETO_FRM_VISAO_GERAL.getRegistro());
+
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_LOGS_MB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_CONFIG_MB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_MB.getRegistro());
 
                 return menu;
 
