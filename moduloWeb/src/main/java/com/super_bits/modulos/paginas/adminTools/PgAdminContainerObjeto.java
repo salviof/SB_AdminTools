@@ -109,18 +109,19 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     }
 
     private void selecionarContainerViaParametros() {
+
         if (parametroQtdColuna != null) {
-            if (parametroQtdColuna.isValorDoParametroFoiConfigurado()
-                    && parametroNomeVisualizacao.isValorDoParametroFoiConfigurado()
-                    && parametroNomeEntidade.isValorDoParametroFoiConfigurado()
-                    && parametroQtdColuna.isValorDoParametroFoiConfigurado()
-                    && parametroMostrarMobile.isParametroObrigatorio()) {
+            if (getParametroInstanciado(parametroQtdColuna).isValorDoParametroFoiConfigurado()
+                    && getParametroInstanciado(parametroNomeVisualizacao).isValorDoParametroFoiConfigurado()
+                    && getParametroInstanciado(parametroNomeEntidade).isValorDoParametroFoiConfigurado()
+                    && getParametroInstanciado(parametroQtdColuna).isValorDoParametroFoiConfigurado()
+                    && getParametroInstanciado(parametroMostrarMobile).isParametroObrigatorio()) {
                 boolean versaoMobile = false;
-                if (parametroMostrarMobile.getValor().toString().toUpperCase().equals("SIM")) {
+                if (getParametroInstanciado(parametroMostrarMobile).getValor().toString().toUpperCase().equals("SIM")) {
                     versaoMobile = true;
                 }
-                containersExistentes = new ContainersVisualizacaoDoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(parametroNomeEntidade.getValor().toString()), ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_ITEM.LABORATORIO);
-                containerSelecionado = containersExistentes.getContainerAdequado(parametroNomeVisualizacao.getValor().toString(), Integer.valueOf(parametroQtdColuna.getValor().toString()), versaoMobile);
+                containersExistentes = new ContainersVisualizacaoDoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(getParametroInstanciado(parametroNomeEntidade).getValor().toString()), ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_ITEM.LABORATORIO);
+                containerSelecionado = containersExistentes.getContainerAdequado(getParametroInstanciado(parametroNomeVisualizacao).getValor().toString(), Integer.valueOf(getParametroInstanciado(parametroQtdColuna).getValor().toString()), versaoMobile);
 
             }
         }

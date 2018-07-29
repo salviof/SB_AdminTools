@@ -19,13 +19,13 @@
 
                 #{pgAdminContainerObjeto.containerSelecionado.caminhoRelativoMobile}
 
-                <h:panelGroup styleClass="Container100">
+                <h:panelGroup styleClass="Container100 OrganizadorContainer"  layout="block" >
 
                     <c:forEach items="#{pgRecursosAdminTools.conteudos}"     var="conteudo">
-                        tst
-                        <SBItem:containerObjetoLaboratorio  item="#{conteudo}"
 
+                        <SBItem:containerObjetoLaboratorio  item="#{conteudo}"
                                                             container="#{pgAdminContainerObjeto.containerSelecionado}"/>
+
                     </c:forEach>
 
                 </h:panelGroup>
