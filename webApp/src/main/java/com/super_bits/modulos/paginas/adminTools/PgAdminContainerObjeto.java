@@ -109,6 +109,7 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     }
 
     private void selecionarContainerViaParametros() {
+
         if (parametroQtdColuna != null) {
             if (getParametroInstanciado(parametroQtdColuna).isValorDoParametroFoiConfigurado()
                     && getParametroInstanciado(parametroNomeVisualizacao).isValorDoParametroFoiConfigurado()
