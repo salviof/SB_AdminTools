@@ -165,30 +165,7 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     public void gerarNovaVisualizacao() {
         String caminhoArquivoXHTML = novoContainer.getEntrLocalArquivoDesktop();
         String caminhoMobile = novoContainer.getEntrLocalArquivoMobile();
-
-        if (new File(caminhoArquivoXHTML).exists()) {
-            SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização já existe, edite o arquivo" + caminhoArquivoXHTML + "com seu editor preferido");
-        } else {
-            UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoArquivoXHTML);
-            if (!UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
-
-                SBCore.getCentralDeMensagens().enviarMsgErroAoUsuario("Erro criando arquivo modo Desenvolvimento");
-            } else {
-                SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoArquivoXHTML);
-                containersExistentes.reloadVisualizacoes();
-            }
-        }
-
-        if (caminhoMobile != null) {
-            if (new File(caminhoMobile).exists()) {
-                SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização Mobile já existe, edite o arquivo" + caminhoMobile + "com seu editor preferido");
-            } else {
-                UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoMobile);
-                if (UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
-                    SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoMobile);
-                }
-            }
-        }
+        novoContainer.criarVisualizacaoContextoAtual(caminhoMobile != null);
 
     }
 

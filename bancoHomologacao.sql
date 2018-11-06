@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.38, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.41, for Linux (x86_64)
 --
 -- Host: localhost    Database: SB_AdminToolsModelRegras
 -- ------------------------------------------------------
--- Server version	5.6.38
+-- Server version	5.6.41
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -149,7 +149,7 @@ CREATE TABLE `ConfiguracaoDePermissao` (
 
 LOCK TABLES `ConfiguracaoDePermissao` WRITE;
 /*!40000 ALTER TABLE `ConfiguracaoDePermissao` DISABLE KEYS */;
-INSERT INTO `ConfiguracaoDePermissao` VALUES (0,NULL,'\0','\0','68239498',NULL);
+INSERT INTO `ConfiguracaoDePermissao` VALUES (0,NULL,'\0','\0','6515386185',NULL);
 /*!40000 ALTER TABLE `ConfiguracaoDePermissao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,12 +199,12 @@ DROP TABLE IF EXISTS `GrupoUsuarioSB`;
 CREATE TABLE `GrupoUsuarioSB` (
   `tipoGrupoUsuario` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `XhtmlPaginaInicial` varchar(255) DEFAULT NULL,
   `ativo` bit(1) NOT NULL,
   `dataHoraAlteracao` datetime(6) DEFAULT NULL,
   `dataHoraInsersao` datetime(6) DEFAULT NULL,
   `descricao` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
+  `paginaInicial` varchar(255) DEFAULT NULL,
   `tipoGrupoNativo` bit(1) NOT NULL,
   `moduloPrincipal_id` int(11) DEFAULT NULL,
   `usuarioAlteracao_id` int(11) DEFAULT NULL,
@@ -226,7 +226,7 @@ CREATE TABLE `GrupoUsuarioSB` (
 
 LOCK TABLES `GrupoUsuarioSB` WRITE;
 /*!40000 ALTER TABLE `GrupoUsuarioSB` DISABLE KEYS */;
-INSERT INTO `GrupoUsuarioSB` VALUES ('GrupoUsuarioSB',1,'/site/exemplo/inicialAnonimo.xhtml','',NULL,NULL,'Usuário não cadastrado','Grupo Anonimo','\0',NULL,NULL,NULL),('GrupoUsuarioSB',2,'/site/exemplo/inicialAdministrado.xhtml','',NULL,NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','\0',NULL,NULL,NULL);
+INSERT INTO `GrupoUsuarioSB` VALUES ('GrupoUsuarioSB',1,'',NULL,NULL,'Usuário não cadastrado','Grupo Anonimo','FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB','\0',NULL,NULL,NULL),('GrupoUsuarioSB',2,'',NULL,NULL,'Grupo com acesso ao menu Administrador','Grupo Administrador','FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB','\0',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `GrupoUsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -612,7 +612,7 @@ CREATE TABLE `UsuarioSB` (
   `nome` varchar(255) DEFAULT NULL,
   `senha` varchar(60) DEFAULT NULL,
   `telefone` varchar(255) DEFAULT NULL,
-  `grupo_id` int(11) DEFAULT NULL,
+  `grupo_id` int(11) NOT NULL,
   `localizacao_id` int(11) DEFAULT NULL,
   `usuarioAlteracao_id` int(11) DEFAULT NULL,
   `usuarioInsercao_id` int(11) DEFAULT NULL,
@@ -636,7 +636,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2018-05-04',NULL,NULL,'teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2018-11-03',NULL,'2018-11-03 00:20:35.090000','teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -749,4 +749,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-04 16:38:42
+-- Dump completed on 2018-11-02 23:20:35
