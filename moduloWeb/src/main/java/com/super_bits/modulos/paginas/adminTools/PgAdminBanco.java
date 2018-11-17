@@ -12,7 +12,6 @@ import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreOutputs;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 
@@ -28,6 +27,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 import org.primefaces.event.FileUploadEvent;
 import org.superBits.utilitario.editorArquivos.importacao.ImportacaoExcel;
 

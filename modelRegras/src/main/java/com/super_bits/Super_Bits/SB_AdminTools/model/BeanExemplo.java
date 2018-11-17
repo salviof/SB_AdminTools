@@ -6,8 +6,8 @@
 package com.super_bits.Super_Bits.SB_AdminTools.model;
 
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.basico.FabTipoBeanSBGenerico;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
@@ -24,13 +24,13 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemCidade
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemUnidadeFederativa;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.FabTipoBeanSBGenerico;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemContatoCorporativo;
 import java.util.Date;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  * ATENÇÃO A DOCUMENTAÇÃO DA CLASSE É OBRIGATÓRIA O JAVADOC DOS METODOS PUBLICOS

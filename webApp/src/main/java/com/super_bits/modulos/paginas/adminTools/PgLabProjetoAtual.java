@@ -12,15 +12,14 @@ import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeSimples;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStrings;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 
@@ -32,6 +31,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  *
@@ -43,7 +43,6 @@ import javax.inject.Named;
 @Named
 public class PgLabProjetoAtual extends MB_PaginaConversation {
 
-    
     private int idDaEntidade;
     private String strNomeDaEntidade;
     private List<String> strEntidadesPossiveis;
@@ -51,7 +50,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     private ItfCampoExibicaoFormulario campoSelecionado;
 
-    private GrupoCampos grupoSelecionado;
+    private ItfGrupoCampos grupoSelecionado;
     private String strNomeCampo;
     private List<ItfAcaoGerenciarEntidade> acoesDeGestaoDoSistema;
     private List<ItfAcaoFormulario> acoesFormularioDaGestao;
@@ -427,7 +426,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return acoesDeGestaoDoSistema;
     }
 
-    public GrupoCampos getGrupoSelecionado() {
+    public ItfGrupoCampos getGrupoSelecionado() {
         return grupoSelecionado;
     }
 
@@ -522,8 +521,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     }
 
     public void alterarAcaoLaboratorioComponenteVisual() {
-    //    pagRecursos.setId(idDaEntidade);
-     //   pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
+        //    pagRecursos.setId(idDaEntidade);
+        //   pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
         System.out.println("Ação alterada para" + acaoLaboratorioComponenteVisual);
     }
 

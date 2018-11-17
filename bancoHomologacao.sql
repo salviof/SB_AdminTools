@@ -149,7 +149,7 @@ CREATE TABLE `ConfiguracaoDePermissao` (
 
 LOCK TABLES `ConfiguracaoDePermissao` WRITE;
 /*!40000 ALTER TABLE `ConfiguracaoDePermissao` DISABLE KEYS */;
-INSERT INTO `ConfiguracaoDePermissao` VALUES (0,NULL,'\0','\0','6515386185',NULL);
+INSERT INTO `ConfiguracaoDePermissao` VALUES (0,NULL,'\0','\0','6517423581',NULL);
 /*!40000 ALTER TABLE `ConfiguracaoDePermissao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -636,7 +636,7 @@ CREATE TABLE `UsuarioSB` (
 
 LOCK TABLES `UsuarioSB` WRITE;
 /*!40000 ALTER TABLE `UsuarioSB` DISABLE KEYS */;
-INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2018-11-03',NULL,'2018-11-03 00:20:35.090000','teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
+INSERT INTO `UsuarioSB` VALUES ('UsuarioSB',1,'teste','',NULL,'2018-11-06',NULL,'2018-11-06 16:41:32.972000','teste@teste.org','Usuário para testes','123',NULL,2,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `UsuarioSB` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -749,4 +749,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-02 23:20:35
+-- Dump completed on 2018-11-06 16:41:33

@@ -9,9 +9,9 @@ import com.super_bits.Super_Bits.SB_AdminTools.model.config.ConfigPersistenciaSB
 import com.super_bits.config.webPaginas.ConfigWPSB_AdminTools;
 import com.super_bits.config.webPaginas.ConfiguradorCoreWebAppSB_AdminTools;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
-import com.super_bits.modulosSB.Persistencia.ERROS.TesteJunitSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.SBWebPaginas;
+import testesFW.TesteJunitSBPersistencia;
 
 /**
  *

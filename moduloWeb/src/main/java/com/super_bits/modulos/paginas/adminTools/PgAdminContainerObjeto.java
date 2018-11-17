@@ -10,8 +10,6 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
-import com.super_bits.modulosSB.SBCore.modulos.ManipulaArquivo.UtilSBCoreArquivos;
-import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
@@ -24,12 +22,12 @@ import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.beans.InfoParametroURL;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MapaDeFormularios;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.parametrosURL.ParametroURL;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
  *
@@ -165,30 +163,7 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     public void gerarNovaVisualizacao() {
         String caminhoArquivoXHTML = novoContainer.getEntrLocalArquivoDesktop();
         String caminhoMobile = novoContainer.getEntrLocalArquivoMobile();
-
-        if (new File(caminhoArquivoXHTML).exists()) {
-            SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização já existe, edite o arquivo" + caminhoArquivoXHTML + "com seu editor preferido");
-        } else {
-            UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoArquivoXHTML);
-            if (!UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
-
-                SBCore.getCentralDeMensagens().enviarMsgErroAoUsuario("Erro criando arquivo modo Desenvolvimento");
-            } else {
-                SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoArquivoXHTML);
-                containersExistentes.reloadVisualizacoes();
-            }
-        }
-
-        if (caminhoMobile != null) {
-            if (new File(caminhoMobile).exists()) {
-                SBCore.getCentralDeMensagens().enviarMsgAlertaAoUsuario("Esta visualização Mobile já existe, edite o arquivo" + caminhoMobile + "com seu editor preferido");
-            } else {
-                UtilSBCoreArquivos.criarDiretorioParaArquivo(caminhoMobile);
-                if (UtilSBCoreArquivos.copiarArquivos(SBCore.getCentralVisualizacao().getEndrLocalArquivoReferenciaNovoComponente(), caminhoArquivoXHTML)) {
-                    SBCore.getCentralDeMensagens().enviarMsgAvisoAoUsuario(caminhoMobile);
-                }
-            }
-        }
+        novoContainer.criarVisualizacaoContextoAtual(caminhoMobile != null);
 
     }
 
