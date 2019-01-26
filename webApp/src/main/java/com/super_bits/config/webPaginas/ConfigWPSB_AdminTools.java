@@ -29,7 +29,7 @@ public class ConfigWPSB_AdminTools implements ItfConfigWebPagina {
 
     @Override
     public String nomePacoteProjeto() {
-        return "SB_AdminTools";
+        return "ColetivoJavaAdminFWSuperBits";
     }
 
     @Override

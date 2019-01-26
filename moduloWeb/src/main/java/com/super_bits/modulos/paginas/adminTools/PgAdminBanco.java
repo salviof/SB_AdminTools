@@ -8,9 +8,12 @@ package com.super_bits.modulos.paginas.adminTools;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
+import com.super_bits.modulosSB.Persistencia.ConfigGeral.DevOpsPersistencia;
+import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreOutputs;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringValidador;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
@@ -20,6 +23,10 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.io.File;
+import java.net.InetAddress;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +34,9 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import org.coletivojava.fw.api.tratamentoErros.FabErro;
 import org.primefaces.event.FileUploadEvent;
 import org.superBits.utilitario.editorArquivos.importacao.ImportacaoExcel;
@@ -56,6 +66,14 @@ public class PgAdminBanco extends MB_PaginaConversation {
     private String tamanhoArquivoEnviado;
     private String caminhoArquhivoImportacao;
     private ImportacaoExcel<ItfBeanSimples> importador;
+    private DevOpsPersistencia devOps;
+
+    private ConexaoBancoRelacional_Dados dadosTesteConexao = new ConexaoBancoRelacional_Dados();
+
+    public PgAdminBanco() {
+        super();
+
+    }
 
     @Override
     public void executarAcaoSelecionada() {
@@ -71,7 +89,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
                     = new ImportacaoExcel<>(caminhoArquhivoImportacao,
                             mapaDeCamposImp, classe);
             importador.processar();
-            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO);
+            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR_ENVIAR_ARQUIVO_IMPORTACAO);
         }
         if (isAcaoSelecionadaIgualA(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR)) {
 
@@ -118,18 +136,26 @@ public class PgAdminBanco extends MB_PaginaConversation {
         try {
             entidadesDisponiveis = new ArrayList<>();
             acaoFormImportador = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR.getRegistro();
-            acaoFormEnviarArquivo = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO.getRegistro();
-            acaoFromMapearColunas = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS.getRegistro();
+            acaoFormEnviarArquivo = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR_ENVIAR_ARQUIVO_IMPORTACAO.getRegistro();
+            acaoFromMapearColunas = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR_MAPEAR_COLUNAS.getRegistro();
             acaoCtrProcessar = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP.getRegistro();
             acaoCtrGravarDados = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP.getRegistro();
             acaoPersistirBanco = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR.getRegistro();
             caminhoArquhivoImportacao = SBCore.getControleDeSessao().getSessaoAtual().getPastaTempDeSessao() + "/importacaoExel.xls";
+
+            getAcoesDaPagina().clear();
+            getAcoesDaPagina().add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR_ENVIAR_ARQUIVO_IMPORTACAO.getRegistro());
+            getAcoesDaPagina().add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_CRIAR_CONSULTA.getRegistro());
+            getAcoesDaPagina().add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_EDITAR_SQL.getRegistro());
+            getAcoesDaPagina().add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_EDITAR_HQL.getRegistro());
+            getAcoesDaPagina().add(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_TESTES_DE_COEXAO.getRegistro());
+            devOps = SBPersistencia.getDevOps();
             for (Class entidade : UtilSBPersistencia.getTodasEntidades()) {
                 entidadesDisponiveis.add(MapaObjetosProjetoAtual.getEstruturaObjeto(entidade));
             }
             mapaCampos = new HashMap<>();
 
-            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO);
+            executaAcaoSelecionadaPorEnum(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_IMPORTADOR_ENVIAR_ARQUIVO_IMPORTACAO);
         } catch (Throwable t) {
             SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro inicializando admin banco", t);
         }
@@ -222,6 +248,68 @@ public class PgAdminBanco extends MB_PaginaConversation {
     @Override
     public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
         campoSelecionado = (EstruturaCampo) pBeanSimples;
+    }
+
+    public ConexaoBancoRelacional_Dados getDadosTesteConexao() {
+        return dadosTesteConexao;
+    }
+
+    public void testarPingBanco() {
+        try {
+
+            String ipAddress = dadosTesteConexao.getHost();
+            if (UtilSBCoreStringValidador.isNuloOuEmbranco(ipAddress)) {
+                throw new UnsupportedOperationException("Informe o dominio");
+            }
+
+            Process p1 = java.lang.Runtime.getRuntime().exec("ping -c 1 " + ipAddress);
+            int returnVal = p1.waitFor();
+            boolean inetIsOn = (returnVal == 0);
+
+            if (!inetIsOn) {
+                SBCore.enviarMensagemUsuario("Não respondeu", FabMensagens.ALERTA);
+            } else {
+                SBCore.enviarAvisoAoUsuario("Pong em " + ipAddress);
+            }
+
+        } catch (Throwable t) {
+            SBCore.enviarMensagemUsuario("Não respondeu", FabMensagens.ALERTA);
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro Executando ping", t);
+
+        }
+    }
+
+    public void testarConexao() {
+
+        DevOpsPersistencia devops = new DevOpsPersistencia();
+        Map<String, Object> propriedades = new HashMap<>();
+        propriedades.put("javax.persistence.jdbc.url", dadosTesteConexao.getProtocolo() + dadosTesteConexao.getHost() + "/" + dadosTesteConexao.getNomeEntityManagerPadrao() + "?createDatabaseIfNotExist=true&useSSL=false");
+        propriedades.put("javax.persistence.jdbc.password", dadosTesteConexao.getSenha());
+        propriedades.put("javax.persistence.jdbc.user", dadosTesteConexao.getUsuario());
+
+        propriedades.put("hibernate.c3p0.timeout", 300);
+        propriedades.put("hibernate.c3p0.idle_test_period", 300);
+        propriedades.put("hibernate.connection.is-connection-validation-required", true);
+        try {
+            Connection conn = DriverManager.getConnection(dadosTesteConexao.getProtocolo() + dadosTesteConexao.getHost() + "/" + dadosTesteConexao.getNomeEntityManagerPadrao() + "?createDatabaseIfNotExist=true&useSSL=false",
+                    dadosTesteConexao.getUsuario(), dadosTesteConexao.getSenha());
+
+            EntityManagerFactory emFacturePadrao = Persistence.createEntityManagerFactory(dadosTesteConexao.getNomeEntityManagerPadrao(), propriedades);
+
+            EntityManager em = emFacturePadrao.createEntityManager();
+            SBCore.enviarAvisoAoUsuario("Conectado com sucesso");
+        } catch (SQLException t) {
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro conectando", t);
+
+        } catch (Throwable t) {
+            SBCore.RelatarErro(FabErro.SOLICITAR_REPARO, "Erro conectando com o banco de dados", t);
+            SBCore.enviarMensagemUsuario("Erro conectando com o banco de dados", FabMensagens.ERRO);
+        }
+
+    }
+
+    public void limparECarregarNovoBanco() {
+        SBPersistencia.limparBanco();
     }
 
 }

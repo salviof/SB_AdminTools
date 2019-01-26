@@ -26,14 +26,14 @@ public enum FabGrupoUsuario implements ItfFabricaComPersistencia {
                 novoGrupo.setNome("Grupo Anonimo");
                 novoGrupo.setAtivo(true);
                 novoGrupo.setDescricao("Usuário não cadastrado");
-                novoGrupo.setPaginaInicial(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB);
+                novoGrupo.setPaginaInicial(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB_ADMIN_PROJ);
                 break;
             case USUARIO_ADMINISTRADOR:
                 novoGrupo.setId(2);
                 novoGrupo.setNome("Grupo Administrador");
                 novoGrupo.setDescricao("Usuário administrador");
                 novoGrupo.setDescricao("Grupo com acesso ao menu Administrador");
-                novoGrupo.setPaginaInicial(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB);
+                novoGrupo.setPaginaInicial(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB_ADMIN_PROJ);
                 novoGrupo.setAtivo(true);
                 break;
             default:

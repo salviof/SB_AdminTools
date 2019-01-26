@@ -39,7 +39,7 @@ public class Pg_paginaInicial extends MB_PaginaConversation {
 
     @PostConstruct
     public void init() {
-        paginaFerramentas = FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro();
+        paginaFerramentas = FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB_ADMIN_PROJ.getRegistro();
     }
 
     public String getBeanExemplo() {

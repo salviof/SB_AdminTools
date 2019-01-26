@@ -1,4 +1,1 @@
-OS SEGUINTES ERROS DE CONFIGURAÇÃO FORAM ENCONTRADOS NO SISTEMA: 
- Você pode encontrar informações mais detalhadas do erro no SystemOut 
-->O ícone  da ação FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_DESKTOP com nome [fa-object-group fa fa-desktop] NÃO foi encontrado no arquivo css do FontAswome e
-
+Nenhum erro foi encontrado :D, Bom Trabalho!

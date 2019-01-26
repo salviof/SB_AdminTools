@@ -31,7 +31,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
             descricao = "Manutenção e Desenvolvimento do Projeto",
             entidade = SBInfoProjetoAtual.class
     )
-    DEV_PROJETO_ADMIN_MB,
+    DEV_PROJETO_ADMIN_MB_ADMIN_PROJ,
     @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
             nomeAcao = "Gestão de Objetos do Sistema",
             descricao = "Administração e Debug de Objetos do Sistema",
@@ -125,7 +125,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
     FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITEM_MOBILE,
     @InfoTipoAcaoFormulario(icone = "fa fa-object-group")
     FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_MOBILE,
-    @InfoTipoAcaoFormulario(icone = "fa fa-object-group fa fa-desktop")
+    @InfoTipoAcaoFormulario(icone = "fa fa-desktop")
     FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_DESKTOP,
     @InfoTipoAcaoController(nomeAcao = "Criar Visualizacao", icone = "fa fa-gears"
     )
@@ -172,22 +172,24 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
     @InfoTipoAcaoGestaoEntidade(nomeAcao = "Logs", xhtmlDaAcao = "logs.xhtml",
             icone = "fa fa-file-text-o", entidade = SBInfoLog.class)
     FERRAMENTAS_LOGS_MB,
-    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados", xhtmlDaAcao = "bancoDEDadosGestao.xhtml", entidade = SbInfoPersistencia.class)
+    @InfoTipoAcaoGestaoEntidade(nomeAcao = "Banco de Dados Relacional", xhtmlDaAcao = "bancoDEDadosGestao.xhtml", entidade = SbInfoPersistencia.class)
     FERRAMENTAS_BANCO_MB,
     @InfoTipoAcaoFormulario(nomeAcao = "Importar dados", xhtmlDaAcao = "importar.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ATUALIZAR)
     FERRAMENTAS_BANCO_FRM_IMPORTADOR,
-    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Arquivo Importacao", xhtmlDaAcao = "enviarArquivo.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ENVIAR)
-    FERRAMENTAS_BANCO_FRM_ENVIAR_ARQUIVO_IMPORTACAO,
+    @InfoTipoAcaoFormulario(nomeAcao = "Selecionar Arquivo Excel Importacao", xhtmlDaAcao = "enviarArquivo.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_ENVIAR)
+    FERRAMENTAS_BANCO_FRM_IMPORTADOR_ENVIAR_ARQUIVO_IMPORTACAO,
     @InfoTipoAcaoFormulario(nomeAcao = "Mapear Colunas", xhtmlDaAcao = "mapearColunas.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_AGRUPAR_REGISTROS)
-    FERRAMENTAS_BANCO_FRM_MAPEAR_COLUNAS,
+    FERRAMENTAS_BANCO_FRM_IMPORTADOR_MAPEAR_COLUNAS,
     @InfoTipoAcaoFormulario(nomeAcao = "Relatório de Importacao", xhtmlDaAcao = "relatorio.xml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
-    FERRAMENTAS_BANCO_FRM_RELATORIO_IMPORTACAO,
+    FERRAMENTAS_BANCO_FRM_IMPORTADOR_RELATORIO_IMPORTACAO,
     @InfoTipoAcaoFormulario(nomeAcao = "Listar Dados", xhtmlDaAcao = "listarDadosBanco.xhtml", iconeFonteAnsowame = FabIconeFontAwesome.REG_LISTAR)
     FERRAMENTAS_BANCO_FRM_LISTAR_DADOS,
     @InfoTipoAcaoFormulario(nomeAcao = "Editar SQL", xhtmlDaAcao = "editarSQL.xhtml")
     FERRAMENTAS_BANCO_FRM_EDITAR_SQL,
     @InfoTipoAcaoFormulario(nomeAcao = "Editar HQL", xhtmlDaAcao = "editarHQL.xhtml")
     FERRAMENTAS_BANCO_FRM_EDITAR_HQL,
+    @InfoTipoAcaoFormulario(nomeAcao = "Testes conexão", xhtmlDaAcao = "testesConexaoRealacional.xhtml", icone = "fa fa-database")
+    FERRAMENTAS_BANCO_FRM_TESTES_DE_COEXAO,
     @InfoTipoAcaoController(nomeAcao = "Listar via SQL")
     FERRAMENTAS_BANCO_CTR_LISTAR_SQL,
     @InfoTipoAcaoController(nomeAcao = "Persistir dados", iconeFonteAnsowame = FabIconeFontAwesome.REG_BAIXAR)

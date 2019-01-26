@@ -70,7 +70,7 @@ public enum FabMenuAdmin implements ItfFabricaMenu {
                 SessaoMenuSB sessaoFerramentas = new SessaoMenuSB(FabAcaoProjetoSB.PROJETO_FRM_VISAO_GERAL.getRegistro());
 
                 ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_MB_LAB.getRegistro());
-                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB.getRegistro());
+                ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB_ADMIN_PROJ.getRegistro());
                 ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_ACAO_MB_CRIAR.getRegistro());
                 ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro());
                 ferramentasDeAcao.addAcao(FabAcaoAdminDeveloper.FERRAMENTAS_LOGS_MB.getRegistro());

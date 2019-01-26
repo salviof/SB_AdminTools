@@ -2,11 +2,17 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:SBAcaoNav="http://xmlns.jcp.org/jsf/composite/SBComp/composite/acoesENavegacao"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       >
-    <ui:composition template="#{layoutsPaginas.modeloGeral.xhtmlVinculado}">
+    <ui:composition template="#{layoutsPaginas.modeloGeralAnonimo.xhtmlVinculado}">
 
         <ui:define name="divConteudo">
+            <SBAcaoNav:seletorDeAcoes metodo="#{pgAdminBanco.executarAcaoSelecionada()}"
+                                      opcaoSelecionada="#{pgAdminBanco.acaoSelecionada}"
+                                      opcoes="#{pgAdminBanco.acoesDaPagina}"
+                                      />
+
             <h:panelGroup id="#{paginaAtual.infoPagina.idAreaExbicaoAcaoSelecionada}">
                 <ui:include src="#{pgAdminBanco.acaoFormImportador.comoFormulario.xhtml}" />
             </h:panelGroup>

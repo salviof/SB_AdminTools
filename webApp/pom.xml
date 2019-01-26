@@ -70,12 +70,12 @@
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
+
+
+
         </resources>
 
         <plugins>
-
-
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -91,10 +91,22 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.3.11.v20160721</version>
                 <configuration>
+
                     <webAppConfig>
-                        <contextPath>/SB_AdminTools</contextPath>
+                        <contextPath>/ColetivoJavaAdminFWSuperBits</contextPath>
+                        <webInfIncludeJarPattern>.*/SBWebPaginas[^/]*\.jar$|.*/webApp.jar|.*/classes/.*</webInfIncludeJarPattern>
                     </webAppConfig>
                     <scanIntervalSeconds>5</scanIntervalSeconds>
+                    <filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>woff2</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+
                 </configuration>
             </plugin>
         </plugins>
@@ -107,7 +119,6 @@
             </extension>
         </extensions>
     </build>
-
 
 
 

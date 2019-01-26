@@ -1,0 +1,26 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:SBInput="http://xmlns.jcp.org/jsf/composite/SBComp/composite/input"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:form>
+
+
+        Host  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.host}" />
+        porta  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.porta}" />
+        Protocolo  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.protocolo}" />
+        Entity  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.nomeEntityManagerPadrao}" />
+        Senha  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.senha}" />
+        Usuario  <p:inputText value="#{pgAdminBanco.dadosTesteConexao.usuario}" />
+
+        <p:commandButton actionListener="#{pgAdminBanco.testarConexao()}"  value="Conectar" />
+        <p:commandButton actionListener="#{pgAdminBanco.testarPingBanco()}"  value="Ping" />
+
+
+        <p:commandButton actionListener="#{pgAdminBanco.limparECarregarNovoBanco()}"  value="Apagar Tudo e Carregar novo banco" />
+
+    </h:form>
+
+</ui:composition>
