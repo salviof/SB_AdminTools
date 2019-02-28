@@ -73,6 +73,9 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     public void setEntidadeSelecionada(EstruturaDeEntidade entidadeSelecionada) {
 
         super.setEntidadeSelecionada(entidadeSelecionada); //To change body of generated methods, choose Tools | Templates.
+        if (entidadeSelecionada == null) {
+            return;
+        }
         try {
 
             containersExistentes = new ContainersVisualizacaoDoObjeto(MapaObjetosProjetoAtual.getClasseDoObjetoByNome(entidadeSelecionada.getNomeEntidade()), ServicoVisualizacaoAbstrato.TIPO_VISUALIZACAO_ITEM.LABORATORIO);

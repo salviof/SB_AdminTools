@@ -1,47 +1,37 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:SBItem="http://xmlns.jcp.org/jsf/composite/SBComp/composite/objetos"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-    <ui:composition template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
-        <ui:define name="conteudo">
-            <h:form>
-                #{pgAdminContainerObjeto.containerSelecionado.temJavaScript}
-                #{pgAdminContainerObjeto.containerSelecionado.temCSS}
-                #{pgAdminContainerObjeto.containerSelecionado.temVersaoMobile}
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:SBItem="http://xmlns.jcp.org/jsf/composite/SBComp/composite/objetos"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    template="#{layoutsPaginas.conteudoEmBranco.xhtmlVinculado}" >
+    <ui:define name="conteudo">
+        <h:form>
+            #{pgAdminContainerObjeto.containerSelecionado.temJavaScript}
+            #{pgAdminContainerObjeto.containerSelecionado.temCSS}
+            #{pgAdminContainerObjeto.containerSelecionado.temVersaoMobile}
 
-                #{pgAdminContainerObjeto.containersExistentes.listaVisualizacoesPossiveis}
+            #{pgAdminContainerObjeto.containersExistentes.listaVisualizacoesPossiveis}
 
-                #{pgAdminContainerObjeto.containerSelecionado.caminhoRelativo}
+            #{pgAdminContainerObjeto.containerSelecionado.caminhoRelativo}
 
-                #{pgAdminContainerObjeto.containerSelecionado.caminhoRelativoMobile}
+            #{pgAdminContainerObjeto.containerSelecionado.caminhoRelativoMobile}
 
-                <h:panelGroup styleClass="Container100 OrganizadorContainer"  layout="block" >
+            <h:panelGroup styleClass="Container100 OrganizadorContainer"  layout="block" >
 
-                    <c:forEach items="#{pgRecursosAdminTools.conteudos}"     var="conteudo">
+                <c:forEach items="#{pgRecursosAdminTools.conteudos}"     var="conteudo">
 
-                        <SBItem:containerObjetoLaboratorio  item="#{conteudo}"
-                                                            container="#{pgAdminContainerObjeto.containerSelecionado}"/>
+                    <SBItem:containerObjetoLaboratorio  item="#{conteudo}"
 
-                    </c:forEach>
+                                                        container="#{pgAdminContainerObjeto.containerSelecionado}"
+                                                        />
 
-                </h:panelGroup>
+                </c:forEach>
 
-
-            </h:form>
-        </ui:define>
-    </ui:composition>
-</html>
+            </h:panelGroup>
 
 
-
-
-
-
-
-
-
-
+        </h:form>
+    </ui:define>
+</ui:composition>
