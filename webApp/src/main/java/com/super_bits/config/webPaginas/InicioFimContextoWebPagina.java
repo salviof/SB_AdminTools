@@ -22,7 +22,6 @@ public class InicioFimContextoWebPagina implements ItfInicioFimAppWP {
         SBCore.configurar(new ConfiguradorCoreWebAppSB_AdminTools(ConfiguradorCoreDeProjetoWebWarAbstrato.contextoDoServlet), SBCore.ESTADO_APP.HOMOLOGACAO);
         SBPersistencia.configuraJPA(FabConfiguracoesDeAmbienteWebSB_AdminTools.HOMOLOGACAO.getConfiguracaoPersistencia());
         SBWebPaginas.configurar(FabConfiguracoesDeAmbienteWebSB_AdminTools.HOMOLOGACAO.getConfiguracaoWebPaginas());
-        new SiteMap();
 
     }
 

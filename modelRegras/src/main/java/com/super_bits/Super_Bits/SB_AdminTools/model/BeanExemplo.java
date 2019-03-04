@@ -6,7 +6,6 @@
 package com.super_bits.Super_Bits.SB_AdminTools.model;
 
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.basico.FabTipoBeanSBGenerico;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
@@ -18,18 +17,19 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoC
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoReflexao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.FabTipoAtributoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.TipoAtributoObjetoSB;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemBairro;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemCidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemUnidadeFederativa;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemContatoCorporativo;
 import java.util.Date;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+import org.coletivojava.fw.api.objetoNativo.view.icone.IconeSistema;
 import org.coletivojava.fw.api.tratamentoErros.FabErro;
 
 /**
@@ -112,8 +112,8 @@ public class BeanExemplo
     @NotNull
     private String email = "emailteste@teste.com";
 
-    @InfoCampo(fabricaDeOpcoes = FabTipoAtributoObjeto.class, tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA)
-    private TipoAtributoObjetoSB seletorOpcao;
+    @InfoCampo(fabricaDeOpcoes = FabIconeFontAwesome.class, tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA)
+    private IconeSistema seletorOpcao;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO, label = "Descritivo memo")
     private String descritivo;
@@ -122,7 +122,7 @@ public class BeanExemplo
     @NotNull
     private String telefone = "313017-7334";
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.DATA)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DATA, descricao = "Colé")
     private Date data;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.TELEFONE_CELULAR, label = "Celular")
@@ -214,9 +214,9 @@ public class BeanExemplo
     @NotNull
     private String cep;
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.DATAHORA, label = "Data Hora")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DATAHORA, label = "Data Hora", descricao = "Campo para formato data hora xx/xx/xx 00:00:00")
     @NotNull
-    private String dataHora;
+    private Date dataHora;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ARQUIVO_DE_ENTIDADE, label = "Arquivo")
     @NotNull
@@ -240,8 +240,8 @@ public class BeanExemplo
         ,   @ValorAceito(valor = "Teste2")})
     private BeanExemplo beanSelecionadoDaListaDescritiva;
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, fabricaDeOpcoes = FabTipoBeanSBGenerico.class)
-    private BeanExemplo beanSelecionadoDaListaFabrica;
+    @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, fabricaDeOpcoes = FabIconeFontAwesome.class)
+    private IconeSistema beanSelecionadoDaListaFabrica;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, caminhoParaLista = "filiaisFornecedor")
     private BeanExemplo benSelecionadoListaPorCampo;
@@ -487,11 +487,11 @@ public class BeanExemplo
         this.cep = cep;
     }
 
-    public String getDataHora() {
+    public Date getDataHora() {
         return dataHora;
     }
 
-    public void setDataHora(String dataHora) {
+    public void setDataHora(Date dataHora) {
         this.dataHora = dataHora;
     }
 
@@ -524,11 +524,11 @@ public class BeanExemplo
         this.beanSelecionadoDaListaDescritiva = beanSelecionadoDaListaDescritiva;
     }
 
-    public BeanExemplo getBeanSelecionadoDaListaFabrica() {
+    public IconeSistema getBeanSelecionadoDaListaFabrica() {
         return beanSelecionadoDaListaFabrica;
     }
 
-    public void setBeanSelecionadoDaListaFabrica(BeanExemplo beanSelecionadoDaListaFabrica) {
+    public void setBeanSelecionadoDaListaFabrica(IconeSistema beanSelecionadoDaListaFabrica) {
         this.beanSelecionadoDaListaFabrica = beanSelecionadoDaListaFabrica;
     }
 
@@ -544,11 +544,11 @@ public class BeanExemplo
         this.beanFilho = beanFilho;
     }
 
-    public TipoAtributoObjetoSB getSeletorOpcao() {
+    public IconeSistema getSeletorOpcao() {
         return seletorOpcao;
     }
 
-    public void setSeletorOpcao(TipoAtributoObjetoSB seletorOpcao) {
+    public void setSeletorOpcao(IconeSistema seletorOpcao) {
         this.seletorOpcao = seletorOpcao;
     }
 
