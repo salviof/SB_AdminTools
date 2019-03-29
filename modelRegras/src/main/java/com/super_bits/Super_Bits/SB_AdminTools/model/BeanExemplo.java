@@ -22,6 +22,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemCidade
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemLocalizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.cep.ItemUnidadeFederativa;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.estrutura.ItfEstruturaCampoEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemContatoCorporativo;
 import java.util.Date;
@@ -53,7 +54,7 @@ public class BeanExemplo
         grupoCampoCompleto = new GrupoCampos("Grupo de Campos teste");
 
         EstruturaDeEntidade est = MapaObjetosProjetoAtual.getEstruturaObjeto(BeanExemplo.class);
-        for (EstruturaCampo strutura : est.getCampos()) {
+        for (ItfEstruturaCampoEntidade strutura : est.getCampos()) {
             try {
                 grupoCampoCompleto.adicionarCampo(new CaminhoCampoExibicaoFormulario(new CaminhoCampoReflexao(strutura.getNomeDeclarado(), BeanExemplo.class), grupoCampoCompleto.getNomeIdentificadorSlug()));
             } catch (Throwable t) {
