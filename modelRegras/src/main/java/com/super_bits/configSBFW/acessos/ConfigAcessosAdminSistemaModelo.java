@@ -9,9 +9,11 @@ import com.super_bits.Super_Bits.SB_AdminTools.model.usuariosExemplo.FabGrupoUsu
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.FabMenuAdmin;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.ModuloAdminSistema;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.token.ItfTokenRecuperacaoEmail;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.permissaoPadrao.ConfigPermissaoPadraoEmMemoria;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.ItensGenericos.basico.UsuarioSistemaRoot;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.MenusDaSessao;
 
 /**
@@ -59,6 +61,11 @@ public class ConfigAcessosAdminSistemaModelo extends ConfigPermissaoPadraoEmMemo
         } else {
             return new MenusDaSessao(FabMenuAdmin.MENU_INICIAL.getRegistro());
         }
+    }
+
+    @Override
+    public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ItfUsuario pUsuario, int pMinutosValidade) {
+        throw new UnsupportedOperationException("O METODO AINDA não FOI IMPLEMENTADO.");
     }
 
 }
