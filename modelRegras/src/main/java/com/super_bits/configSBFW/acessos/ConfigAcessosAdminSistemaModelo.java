@@ -65,11 +65,9 @@ public class ConfigAcessosAdminSistemaModelo extends ConfigPermissaoPadraoEmMemo
 
     @Override
     public ItfTokenRecuperacaoEmail gerarTokenRecuperacaoDeSenha(ItfUsuario pUsuario, int pMinutosValidade) {
-<<<<<<< HEAD
+
         throw new UnsupportedOperationException("O METODO AINDA não FOI IMPLEMENTADO.");
-=======
-        throw new UnsupportedOperationException("O METODO AINDA N\u00c3O FOI IMPLEMENTADO.");
->>>>>>> 9a26db69e2d869d272a61bf946d66f0c8d0eaaaf
+
     }
 
 }
