@@ -19,9 +19,10 @@ import com.super_bits.modulosSB.SBCore.modulos.view.componenteObjeto.ContainersV
 import com.super_bits.modulosSB.SBCore.modulos.view.componenteObjeto.NovoContainerVisualizacaoObjeto;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_paginaCadastroEntidades;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
-import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.beans.InfoParametroURL;
+
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MapaDeFormularios;
-import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.parametrosURL.ParametroURL;
+import com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametrosURL.InfoParametroURL;
+import com.super_bits.modulosSB.webPaginas.controller.servletes.urls.parametrosURL.ParametroURL;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;

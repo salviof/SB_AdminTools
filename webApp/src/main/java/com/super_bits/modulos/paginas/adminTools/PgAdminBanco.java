@@ -23,7 +23,6 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basic
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.io.File;
-import java.net.InetAddress;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
