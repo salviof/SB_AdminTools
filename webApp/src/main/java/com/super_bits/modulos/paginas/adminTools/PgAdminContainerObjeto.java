@@ -142,7 +142,7 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
     }
 
     @Override
-    public void listarDados() {
+    public void listarDados(boolean mostrarInativos) {
 
         setEntidadesListadas(MapaObjetosProjetoAtual.getListaTodosEstruturaObjeto());
     }

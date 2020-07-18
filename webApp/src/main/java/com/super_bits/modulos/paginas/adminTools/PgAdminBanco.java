@@ -119,7 +119,8 @@ public class PgAdminBanco extends MB_PaginaConversation {
     public void enviarArquivo(FileUploadEvent eventoEnvio) {
 
         try {
-            if (UtilSBCoreOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputstream(), caminhoArquhivoImportacao)) {
+
+            if (UtilSBCoreOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputStream(), caminhoArquhivoImportacao)) {
                 nomeArquivoEnviado = eventoEnvio.getFile().getFileName();
                 tamanhoArquivoEnviado = String.valueOf(eventoEnvio.getFile().getSize());
             }
