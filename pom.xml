@@ -14,6 +14,7 @@
 
     <modules>
         <module>./modelRegras</module>
+        <module>./moduloWeb</module>
         <module>./webApp</module>
 
 
