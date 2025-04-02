@@ -29,9 +29,9 @@ public class ConteudoGenerico extends EntidadeNormal {
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     @Id
     private int id;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nome;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO)
     private String descricao;
     @ManyToOne(targetEntity = Localizacao.class)
     @InfoCampo(label = "Endereço", tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA)

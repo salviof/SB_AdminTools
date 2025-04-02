@@ -25,7 +25,7 @@ public class ConexaoBancoRelacional_Dados extends ItemSimples {
     private String protocolo = "jdbc:mysql://";
     @InfoCampo(tipo = FabTipoAtributoObjeto.TEXTO_SIMPLES)
     private String host;
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME)
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME)
     private String nomeEntityManagerPadrao = SBPersistencia.getNomeBancoPadrao();
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.QUANTIDADE)

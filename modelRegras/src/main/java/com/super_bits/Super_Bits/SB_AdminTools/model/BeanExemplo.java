@@ -116,7 +116,7 @@ public class BeanExemplo
     @InfoCampo(fabricaDeOpcoes = FabIconeFontAwesome.class, tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA)
     private IconeSistema seletorOpcao;
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_DESCRITIVO, label = "Descritivo memo")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.DESCRITIVO, label = "Descritivo memo")
     private String descritivo;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.TELEFONE_FIXO_NACIONAL, label = "Telefone")
@@ -193,7 +193,7 @@ public class BeanExemplo
     @InfoCampo(tipo = FabTipoAtributoObjeto.REG_DATAALTERACAO, label = "Data Alteração")
     private Date dataAlteracao;
 
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME, label = "Apelido")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME, label = "Apelido")
     private String apelido = "Bean Simples";
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.HTML_TEMPLATE)
@@ -201,7 +201,7 @@ public class BeanExemplo
     private String templateHtml = "Conteúdo padrao Teste";
 
     @NotNull
-    @InfoCampo(tipo = FabTipoAtributoObjeto.AAA_NOME_LONGO, label = "Nome")
+    @InfoCampo(tipo = FabTipoAtributoObjeto.NOME_LONGO, label = "Nome")
     private String nome = "Nome Completo do Bean Simples";
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.LC_LOGRADOURO, label = "Logradouro", obrigatorio = true)
