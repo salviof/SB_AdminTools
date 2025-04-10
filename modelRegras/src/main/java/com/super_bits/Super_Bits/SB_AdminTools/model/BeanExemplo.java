@@ -107,7 +107,7 @@ public class BeanExemplo
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID, label = "ID")
     @NotNull
-    private int id;
+    private Long id;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.EMAIL, label = "Email")
     @NotNull
@@ -290,7 +290,7 @@ public class BeanExemplo
     private int qtdCampoVinculado3sets;
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -303,7 +303,7 @@ public class BeanExemplo
     }
 
     @Override
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

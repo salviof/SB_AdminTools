@@ -43,7 +43,7 @@ import org.coletivojava.fw.api.tratamentoErros.FabErro;
 @Named
 public class PgLabProjetoAtual extends MB_PaginaConversation {
 
-    private int idDaEntidade;
+    private Long idDaEntidade;
     private String strNomeDaEntidade;
     private List<String> strEntidadesPossiveis;
     private List<Class> entidadesPossiveis;
@@ -59,8 +59,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private ItfAcaoFormulario acaoFichaTecnica;
     private ItfAcaoFormulario acaoPadraoDeExibicao;
     private ItfAcaoFormulario acaoEditarVisualizacaoItem;
-    private int idGrupoSelecionado;
-    private int idCampoAcaoSelecionado;
+    private Long idGrupoSelecionado;
+    private Long idCampoAcaoSelecionado;
     private List<ItfAcaoFormulario> acoesParaCampo;
     private ItfBeanSimples entidadeCarregada;
     private Class classeDaEntidade;

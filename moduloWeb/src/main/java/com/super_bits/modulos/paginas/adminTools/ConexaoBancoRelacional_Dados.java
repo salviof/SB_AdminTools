@@ -20,7 +20,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.ItemSimples;
 public class ConexaoBancoRelacional_Dados extends ItemSimples {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
-    private int id;
+    private Long id;
     @InfoCampo(tipo = FabTipoAtributoObjeto.TEXTO_SIMPLES)
     private String protocolo = "jdbc:mysql://";
     @InfoCampo(tipo = FabTipoAtributoObjeto.TEXTO_SIMPLES)
@@ -75,7 +75,7 @@ public class ConexaoBancoRelacional_Dados extends ItemSimples {
         this.protocolo = protocolo;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
