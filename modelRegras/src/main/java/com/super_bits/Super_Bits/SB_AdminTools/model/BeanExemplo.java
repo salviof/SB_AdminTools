@@ -85,12 +85,12 @@ public class BeanExemplo
         } else {
             BeanExemplo exemplo1 = new BeanExemplo(false);
             exemplo1.setNome("Bean Lista 1");
-            exemplo1.setId(1);
+            exemplo1.setId(1l);
             exemplo1.setEmail("teste@teste.com");
 
             BeanExemplo exemplo2 = new BeanExemplo(false);
             exemplo2.setNome("Bean Lista 2");
-            exemplo2.setId(2);
+            exemplo2.setId(2l);
             exemplo2.setEmail("teste2@teste.com");
 
             beanFilho = new BeanExemplo(false);
@@ -237,8 +237,8 @@ public class BeanExemplo
     private ItemBairro bairro;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, valoresAceitos = {
-        @ValorAceito(valor = "Teste")
-        ,   @ValorAceito(valor = "Teste2")})
+        @ValorAceito(valor = "Teste"),
+        @ValorAceito(valor = "Teste2")})
     private BeanExemplo beanSelecionadoDaListaDescritiva;
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.OBJETO_DE_UMA_LISTA, fabricaDeOpcoes = FabIconeFontAwesome.class)

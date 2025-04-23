@@ -8,10 +8,11 @@ package com.super_bits.config.webPaginas;
 import com.google.common.collect.Lists;
 import com.super_bits.configSBFW.acessos.ConfigAcessosAdminSistemaModelo;
 import com.super_bits.configSBFW.acessos.UtilSB_AdminToolsGlobalVar;
+import com.super_bits.modulos.SBAcessosModel.view.FabAcaoPaginasDoSistema;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ConfiguradorCoreDeProjetoWebWarAbstrato;
-import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
+
 import java.util.List;
 import javax.servlet.ServletContext;
 

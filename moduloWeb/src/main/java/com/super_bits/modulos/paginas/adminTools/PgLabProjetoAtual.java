@@ -59,8 +59,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private ItfAcaoFormulario acaoFichaTecnica;
     private ItfAcaoFormulario acaoPadraoDeExibicao;
     private ItfAcaoFormulario acaoEditarVisualizacaoItem;
-    private Long idGrupoSelecionado;
-    private Long idCampoAcaoSelecionado;
+    private int idGrupoSelecionado;
+    private int idCampoAcaoSelecionado;
     private List<ItfAcaoFormulario> acoesParaCampo;
     private ItfBeanSimples entidadeCarregada;
     private Class classeDaEntidade;
@@ -98,7 +98,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void alterarLocalizadorObjeto() {
         System.out.println("Ação Assitente Localizazação alterada para:" + acaoAssitenteLocalizacao);
-        paginaUtil.atualizaTelaPorID("infoLab");
+        getPaginaUtil().atualizaTelaPorID("infoLab");
     }
 
     @PostConstruct
@@ -199,7 +199,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             verificarAcaoSelecionada();
             setAcaoDepurarCampo((AcaoDoSistema) acaoPadraoDeExibicao);
 
-            paginaUtil.atualizaTelaPorID("laboratorio");
+            getPaginaUtil().atualizaTelaPorID("laboratorio");
         } catch (Throwable t) {
 
             String tituloErro = "Erro carregando ficha tecnica";
@@ -259,7 +259,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             } else {
                 idCampoAcaoSelecionado++;
             }
-            campoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado).getCampos().get(idCampoAcaoSelecionado);
+            campoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado).getCampos().get(idGrupoSelecionado);
             strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
@@ -406,11 +406,11 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return entidadeCarregada;
     }
 
-    public int getIdDaEntidade() {
+    public Long getIdDaEntidade() {
         return idDaEntidade;
     }
 
-    public void setIdDaEntidade(int idDaEntidade) {
+    public void setIdDaEntidade(Long idDaEntidade) {
         this.idDaEntidade = idDaEntidade;
     }
 

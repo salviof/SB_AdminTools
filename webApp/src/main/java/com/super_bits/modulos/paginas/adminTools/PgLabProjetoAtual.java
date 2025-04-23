@@ -98,7 +98,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void alterarLocalizadorObjeto() {
         System.out.println("Ação Assitente Localizazação alterada para:" + acaoAssitenteLocalizacao);
-        paginaUtil.atualizaTelaPorID("infoLab");
+        getPaginaUtil().atualizaTelaPorID("infoLab");
     }
 
     @PostConstruct
@@ -199,7 +199,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             verificarAcaoSelecionada();
             setAcaoDepurarCampo((AcaoDoSistema) acaoPadraoDeExibicao);
 
-            paginaUtil.atualizaTelaPorID("laboratorio");
+            getPaginaUtil().atualizaTelaPorID("laboratorio");
         } catch (Throwable t) {
 
             String tituloErro = "Erro carregando ficha tecnica";
@@ -254,12 +254,12 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     public void verProximoCampo() {
         try {
             verificarAcaoSelecionada();
-            if (idCampoAcaoSelecionado >= getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado).getCampos().size()) {
-                idCampoAcaoSelecionado = 0;
+            if (idCampoAcaoSelecionado >= getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado.intValue()).getCampos().size()) {
+                idCampoAcaoSelecionado = 0l;
             } else {
                 idCampoAcaoSelecionado++;
             }
-            campoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado).getCampos().get(idCampoAcaoSelecionado);
+            campoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado.intValue()).getCampos().get(idCampoAcaoSelecionado.intValue());
             strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
@@ -277,8 +277,8 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             } else {
                 idCampoAcaoSelecionado--;
             }
-            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
-            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
+            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado.intValue());
+            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado.intValue());
             strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
@@ -293,14 +293,14 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
         try {
             verificarAcaoSelecionada();
-            idCampoAcaoSelecionado = 0;
+            idCampoAcaoSelecionado = 0l;
             if (idGrupoSelecionado >= getAcaoFormularioSelecionada().getGruposDeCampos().size()) {
-                idGrupoSelecionado = 0;
+                idGrupoSelecionado = 0l;
             } else {
                 idGrupoSelecionado++;
             }
-            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
-            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
+            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado.intValue());
+            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado.intValue());
             strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
@@ -319,14 +319,14 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
         try {
             verificarAcaoSelecionada();
-            idCampoAcaoSelecionado = 0;
+            idCampoAcaoSelecionado = 0l;
             if (idGrupoSelecionado >= getAcaoFormularioSelecionada().getGruposDeCampos().size()) {
-                idGrupoSelecionado = 0;
+                idGrupoSelecionado = 0l;
             } else {
                 idGrupoSelecionado++;
             }
-            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado);
-            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado);
+            grupoSelecionado = getAcaoFormularioSelecionada().getGruposDeCampos().get(idGrupoSelecionado.intValue());
+            campoSelecionado = grupoSelecionado.getCampos().get(idCampoAcaoSelecionado.intValue());
             strNomeCampo = getCampoSelecionado().getCaminhoSemNomeClasse();
             exibirFichaTecnica();
         } catch (Throwable t) {
@@ -406,11 +406,11 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return entidadeCarregada;
     }
 
-    public int getIdDaEntidade() {
+    public Long getIdDaEntidade() {
         return idDaEntidade;
     }
 
-    public void setIdDaEntidade(int idDaEntidade) {
+    public void setIdDaEntidade(Long idDaEntidade) {
         this.idDaEntidade = idDaEntidade;
     }
 

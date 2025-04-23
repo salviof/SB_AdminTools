@@ -7,11 +7,12 @@ package com.super_bits.SB_AdminTools.paginas;
 
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
+import com.super_bits.modulos.SBAcessosModel.view.FabAcaoPaginasDoSistema;
+import com.super_bits.modulos.SBAcessosModel.view.InfoAcaoPaginaDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
-import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.FabAcaoPaginasDoSistema;
-import com.super_bits.modulosSB.webPaginas.controller.paginasDoSistema.InfoAcaoPaginaDoSistema;
+
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;

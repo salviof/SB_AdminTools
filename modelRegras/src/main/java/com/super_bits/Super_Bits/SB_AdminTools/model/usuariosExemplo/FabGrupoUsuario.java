@@ -19,17 +19,17 @@ public enum FabGrupoUsuario implements ItfFabricaComPersistencia {
     @Override
     public GrupoUsuarioSB getRegistro() {
         GrupoUsuarioSB novoGrupo = new GrupoUsuarioSB();
-        novoGrupo.setId(this.ordinal() + 1);
+        novoGrupo.setId(this.ordinal() + 1l);
         switch (this) {
             case USUARIO_ANONIMO:
-                novoGrupo.setId(1);
+                novoGrupo.setId(1l);
                 novoGrupo.setNome("Grupo Anonimo");
                 novoGrupo.setAtivo(true);
                 novoGrupo.setDescricao("Usuário não cadastrado");
                 novoGrupo.setPaginaInicial(FabAcaoAdminDeveloper.DEV_PROJETO_ADMIN_MB_ADMIN_PROJ);
                 break;
             case USUARIO_ADMINISTRADOR:
-                novoGrupo.setId(2);
+                novoGrupo.setId(2l);
                 novoGrupo.setNome("Grupo Administrador");
                 novoGrupo.setDescricao("Usuário administrador");
                 novoGrupo.setDescricao("Grupo com acesso ao menu Administrador");

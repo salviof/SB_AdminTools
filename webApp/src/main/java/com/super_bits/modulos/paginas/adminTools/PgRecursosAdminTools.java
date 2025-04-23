@@ -33,7 +33,7 @@ public class PgRecursosAdminTools implements Serializable {
 
         for (int i = 0; i < 10; i++) {
             BeanExemplo teste = new BeanExemplo(true);
-            teste.setId(i);
+            teste.setId((long) i);
             teste.setNome("BeanExemplo " + i);
             conteudos.add(conteudoExemplo);
         }
