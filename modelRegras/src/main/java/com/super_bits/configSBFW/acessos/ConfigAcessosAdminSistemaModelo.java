@@ -17,7 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.ItensGenericos
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimplesSomenteLeitura;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfGrupoUsuario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.MenusDaSessao;
+import org.coletivojava.fw.api.objetoNativo.view.menu.MenusDaSessao;
 
 /**
  *
