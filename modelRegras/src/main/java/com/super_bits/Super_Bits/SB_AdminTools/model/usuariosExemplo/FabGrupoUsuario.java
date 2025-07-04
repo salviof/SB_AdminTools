@@ -40,6 +40,7 @@ public enum FabGrupoUsuario implements ItfFabricaComPersistencia {
                 throw new AssertionError(this.name());
 
         }
+
         return novoGrupo;
     }
 }
