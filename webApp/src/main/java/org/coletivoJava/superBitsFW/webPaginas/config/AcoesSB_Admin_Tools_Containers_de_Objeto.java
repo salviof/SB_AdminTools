@@ -5,7 +5,7 @@ import javax.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
 
 @Named
 @ApplicationScoped
@@ -51,8 +51,8 @@ public class AcoesSB_Admin_Tools_Containers_de_Objeto implements Serializable {
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_FRM_VISUALIZACAO_ITENS_DESKTOP");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_objeto_container_ctr_criar_visualizacao() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_objeto_container_ctr_criar_visualizacao() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_OBJETO_CONTAINER_CTR_CRIAR_VISUALIZACAO");
 	}
 }

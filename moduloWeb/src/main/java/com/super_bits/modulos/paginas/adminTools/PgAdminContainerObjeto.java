@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.TIPO_PARTE_URL;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.SBCore.modulos.view.ServicoVisualizacaoAbstrato;
 import com.super_bits.modulosSB.SBCore.modulos.view.componenteObjeto.ContainerVisualizacaoObjeto;
 import com.super_bits.modulosSB.SBCore.modulos.view.componenteObjeto.ContainersVisualizacaoDoObjeto;
@@ -41,7 +41,7 @@ import org.coletivojava.fw.api.tratamentoErros.FabErro;
 public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<EstruturaDeEntidade> {
 
     private String pesquisa;
-    private ItfBeanSimples itemDoContainer;
+    private ComoEntidadeSimples itemDoContainer;
     private ContainersVisualizacaoDoObjeto containersExistentes;
     private List<BeanInfoContainerVisualizacao> containersComUrl;
     private ContainerVisualizacaoObjeto containerSelecionado;
@@ -179,7 +179,7 @@ public class PgAdminContainerObjeto extends MB_paginaCadastroEntidades<Estrutura
 
     }
 
-    public ItfBeanSimples getItemDoContainer() {
+    public ComoEntidadeSimples getItemDoContainer() {
         return itemDoContainer;
     }
 

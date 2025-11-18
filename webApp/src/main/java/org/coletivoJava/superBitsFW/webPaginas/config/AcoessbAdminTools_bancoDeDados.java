@@ -6,7 +6,7 @@ import java.io.Serializable;
 import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
 
 @Named
 @ApplicationScoped
@@ -52,28 +52,28 @@ public class AcoessbAdminTools_bancoDeDados implements Serializable {
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_FRM_EDITAR_HQL");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_banco_ctr_listar_sql() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_banco_ctr_listar_sql() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_LISTAR_SQL");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_banco_ctr_persistir() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_banco_ctr_persistir() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PERSISTIR");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_banco_ctr_processar_dados_imp() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_banco_ctr_processar_dados_imp() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_banco_ctr_gravar_dados_imp() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_banco_ctr_gravar_dados_imp() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_GRAVAR_DADOS_IMP");
 	}
 
-	public ItfAcaoControllerEntidade getFerramentas_banco_ctr_listar_hql() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getFerramentas_banco_ctr_listar_hql() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_LISTAR_HQL");
 	}
 

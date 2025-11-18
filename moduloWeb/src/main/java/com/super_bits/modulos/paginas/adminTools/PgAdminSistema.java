@@ -7,8 +7,8 @@ package com.super_bits.modulos.paginas.adminTools;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.InfoAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import javax.inject.Named;
 @Named
 public class PgAdminSistema extends MB_PaginaConversation {
 
-    private List<ItfAcaoDoSistema> ferramentasDisponiveis;
+    private List<ComoAcaoDoSistema> ferramentasDisponiveis;
 
     @PostConstruct
     public void ferramentas() {
@@ -44,22 +44,22 @@ public class PgAdminSistema extends MB_PaginaConversation {
         xhtmlAcaoAtual = FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_FERRAMENTAS.getRegistro().getComoFormulario().getXhtml();
     }
 
-    public List<ItfAcaoDoSistema> getFerramentasDisponiveis() {
+    public List<ComoAcaoDoSistema> getFerramentasDisponiveis() {
 
         return ferramentasDisponiveis;
     }
 
-    public void setFerramentasDisponiveis(List<ItfAcaoDoSistema> ferramentasDisponiveis) {
+    public void setFerramentasDisponiveis(List<ComoAcaoDoSistema> ferramentasDisponiveis) {
         this.ferramentasDisponiveis = ferramentasDisponiveis;
     }
 
     @Override
-    public ItfBeanSimples getBeanSelecionado() {
+    public ComoEntidadeSimples getBeanSelecionado() {
         return null;
     }
 
     @Override
-    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+    public void setBeanSelecionado(ComoEntidadeSimples pBeanSimples) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

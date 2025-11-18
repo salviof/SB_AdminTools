@@ -13,7 +13,7 @@ import com.super_bits.modulos.SBAcessosModel.model.acoes.UtilFabricaDeAcoesAcess
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoController;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.anotacoes.InfoTipoAcaoGestaoEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icones.FabIconeFontAwesome;
 
 /**
@@ -21,7 +21,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icone
  * @author desenvolvedor
  */
 @InfoModulosSistemaSB(modulo = FabModulosSistemaSB.PAGINAS_DO_SISTEMA)
-public enum FabAcaoExemplos implements ItfFabricaAcoes {
+public enum FabAcaoExemplos implements ComoFabricaAcoes {
 
     @InfoTipoAcaoGestaoEntidade()
     CONTEUDO_GENERICO_MB,

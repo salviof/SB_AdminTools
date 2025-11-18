@@ -6,7 +6,7 @@
 package com.super_bits.modulos.paginas.adminTools;
 
 import com.super_bits.Super_Bits.SB_AdminTools.model.BeanExemplo;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +39,11 @@ public class PgRecursosAdminTools implements Serializable {
         }
     }
 
-    public ItfBeanSimples getBeanSelecionado() {
+    public ComoEntidadeSimples getBeanSelecionado() {
         return conteudoExemplo;
     }
 
-    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+    public void setBeanSelecionado(ComoEntidadeSimples pBeanSimples) {
 
     }
 

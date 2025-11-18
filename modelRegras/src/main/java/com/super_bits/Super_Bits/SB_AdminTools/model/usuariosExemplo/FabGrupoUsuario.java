@@ -7,13 +7,13 @@ package com.super_bits.Super_Bits.SB_AdminTools.model.usuariosExemplo;
 
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
 import com.super_bits.modulos.SBAcessosModel.model.GrupoUsuarioSB;
-import com.super_bits.modulosSB.Persistencia.fabrica.ItfFabricaComPersistencia;
+import com.super_bits.modulosSB.Persistencia.fabrica.ComoFabricaComPersistencia;
 
 /**
  *
  * @author desenvolvedor
  */
-public enum FabGrupoUsuario implements ItfFabricaComPersistencia {
+public enum FabGrupoUsuario implements ComoFabricaComPersistencia {
     USUARIO_ANONIMO, USUARIO_ADMINISTRADOR;
 
     @Override

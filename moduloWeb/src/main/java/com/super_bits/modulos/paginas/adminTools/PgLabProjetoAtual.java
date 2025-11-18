@@ -12,7 +12,7 @@ import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeSimples;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoDoSistema;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCaminhoCampo;
@@ -21,7 +21,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCam
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfGrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campoInstanciado.ItfCampoInstanciado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.B_Pagina.BeanDeclarado;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
@@ -62,7 +62,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     private int idGrupoSelecionado;
     private int idCampoAcaoSelecionado;
     private List<ItfAcaoFormulario> acoesParaCampo;
-    private ItfBeanSimples entidadeCarregada;
+    private ComoEntidadeSimples entidadeCarregada;
     private Class classeDaEntidade;
     private ItfAcaoFormulario acaoFormLocalizarEntidade;
 
@@ -81,7 +81,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     private List<AcaoDoSistema> acoesLocalizadoresDeObjetos;
 
-    private boolean isUmaAcaoDosModulosPrincipais(ItfAcaoDoSistema pAcao) {
+    private boolean isUmaAcaoDosModulosPrincipais(ComoAcaoDoSistema pAcao) {
 
         return !pAcao.getModulo().isUmModuloNativo();
 
@@ -133,7 +133,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONAR_COMPONENTE_VISUAL.getRegistro());
             tiposLabObjeto.add(FabAcaoAdminDeveloper.DEV_OBJ_PROJETO_FRM_INSPECIONARINPUT.getRegistro());
             acaoBancoAdm = FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_MB.getRegistro();
-            for (ItfAcaoDoSistema acaoDoSistema : MapaAcoesSistema.getListaTodasAcoes()) {
+            for (ComoAcaoDoSistema acaoDoSistema : MapaAcoesSistema.getListaTodasAcoes()) {
 
                 if (isUmaAcaoDosModulosPrincipais(acaoDoSistema)) {
                     if (acaoDoSistema.isUmaAcaoGestaoDominio()) {
@@ -221,7 +221,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
                 throw new UnsupportedOperationException("A classe da entidade não foi encontrada ");
             }
 
-            entidadeCarregada = (ItfBeanSimples) classeDaEntidade.newInstance();
+            entidadeCarregada = (ComoEntidadeSimples) classeDaEntidade.newInstance();
             ((EntidadeSimples) entidadeCarregada).loadByID(idDaEntidade, getEMPagina());
 
             acoesDeGestaoDoSistema = MapaAcoesSistema.getAcoesDeGestaoByEntidade(classeDaEntidade);
@@ -370,7 +370,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     public void setAcaoGestaoSelecionada(ItfAcaoGerenciarEntidade acaoGestaoSelecionada) {
         this.acaoGestaoSelecionada = acaoGestaoSelecionada;
         acoesFormularioDaGestao = new ArrayList<>();
-        for (ItfAcaoDoSistema acao : acaoGestaoSelecionada.getAcoesVinculadas()) {
+        for (ComoAcaoDoSistema acao : acaoGestaoSelecionada.getAcoesVinculadas()) {
             if (acao.isUmaAcaoFormulario()) {
                 acoesFormularioDaGestao.add((ItfAcaoFormulario) acao);
             }
@@ -402,7 +402,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         return acoesFormularioDaGestao;
     }
 
-    public ItfBeanSimples getEntidadeCarregada() {
+    public ComoEntidadeSimples getEntidadeCarregada() {
         return entidadeCarregada;
     }
 
@@ -434,7 +434,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
         this.grupoSelecionado = grupoSelecionado;
     }
 
-    public void setAcaoSelecionada(ItfAcaoDoSistema acaoSelecionada) {
+    public void setAcaoSelecionada(ComoAcaoDoSistema acaoSelecionada) {
         this.acaoSelecionada = acaoSelecionada;
     }
 
@@ -539,12 +539,12 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
     }
 
     @Override
-    public ItfBeanSimples getBeanSelecionado() {
-        return (ItfBeanSimples) campoSelecionado;
+    public ComoEntidadeSimples getBeanSelecionado() {
+        return (ComoEntidadeSimples) campoSelecionado;
     }
 
     @Override
-    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+    public void setBeanSelecionado(ComoEntidadeSimples pBeanSimples) {
         campoSelecionado = (CaminhoCampoExibicaoFormulario) pBeanSimples;
     }
 

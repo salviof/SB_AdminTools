@@ -5,7 +5,7 @@ import javax.enterprise.context.ApplicationScoped;
 import java.io.Serializable;
 import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormularioEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ItfAcaoControllerEntidade;
+import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoControllerEntidade;
 
 @Named
 @ApplicationScoped
@@ -33,8 +33,8 @@ public class AcoesPaginas_do_Sistema_CONTEUDO_GENERICO_MB
 				.getAcaoDoSistemaByNomeUnico("FabAcaoExemplos.CONTEUDO_GENERICO_FRM_VISUALIZAR");
 	}
 
-	public ItfAcaoControllerEntidade getConteudo_generico_ctr_salvar_merge() {
-		return (ItfAcaoControllerEntidade) MapaAcoesSistema
+	public ComoAcaoControllerEntidade getConteudo_generico_ctr_salvar_merge() {
+		return (ComoAcaoControllerEntidade) MapaAcoesSistema
 				.getAcaoDoSistemaByNomeUnico("FabAcaoExemplos.CONTEUDO_GENERICO_CTR_SALVAR_MERGE");
 	}
 }

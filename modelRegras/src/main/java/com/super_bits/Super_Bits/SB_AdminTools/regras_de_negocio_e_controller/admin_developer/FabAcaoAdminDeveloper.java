@@ -6,7 +6,7 @@ package com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.a
 
 import com.super_bits.modulos.SBAcessosModel.controller.FabModulosSistemaSB;
 import com.super_bits.modulos.SBAcessosModel.controller.InfoModulosSistemaSB;
-import com.super_bits.modulos.SBAcessosModel.fabricas.ItfFabricaDeAcoesPersistencia;
+import com.super_bits.modulos.SBAcessosModel.fabricas.ComoFabricaDeAcoesPersistencia;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 
 import com.super_bits.modulosSB.SBCore.ConfigGeral.model.SBInfoLog;
@@ -24,7 +24,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.icone
  * @author desenvolvedor
  */
 @InfoModulosSistemaSB(modulo = FabModulosSistemaSB.ADMIN_TOOLS)
-public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
+public enum FabAcaoAdminDeveloper implements ComoFabricaDeAcoesPersistencia {
 
     @InfoTipoAcaoGestaoEntidade(icone = "fa fa-tachometer",
             nomeAcao = "Manutenção",
@@ -208,7 +208,7 @@ public enum FabAcaoAdminDeveloper implements ItfFabricaDeAcoesPersistencia {
 
     @Override
     public AcaoDoSistema getRegistro() {
-        return (AcaoDoSistema) ItfFabricaDeAcoesPersistencia.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
+        return (AcaoDoSistema) ComoFabricaDeAcoesPersistencia.super.getRegistro(); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

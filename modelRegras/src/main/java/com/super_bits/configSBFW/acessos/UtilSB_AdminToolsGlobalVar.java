@@ -9,7 +9,7 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.exemplo.FabAcaoExemplos;
 import com.super_bits.modulos.SBAcessosModel.fabricas.FabAcaoProjetoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 
 /**
  *
@@ -17,7 +17,7 @@ import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
  */
 public abstract class UtilSB_AdminToolsGlobalVar {
 
-    public static Class<? extends ItfFabricaAcoes>[] pAcoesDoSistema() {
+    public static Class<? extends ComoFabricaAcoes>[] pAcoesDoSistema() {
         return new Class[]{FabAcaoDemonstracaoSB.class, FabAcaoProjetoSB.class, FabAcaoExemplos.class,
             FabAcaoAdminDeveloper.class
         };

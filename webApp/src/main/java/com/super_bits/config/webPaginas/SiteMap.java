@@ -6,7 +6,7 @@
 package com.super_bits.config.webPaginas;
 
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.MODULOS.adminSistema.FabMenuAdmin;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoFabricaMenu;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.siteMap.MB_SiteMapa;
 import javax.faces.bean.ApplicationScoped;
 
@@ -26,7 +26,7 @@ public class SiteMap extends MB_SiteMapa {
 
     /// Injete aqui todas as Paginas que extendem o objeto MB_pagina
     @Override
-    public Class<? extends ItfFabricaMenu> getFabricaMenu() {
+    public Class<? extends ComoFabricaMenu> getFabricaMenu() {
         return FabMenuAdmin.class;
     }
 

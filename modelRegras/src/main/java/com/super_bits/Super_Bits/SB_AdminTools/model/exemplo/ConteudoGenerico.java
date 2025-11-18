@@ -6,7 +6,7 @@
 package com.super_bits.Super_Bits.SB_AdminTools.model.exemplo;
 
 import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
-import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeNormal;
+import com.super_bits.modulosSB.Persistencia.registro.persistidos.EntidadeORMNormal;
 import com.super_bits.modulosSB.Persistencia.registro.persistidos.modulos.CEP.Localizacao;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.anotacoes.InfoObjetoSB;
@@ -24,7 +24,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @InfoObjetoSB(tags = {"Conteúdo Generico "}, plural = "Conteúdos Genericos para testes")
-public class ConteudoGenerico extends EntidadeNormal {
+public class ConteudoGenerico extends EntidadeORMNormal {
 
     @InfoCampo(tipo = FabTipoAtributoObjeto.ID)
     @Id

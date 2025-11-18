@@ -19,7 +19,7 @@ import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCamp
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.io.File;
@@ -64,7 +64,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
     private String nomeArquivoEnviado;
     private String tamanhoArquivoEnviado;
     private String caminhoArquhivoImportacao;
-    private ImportacaoExcel<ItfBeanSimples> importador;
+    private ImportacaoExcel<ComoEntidadeSimples> importador;
     private DevOpsPersistencia devOps;
 
     private ConexaoBancoRelacional_Dados dadosTesteConexao = new ConexaoBancoRelacional_Dados();
@@ -96,7 +96,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
                 String mensagem = "Relatório de falhas:";
                 if (importador.getRegistrosSucesso().size() > 0) {
 
-                    for (ItfBeanSimples registro : importador.getRegistrosSucesso()) {
+                    for (ComoEntidadeSimples registro : importador.getRegistrosSucesso()) {
                         if (UtilSBPersistencia.mergeRegistro(registro) == null) {
                             mensagem += "Falha cadastrando " + registro.getNome();
                         }
@@ -232,7 +232,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
         return mapaCampos;
     }
 
-    public ImportacaoExcel<ItfBeanSimples> getImportador() {
+    public ImportacaoExcel<ComoEntidadeSimples> getImportador() {
         return importador;
     }
 
@@ -241,12 +241,12 @@ public class PgAdminBanco extends MB_PaginaConversation {
     }
 
     @Override
-    public ItfBeanSimples getBeanSelecionado() {
+    public ComoEntidadeSimples getBeanSelecionado() {
         return campoSelecionado;
     }
 
     @Override
-    public void setBeanSelecionado(ItfBeanSimples pBeanSimples) {
+    public void setBeanSelecionado(ComoEntidadeSimples pBeanSimples) {
         campoSelecionado = (EstruturaCampo) pBeanSimples;
     }
 

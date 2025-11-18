@@ -9,7 +9,7 @@ import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.ad
 import com.super_bits.modulos.SBAcessosModel.fabricas.FabAcaoProjetoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfFabricaMenu;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoFabricaMenu;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
 
 import org.coletivojava.fw.api.objetoNativo.view.menu.SessaoMenuSB;
@@ -26,13 +26,13 @@ import org.coletivojava.fw.api.objetoNativo.view.menu.MenuSBFW;
  *
  * @author desenvolvedor
  */
-public enum FabMenuAdmin implements ItfFabricaMenu {
+public enum FabMenuAdmin implements ComoFabricaMenu {
     MENU_INICIAL, MENU_RESTRITO, MENU_ROOT;
 
     @Override
     public List<ItfMenuSB> getTodosMenus() {
         List<ItfMenuSB> menus = new ArrayList<>();
-        for (ItfFabricaMenu menu : this.getClass().getEnumConstants()) {
+        for (ComoFabricaMenu menu : this.getClass().getEnumConstants()) {
             menus.add((MenuSBFW) menu.getRegistro());
         }
         return menus;

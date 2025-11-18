@@ -10,7 +10,7 @@ import com.super_bits.configSBFW.acessos.ConfigAcessosAdminSistemaModelo;
 import com.super_bits.configSBFW.acessos.UtilSB_AdminToolsGlobalVar;
 import com.super_bits.modulos.SBAcessosModel.view.FabAcaoPaginasDoSistema;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.ItfConfiguracaoCoreCustomizavel;
-import com.super_bits.modulosSB.SBCore.modulos.fabrica.ItfFabricaAcoes;
+import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabricaAcoes;
 import com.super_bits.modulosSB.webPaginas.ConfigGeral.ConfiguradorCoreDeProjetoWebWarAbstrato;
 
 import java.util.List;
@@ -34,8 +34,8 @@ public class ConfiguradorCoreWebAppSB_AdminTools extends ConfiguradorCoreDeProje
     public void defineFabricasDeACao(ItfConfiguracaoCoreCustomizavel pConfig) {
 
         pConfig.setClasseConfigPermissao(ConfigAcessosAdminSistemaModelo.class);
-        List<Class<? extends ItfFabricaAcoes>> lista = Lists.newArrayList(UtilSB_AdminToolsGlobalVar.pAcoesDoSistema());
-        Class<? extends ItfFabricaAcoes> acoes[] = new Class[lista.size() + 1];
+        List<Class<? extends ComoFabricaAcoes>> lista = Lists.newArrayList(UtilSB_AdminToolsGlobalVar.pAcoesDoSistema());
+        Class<? extends ComoFabricaAcoes> acoes[] = new Class[lista.size() + 1];
         int i = 0;
         for (Class fab : lista) {
             acoes[i] = fab;
