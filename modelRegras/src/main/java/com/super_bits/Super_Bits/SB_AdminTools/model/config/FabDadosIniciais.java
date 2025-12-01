@@ -8,8 +8,8 @@ package com.super_bits.Super_Bits.SB_AdminTools.model.config;
 import com.super_bits.Super_Bits.SB_AdminTools.model.exemplo.ConteudoGenerico;
 import com.super_bits.Super_Bits.SB_AdminTools.model.usuariosExemplo.FabGrupoUsuario;
 import com.super_bits.modulos.SBAcessosModel.model.UsuarioSB;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringGerador;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringGerador.TIPO_LOREN;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringGerador;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringGerador.TIPO_LOREN;
 
 import com.super_bits.modulosSB.SBCore.modulos.fabrica.ComoFabrica;
 
@@ -43,40 +43,40 @@ public enum FabDadosIniciais implements ComoFabrica {
                 ConteudoGenerico contTeste = new ConteudoGenerico();
                 contTeste.setId(1l);
                 contTeste.setNome("Conteúdo Teste ");
-                contTeste.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(5, TIPO_LOREN.PALAVRAS));
+                contTeste.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(5, TIPO_LOREN.PALAVRAS));
                 return contTeste;
             case CONTEUDOGENERICO2:
                 ConteudoGenerico contTeste2 = new ConteudoGenerico();
                 contTeste2.setId(2l);
                 contTeste2.setNome("Conteúdo Teste 222");
-                contTeste2.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(3, TIPO_LOREN.PALAVRAS));
+                contTeste2.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(3, TIPO_LOREN.PALAVRAS));
                 return contTeste2;
             case CONTEUDOGENERICO3:
                 ConteudoGenerico contTeste3 = new ConteudoGenerico();
                 contTeste3.setId(3l);
                 contTeste3.setNome("Conteúdo Teste 33");
-                contTeste3.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(2, TIPO_LOREN.PALAVRAS));
+                contTeste3.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(2, TIPO_LOREN.PALAVRAS));
                 return contTeste3;
 
             case CONTEUDOGENERICO4:
                 ConteudoGenerico contTeste4 = new ConteudoGenerico();
                 contTeste4.setId(4l);
                 contTeste4.setNome("Conteúdo Teste 444");
-                contTeste4.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(7, TIPO_LOREN.PALAVRAS));
+                contTeste4.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(7, TIPO_LOREN.PALAVRAS));
                 return contTeste4;
 
             case CONTEUDOGENERICO5:
                 ConteudoGenerico contTeste5 = new ConteudoGenerico();
                 contTeste5.setId(2l);
                 contTeste5.setNome("Conteúdo Teste 555");
-                contTeste5.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(2, TIPO_LOREN.PALAVRAS));
+                contTeste5.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(2, TIPO_LOREN.PALAVRAS));
                 return contTeste5;
 
             case CONTEUDOGENERICO6:
                 ConteudoGenerico contTeste6 = new ConteudoGenerico();
                 contTeste6.setId(2l);
                 contTeste6.setNome("Conteúdo Teste 666");
-                contTeste6.setDescricao(UtilSBCoreStringGerador.GetLorenIpsilum(5, TIPO_LOREN.PALAVRAS));
+                contTeste6.setDescricao(UtilCRCStringGerador.GetLorenIpsilum(5, TIPO_LOREN.PALAVRAS));
                 return contTeste6;
 
             default:

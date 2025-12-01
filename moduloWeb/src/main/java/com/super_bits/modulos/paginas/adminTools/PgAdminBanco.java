@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.super_bits.modulos.paginas.adminTools;
 
 import com.super_bits.Super_Bits.SB_AdminTools.regras_de_negocio_e_controller.admin_developer.FabAcaoAdminDeveloper;
@@ -12,15 +7,15 @@ import com.super_bits.modulosSB.Persistencia.ConfigGeral.DevOpsPersistencia;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreOutputs;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringValidador;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCOutputs;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringValidador;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
 
 import com.super_bits.modulosSB.SBCore.modulos.objetos.MapaObjetosProjetoAtual;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeSimples;
-import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
+
 import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.reflexao.anotacoes.InfoPagina;
 import java.io.File;
 import java.sql.Connection;
@@ -39,6 +34,7 @@ import javax.persistence.Persistence;
 import org.coletivojava.fw.api.tratamentoErros.FabErro;
 import org.primefaces.event.FileUploadEvent;
 import org.superBits.utilitario.editorArquivos.importacao.ImportacaoExcel;
+import com.super_bits.modulosSB.webPaginas.JSFManagedBeans.formularios.MB_PaginaConversation;
 
 /**
  *
@@ -77,6 +73,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
     @Override
     public void executarAcaoSelecionada() {
         super.executarAcaoSelecionada(); //To change body of generated methods, choose Tools | Templates.
+
         if (isAcaoSelecionadaIgualA(FabAcaoAdminDeveloper.FERRAMENTAS_BANCO_CTR_PROCESSAR_DADOS_IMP)) {
             Class classe = MapaObjetosProjetoAtual.getClasseDoObjetoByNome(entidadeSelecionada.getNomeEntidade());
             Map<String, Integer> mapaDeCamposImp = new HashMap<>();
@@ -120,7 +117,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
         try {
 
-            if (UtilSBCoreOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputStream(), caminhoArquhivoImportacao)) {
+            if (UtilCRCOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputStream(), caminhoArquhivoImportacao)) {
                 nomeArquivoEnviado = eventoEnvio.getFile().getFileName();
                 tamanhoArquivoEnviado = String.valueOf(eventoEnvio.getFile().getSize());
             }
@@ -258,7 +255,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
         try {
 
             String ipAddress = dadosTesteConexao.getHost();
-            if (UtilSBCoreStringValidador.isNuloOuEmbranco(ipAddress)) {
+            if (UtilCRCStringValidador.isNuloOuEmbranco(ipAddress)) {
                 throw new UnsupportedOperationException("Informe o dominio");
             }
 

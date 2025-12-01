@@ -10,7 +10,7 @@ import com.super_bits.modulos.SBAcessosModel.fabricas.FabAcaoProjetoSB;
 import com.super_bits.modulos.SBAcessosModel.fabricas.acoesDemonstracao.FabAcaoDemonstracaoSB;
 import com.super_bits.modulos.SBAcessosModel.model.acoes.AcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoFabricaMenu;
-import com.super_bits.modulosSB.SBCore.modulos.view.menu.ItfMenuSB;
+import com.super_bits.modulosSB.SBCore.modulos.view.menu.ComoMenuSB;
 
 import org.coletivojava.fw.api.objetoNativo.view.menu.SessaoMenuSB;
 import java.util.ArrayList;
@@ -30,8 +30,8 @@ public enum FabMenuAdmin implements ComoFabricaMenu {
     MENU_INICIAL, MENU_RESTRITO, MENU_ROOT;
 
     @Override
-    public List<ItfMenuSB> getTodosMenus() {
-        List<ItfMenuSB> menus = new ArrayList<>();
+    public List<ComoMenuSB> getTodosMenus() {
+        List<ComoMenuSB> menus = new ArrayList<>();
         for (ComoFabricaMenu menu : this.getClass().getEnumConstants()) {
             menus.add((MenuSBFW) menu.getRegistro());
         }

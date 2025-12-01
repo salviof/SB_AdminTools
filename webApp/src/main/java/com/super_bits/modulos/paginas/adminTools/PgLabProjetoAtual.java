@@ -15,7 +15,7 @@ import com.super_bits.modulosSB.SBCore.UtilGeral.MapaAcoesSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.acoes.ComoAcaoDoSistema;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.Controller.Interfaces.permissoes.ItfAcaoGerenciarEntidade;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilSBCoreReflexaoCaminhoCampo;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.UtilCRCReflexaoCaminhoCampo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.CaminhoCampoExibicaoFormulario;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.GrupoCampos;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.InfoCampos.campo.ItfCampoExibicaoFormulario;
@@ -216,7 +216,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
             if (idDaEntidade == 0) {
                 throw new UnsupportedOperationException("O id da entidade (Código do registro) não foi definido ");
             }
-            classeDaEntidade = UtilSBCoreReflexaoCaminhoCampo.getClasseByNome(strNomeDaEntidade);
+            classeDaEntidade = UtilCRCReflexaoCaminhoCampo.getClasseByNome(strNomeDaEntidade);
             if (classeDaEntidade == null) {
                 throw new UnsupportedOperationException("A classe da entidade não foi encontrada ");
             }
@@ -466,7 +466,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public BeanDeclarado getBeanExemploEmResource() {
 
-        return null; //pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade));
+        return null; //pagRecursos.getBeanDeclarado(UtilCRCStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade));
     }
 
     public List<AcaoDoSistema> getTiposLabObjeto() {
@@ -522,7 +522,7 @@ public class PgLabProjetoAtual extends MB_PaginaConversation {
 
     public void alterarAcaoLaboratorioComponenteVisual() {
         //    pagRecursos.setId(idDaEntidade);
-        //   pagRecursos.getBeanDeclarado(UtilSBCoreStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
+        //   pagRecursos.getBeanDeclarado(UtilCRCStrings.getPrimeiraLetraMinuscula(strNomeDaEntidade)).setValor(entidadeCarregada);
         System.out.println("Ação alterada para" + acaoLaboratorioComponenteVisual);
     }
 

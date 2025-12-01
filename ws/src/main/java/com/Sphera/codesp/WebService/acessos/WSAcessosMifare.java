@@ -10,7 +10,7 @@ import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import com.super_bits.modulosSB.SBCore.modulos.TratamentoDeErros.FabErro;
 
 import com.super_bits.modulosSB.SBCore.UtilGeral.UTilSBCoreInputs;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStrings;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStrings;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -140,7 +140,7 @@ public class WSAcessosMifare implements ItfWSAcessosMifare {
                     novoCartao.setNome(campo.toString());
                     break;
                 case 2:
-                    novoCartao.setUrlFoto("http://10.1.2.8/fotos/id" + UtilSBCoreStrings.getLpad(campo.toString(), 12, "0") + ".JPG");
+                    novoCartao.setUrlFoto("http://10.1.2.8/fotos/id" + UtilCRCStrings.getLpad(campo.toString(), 12, "0") + ".JPG");
                     break;
 
             }
@@ -247,7 +247,7 @@ public class WSAcessosMifare implements ItfWSAcessosMifare {
             CartaoDeAcesso cartao = new CartaoDeAcesso();
             cartao.setNome(resposta[0].toString());
             BigDecimal idUsuario = (BigDecimal) resposta[1];
-            cartao.setUrlFoto("http://10.1.2.8/fotos/id" + UtilSBCoreStrings.getLpad(idUsuario.toString(), 12, "0") + ".JPG");
+            cartao.setUrlFoto("http://10.1.2.8/fotos/id" + UtilCRCStrings.getLpad(idUsuario.toString(), 12, "0") + ".JPG");
             return cartao;
         } else {
             return null;

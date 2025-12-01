@@ -12,8 +12,8 @@ import com.super_bits.modulosSB.Persistencia.ConfigGeral.DevOpsPersistencia;
 import com.super_bits.modulosSB.Persistencia.ConfigGeral.SBPersistencia;
 import com.super_bits.modulosSB.Persistencia.dao.UtilSBPersistencia;
 import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreOutputs;
-import com.super_bits.modulosSB.SBCore.UtilGeral.UtilSBCoreStringValidador;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCOutputs;
+import com.super_bits.modulosSB.SBCore.UtilGeral.UtilCRCStringValidador;
 import com.super_bits.modulosSB.SBCore.modulos.Mensagens.FabMensagens;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaCampo;
 import com.super_bits.modulosSB.SBCore.modulos.geradorCodigo.model.EstruturaDeEntidade;
@@ -120,7 +120,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
 
         try {
 
-            if (UtilSBCoreOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputStream(), caminhoArquhivoImportacao)) {
+            if (UtilCRCOutputs.salvarArquivoInput(eventoEnvio.getFile().getInputStream(), caminhoArquhivoImportacao)) {
                 nomeArquivoEnviado = eventoEnvio.getFile().getFileName();
                 tamanhoArquivoEnviado = String.valueOf(eventoEnvio.getFile().getSize());
             }
@@ -258,7 +258,7 @@ public class PgAdminBanco extends MB_PaginaConversation {
         try {
 
             String ipAddress = dadosTesteConexao.getHost();
-            if (UtilSBCoreStringValidador.isNuloOuEmbranco(ipAddress)) {
+            if (UtilCRCStringValidador.isNuloOuEmbranco(ipAddress)) {
                 throw new UnsupportedOperationException("Informe o dominio");
             }
 
